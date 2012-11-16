@@ -45,4 +45,5 @@ Enjoy and welcome to the project!
 References:
 
 http://youhighfive.me
+
 https://github.com/YouHighFiveMe/youhighfiveme
