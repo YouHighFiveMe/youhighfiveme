@@ -20,6 +20,8 @@ Copy the distribution file for the parameters to your local file:
 
     $ cp app/configs/parameters.yml-dist app/configs/parameters.yml
 
+Modify the parameters.yml to reflect your database connections and smtp settings.
+
 If you don't have Composer yet, download it following the instructions on
 http://getcomposer.org/ or just run the following command:
 
