@@ -42,5 +42,7 @@ and channel #youhighfive.me
 
 Enjoy and welcome to the project!
 
-[1]:  http://youhighfive.me
-[2]:  https://github.com/YouHighFiveMe/youhighfiveme
+References:
+
+http://youhighfive.me
+https://github.com/YouHighFiveMe/youhighfiveme
