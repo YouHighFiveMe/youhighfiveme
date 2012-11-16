@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}YouHighFiveMe{% endblock %}</title>
+    <meta charset="utf-8">
+    
+    {% block stylesheets %}
+        {% stylesheets 
+            '@PortalAppBundle/Resources/public/css/*'
+            output='css/portal.css'
+            filter='?yui_css'
+        %}
+        <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+        {% endstylesheets %}
+        
+        <!-- Styles -->
+        <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" >
+        <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css" >
+        <link href="/css/grid_12.css" media="screen" rel="stylesheet" type="text/css" >
+        <link href="/css/slider.css" media="screen" rel="stylesheet" type="text/css" >
+        <link href="/images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" >    
+        <!-- Scripts -->
+        <script type="text/javascript" src="/js/jquery-1.7.min.js"></script>    
+    {% endblock %}
+
+    <!--[if lt IE 8]>
+    <div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+        <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+    </div>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/ie.css">
+    <![endif]-->
+</head>
+<body>
+<div class="main">
+	<div class="bg-img"></div>
+<!--==============================header=================================-->
+    <header>
+        <h1><a href="{{ path('PortalAppBundle_homepage') }}"><strong>You</strong>HighFive<strong>Me</strong></a></h1>
+        <nav>
+            <div class="social-icons">
+                <!--
+            	<a href="#" class="icon-2"></a>
+            	<a href="#" class="icon-1"></a>
+                -->
+            </div>
+            <ul class="menu">
+                <li><a href="{{ path('PortalAppBundle_homepage') }}">Home</a></li>
+                <li><a href="{{ path('PortalAppBundle_about') }}">About</a></li>
+                <li><a href="{{ path('PortalAppBundle_contact') }}">Contact</a></li>
+
+                <li>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('PortalAppBundle_entry_create') }}">
+                        New post
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
+                </li>
+                {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li>
+                    <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                </li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </header>   
+<!--==============================content================================-->
+    <section id="content">
+        <div class="container_12">
+          <div class="grid_12 top-1">
+             <div class="box-shadow">
+                 {% block body %}{% endblock %}
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+    </section>
+<!--==============================footer=================================-->
+    <footer>
+        <p>© 2012 YouHighFiveMe, all rights reserved.</p>
+        
+    </footer>	
+</div>    
+
+</body>
+</html>
+
+
+

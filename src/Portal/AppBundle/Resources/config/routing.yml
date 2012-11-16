@@ -1,0 +1,28 @@
+PortalAppBundle_homepage:
+    pattern:  /
+    defaults: { _controller: PortalAppBundle:Page:index }
+    requirements:
+        _method:  GET
+        
+PortalAppBundle_about:
+    pattern:  /about
+    defaults: { _controller: PortalAppBundle:Page:about }
+    requirements:
+        _method:  GET
+        
+PortalAppBundle_contact:
+    pattern:  /contact
+    defaults: { _controller: PortalAppBundle:Page:contact }
+    requirements:
+        _method:  GET|POST
+        
+PortalAppBundle_comment_create:
+    pattern:  /comment/{entry_id}
+    defaults: { _controller: PortalAppBundle:Comment:create }
+    requirements:
+        _method:  POST
+        id: \d+
+        
+PortalAppBundle_entry_create:
+    pattern:  /create
+    defaults: { _controller: PortalAppBundle:Entry:create }

@@ -1,0 +1,5 @@
+parameters:
+    # Portal contact email address
+    portal_app.emails.contact_email: info@arturgajewski.com
+    # Portal max latest comments
+    portal_app.comments.latest_comment_limit: 10

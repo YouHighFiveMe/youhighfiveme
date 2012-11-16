@@ -1,0 +1,11 @@
+services:
+    portal_app.twig.extension:
+        class: Portal\AppBundle\Twig\Extensions\PortalAppExtension
+        tags:
+            - { name: twig.extension }
+           
+    portal_user.registration.form.type:
+        class: Portal\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%, @translator]
+        tags:
+            - { name: form.type, alias: portal_user_registration }

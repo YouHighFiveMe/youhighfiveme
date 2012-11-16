@@ -1,0 +1,8 @@
+* {padding:0;margin:0;}
+.slider {
+    width:940px;
+    height:215px;
+    background:#292929;
+    margin:0px;
+    overflow: hidden;
+}

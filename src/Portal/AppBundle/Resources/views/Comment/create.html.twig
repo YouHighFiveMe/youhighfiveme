@@ -1,0 +1,8 @@
+{% extends 'PortalAppBundle::layout.html.twig' %}
+
+{% block title %}Add Comment{% endblock%}
+
+{% block body %}
+    <h1>Add comment for video post "{{ comment.app.title }}"</h1>
+    {% include 'PortalAppBundle:Comment:form.html.twig' with { 'form': form } %}
+{% endblock %}

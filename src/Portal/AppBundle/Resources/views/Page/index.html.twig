@@ -1,0 +1,38 @@
+{% extends 'PortalAppBundle::layout.html.twig' %}
+
+{% block body %}
+<div class="wrap block-2">
+    <div class="col-1">
+        <h2 class="p3"><span class="color-1">Latest</span> entries</h2>
+        {% for entry in entries %}
+            <div class="wrap box-1 top-2">
+                <a href="#"><img class="img-border img-indent" title="Click to view this user's profile" src="{{ gravatar('artur.gajewski@soprano.fi') }}"></a>
+                <div class="extra-wrap">
+                    <p class="p2"><strong>{{ entry.author }}<br/>{{ entry.created|date('h:iA') }}</strong></p>
+                </div>
+            </div> 
+        {% else %}
+            <p class="p2"><strong>No entries found...</strong></p>
+        {% endfor %}
+    </div>       
+    <div class="col-2">
+        <h2 class="p3"><span class="color-1">Your</span> options</h2>
+            <ul class="list-1">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li><a href="<?php echo $this->url('wiwo-post') ?>">Post new Wiwo</a></li>
+                    <li><a href="<?php echo $this->url('browse-my') ?>">Your Wiwos</a></li>
+                    <li><a href="<?php echo $this->url('browse-friends') ?>">Your friends</a></li>
+                {% endif %}
+                <li><a href="browse/category">Browse by category</a></li>
+                <li><a href="browse/country">Browse by country</a></li>
+            </ul>
+            <div class="form-search">
+                <h2><span class="color-1 editable">Find </span>a user</h2>
+                <form id="form-search" method="post">
+                    <input type="text" value="Enter username" onBlur="if(this.value=='') this.value='Enter username'" onFocus="if(this.value =='Enter username' ) this.value=''"  />
+                    <a href="#" onClick="document.getElementById('form-search').submit()" class="search_button">Search</a>
+                </form>
+            </div>
+    </div>
+</div>
+{% endblock %}
