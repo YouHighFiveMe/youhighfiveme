@@ -55,7 +55,6 @@ swiftmailer:
 jms_security_extra:
     secure_all_services: false
 
-# Gravatar Configuration
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
@@ -64,7 +63,8 @@ fos_user:
     registration:
         form:
             type: portal_user_registration
-    
+
+# Gravatar Configuration
 ornicar_gravatar:
     rating: g
     size: 80
