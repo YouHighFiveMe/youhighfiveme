@@ -16,6 +16,12 @@ from people.
 2) Installation
 ---------------
 
+Clone this project into your development environment.
+
+    $ git clone https://github.com/YouHighFiveMe/youhighfiveme.git
+
+Now go to your newly created directory.
+
 Copy the distribution file for the parameters to your local file:
 
     $ cp app/configs/parameters.yml-dist app/configs/parameters.yml
@@ -50,6 +56,6 @@ Enjoy and welcome to the project!
 
 References:
 
-http://youhighfive.me
+http://www.youhighfive.me
 
 https://github.com/YouHighFiveMe/youhighfiveme
