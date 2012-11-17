@@ -44,8 +44,7 @@ folder have write access and run the following commands:
 
     $ app/console doctrine:schema:create
 
-You should now have a working application environment with some dummy data
-loaded.
+You should now have a working application environment.
 
 Please join us for some development chat and ideas on IRC's freenode.net server
 and channel #youhighfive.me
