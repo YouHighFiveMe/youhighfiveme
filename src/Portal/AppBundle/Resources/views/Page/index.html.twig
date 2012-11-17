@@ -19,17 +19,26 @@
         <h2 class="p3"><span class="color-1">Your</span> options</h2>
             <ul class="list-1">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <li><a href="<?php echo $this->url('wiwo-post') ?>">Post new Wiwo</a></li>
-                    <li><a href="<?php echo $this->url('browse-my') ?>">Your Wiwos</a></li>
-                    <li><a href="<?php echo $this->url('browse-friends') ?>">Your friends</a></li>
+                    <li><a href="#">New event</a></li>
+                    <li><a href="#">Your friends</a></li>
                 {% endif %}
-                <li><a href="browse/category">Browse by category</a></li>
-                <li><a href="browse/country">Browse by country</a></li>
+                <li><a href="#">Latest for you</a></li>
+                <li><a href="#">Latest from you</a></li>
+                <li><a href="#">Browse events</a></li>
+                <li><a href="#">Browse categories</a></li>
             </ul>
             <div class="form-search">
-                <h2><span class="color-1 editable">Find </span>a user</h2>
+                <h2><span class="color-1 editable">Find </span>user</h2>
                 <form id="form-search" method="post">
                     <input type="text" value="Enter username" onBlur="if(this.value=='') this.value='Enter username'" onFocus="if(this.value =='Enter username' ) this.value=''"  />
+                    <a href="#" onClick="document.getElementById('form-search').submit()" class="search_button">Search</a>
+                </form>
+            </div>
+
+            <div class="form-search">
+                <h2><span class="color-1 editable">Find </span>event</h2>
+                <form id="form-search" method="post">
+                    <input type="text" value="Enter event" onBlur="if(this.value=='') this.value='Enter event'" onFocus="if(this.value =='Enter event' ) this.value=''"  />
                     <a href="#" onClick="document.getElementById('form-search').submit()" class="search_button">Search</a>
                 </form>
             </div>
