@@ -44,8 +44,6 @@ folder have write access and run the following commands:
 
     $ app/console doctrine:schema:create
 
-    $ app/console doctrine:fixtures:load
-
 You should now have a working application environment with some dummy data
 loaded.
 
