@@ -1,20 +1,43 @@
-{% extends 'PortalAppBundle::layout.html.twig' %}
-
-{% block title %}About{% endblock%}
+{% extends '::base.html.twig' %}
 
 {% block body %}
-    <header>
-        <h1>About YouHighFiveMe</h1>
-    </header>
-    <article>
-        <p>Donec imperdiet ante sed diam consequat et dictum erat faucibus. Aliquam sit
-        amet vehicula leo. Morbi urna dui, tempor ac posuere et, rutrum at dui.
-        Curabitur neque quam, ultricies ut imperdiet id, ornare varius arcu. Ut congue
-        urna sit amet tellus malesuada nec elementum risus molestie. Donec gravida
-        tellus sed tortor adipiscing fringilla. Donec nulla mauris, mollis egestas
-        condimentum laoreet, lacinia vel lorem. Morbi vitae justo sit amet felis
-        vehicula commodo a placerat lacus. Mauris at est elit, nec vehicula urna. Duis a
-        lacus nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-        posuere cubilia Curae.</p>
-    </article>
-{% endblock %}
+<div class="wrap block-2">
+    <div class="col-1">
+
+        <h2 class="p3">
+            <span class="color-1">About</span> YouHighFiveMe
+        </h2>
+
+        <article>
+            <p>Donec imperdiet ante sed diam consequat et dictum erat faucibus. Aliquam sit
+            amet vehicula leo. Morbi urna dui, tempor ac posuere et, rutrum at dui.
+            Curabitur neque quam, ultricies ut imperdiet id, ornare varius arcu. Ut congue
+            urna sit amet tellus malesuada nec elementum risus molestie. Donec gravida
+            tellus sed tortor adipiscing fringilla. Donec nulla mauris, mollis egestas
+            condimentum laoreet, lacinia vel lorem. Morbi vitae justo sit amet felis
+            vehicula commodo a placerat lacus. Mauris at est elit, nec vehicula urna. Duis a
+            lacus nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+            posuere cubilia Curae.</p>
+        </article>
+
+    </div>
+    <div class="col-2">
+        <h2 class="p3"><span class="color-1">Want to</span> contribute?</h2>
+           
+                <p class="p5">
+                    Have great ideas for this site? Would like to pitch in and do your share of 
+                    work to YouHighFiveMe even better? If so, why don't you join us 
+                    and contribute to the project?
+                </p>
+                <p class="p5">
+                    YouHighFiveMe is an open source project hosted on Github. You are free to
+                    fork this project and send us a pull request. We'd like to hear from you, so
+                    stop by our IRC channel #youhighfive.me on freenode.net server and say hello.
+                </p>
+                <ul class="list-1">
+                    <li><a href="https://github.com/YouHighFiveMe/youhighfiveme">Fork me on Github</a></li>
+                </ul>
+           
+    </div>
+</div>
+{% endblock body %}

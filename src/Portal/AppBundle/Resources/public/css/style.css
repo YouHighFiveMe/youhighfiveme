@@ -145,6 +145,7 @@ dl dd a:hover {text-decoration:underline; color:#333;}
 }
 
 article.event {
+    width: 600px;
     display: inline-block;
     margin-bottom: 15px;
 }
