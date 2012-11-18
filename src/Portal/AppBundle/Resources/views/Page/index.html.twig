@@ -3,14 +3,21 @@
 {% block body %}
 <div class="wrap block-2">
     <div class="col-1">
-        <h2 class="p3"><span class="color-1">Latest</span> events</h2>
+        <h2 class="p10"><span class="color-1">Latest</span> events</h2>
         {% for event in events %}
-            <div class="wrap box-1 top-2">
-                <a href="#"><img class="img-border img-indent" title="Click to view this user's profile" src="{{ gravatar('artur.gajewski@soprano.fi') }}"></a>
-                <div class="extra-wrap">
-                    <p class="p2"><strong>{{ event.title }}<br/>{{ event.created|date('h:iA') }}</strong></p>
+            <article class="event">
+                <div class="author">
+                    <img src="{{ gravatar('info@arturgajewski.com') }}"/>
                 </div>
-            </div> 
+                <div class="data">
+                    <header>
+                        <h3><a href="#">{{ event.title }}</a></h3>
+                        {{ event.created|date('M d, Y') }} by <a href="#">Artur Gajewski</a>
+                    </header>
+                    <p class="description">{{ event.description }}</p>
+                    <p class="count">{{ event.countHighfives }} high five(s)</p>
+                </div>
+            </article> 
         {% else %}
             <p class="p2"><strong>No events found...</strong></p>
         {% endfor %}
@@ -19,13 +26,13 @@
         <h2 class="p3"><span class="color-1">Your</span> options</h2>
             <ul class="list-1">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <li><a href="#">New event</a></li>
+                    <li><a href="{{ path('PortalAppBundle_event_create') }}">New event</a></li>
                     <li><a href="#">Your friends</a></li>
+                    <li><a href="#">Latest for you</a></li>
+                    <li><a href="#">Latest from you</a></li>
                 {% endif %}
-                <li><a href="#">Latest for you</a></li>
-                <li><a href="#">Latest from you</a></li>
                 <li><a href="#">Browse events</a></li>
-                <li><a href="#">Browse categories</a></li>
+                <li><a href="#">Browse users</a></li>
             </ul>
             <div class="form-search">
                 <h2><span class="color-1 editable">Find </span>user</h2>

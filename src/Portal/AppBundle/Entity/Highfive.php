@@ -135,22 +135,22 @@ class Highfive
     }
 
     /**
-     * Set entry
+     * Set event
      *
-     * @param Portal\AppBundle\Entity\Entry $entry
+     * @param Portal\AppBundle\Entity\Event $event
      */
-    public function setEntry(\Portal\AppBundle\Entity\Entry $entry)
+    public function setEvent(\Portal\AppBundle\Entity\Event $event)
     {
-        $this->entry = $entry;
+        $this->event = $event;
     }
 
     /**
-     * Get entry
+     * Get event
      *
-     * @return Portal\AppBundle\Entity\Entry 
+     * @return Portal\AppBundle\Entity\Event 
      */
-    public function getEntry()
+    public function getEvent()
     {
-        return $this->entry;
+        return $this->event;
     }
 }

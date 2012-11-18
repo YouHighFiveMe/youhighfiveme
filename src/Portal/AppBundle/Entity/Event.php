@@ -30,12 +30,12 @@ class Event
     protected $slug;
     
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      */
     protected $description;
     
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      */
     protected $tags;
     
@@ -246,6 +246,26 @@ class Event
     public function getSlug()
     {
         return $this->slug;
+    }
+    
+    /**
+     * Get highfives
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getHighfives()
+    {
+        return $this->highfives;
+    }
+    
+    /**
+     * Return count of high fives
+     * 
+     * @return integer 
+     */
+    public function getCountHighfives()
+    {
+        return count($this->highfives);
     }
 
 }
