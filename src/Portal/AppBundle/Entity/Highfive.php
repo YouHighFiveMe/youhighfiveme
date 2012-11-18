@@ -25,7 +25,7 @@ class Highfive
     protected $user;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      */
     protected $comment;
 
@@ -43,17 +43,8 @@ class Highfive
     public function __construct()
     {
         $this->setCreated(new \DateTime());
-        $this->setUpdated(new \DateTime());
     }
 
-    /**
-     * @ORM\preUpdate
-     */
-    public function setUpdatedValue()
-    {
-       $this->setUpdated(new \DateTime());
-    }
-    
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraint('user', new NotBlank(array(

@@ -14,7 +14,7 @@ class PageController extends Controller
                    ->getEntityManager();
 
         $events = $em->getRepository('PortalAppBundle:Event')
-                    ->getLatestEvents();
+                     ->getLatestEvents(5);
 
         return $this->render('PortalAppBundle:Page:index.html.twig', array(
             'events' => $events

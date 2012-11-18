@@ -67,6 +67,6 @@ fos_user:
 # Gravatar Configuration
 ornicar_gravatar:
     rating: g
-    size: 95
+    size: 105
     default: mm
     

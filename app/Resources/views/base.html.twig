@@ -3,24 +3,15 @@
 <head>
     <title>{% block title %}YouHighFiveMe{% endblock %}</title>
     <meta charset="utf-8">
-    
     {% block stylesheets %}
-        {% stylesheets 
-            '@PortalAppBundle/Resources/public/css/*'
-            output='css/portal.css'
-            filter='?yui_css'
-        %}
-        <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
-        {% endstylesheets %}
-        
         <!-- Styles -->
-        <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" >
-        <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css" >
-        <link href="/css/grid_12.css" media="screen" rel="stylesheet" type="text/css" >
-        <link href="/css/slider.css" media="screen" rel="stylesheet" type="text/css" >
-        <link href="/images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" >    
+        <link href="{{ asset('css/reset.css') }}" media="screen" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/style.css') }}" media="screen" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/grid_12.css') }}" media="screen" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/slider.css') }}" media="screen" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/favicon.ico') }}" rel="shortcut icon" type="image/vnd.microsoft.icon" >    
         <!-- Scripts -->
-        <script type="text/javascript" src="/js/jquery-1.7.min.js"></script>    
+        <script type="text/javascript" src="{{ asset('js/jquery-1.7.min.js') }}"></script>    
     {% endblock %}
 
     <!--[if lt IE 8]>
@@ -32,8 +23,8 @@
     <![endif]-->
 
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/html5.js"></script>
-        <link rel="stylesheet" type="text/css" media="screen" href="/css/ie.css">
+    <script type="text/javascript" src="{{ asset('js/html5.js') }}"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/portalapp/css/ie.css') }}">
     <![endif]-->
 </head>
 <body>

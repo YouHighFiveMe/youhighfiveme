@@ -14,8 +14,8 @@
                         <h3><a href="#">{{ event.title }}</a></h3>
                         {{ event.created|date('M d, Y') }} by <a href="#">Artur Gajewski</a>
                     </header>
-                    <p class="description">{{ event.description }}</p>
-                    <p class="count">{{ event.countHighfives }} high five(s)</p>
+                    <p class="description">{{ event.description|show_maxlen(65, '...') }}</p>
+                    <p class="count"><img src="images/hand.gif"/>{{ event.countHighfives }} high fives</p>
                 </div>
             </article> 
         {% else %}
