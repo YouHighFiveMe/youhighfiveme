@@ -13,11 +13,11 @@ class PageController extends Controller
         $em = $this->getDoctrine()
                    ->getEntityManager();
 
-        $entries = $em->getRepository('PortalAppBundle:Entry')
-                    ->getLatestEntries();
+        $events = $em->getRepository('PortalAppBundle:Event')
+                    ->getLatestEvents();
 
         return $this->render('PortalAppBundle:Page:index.html.twig', array(
-            'entries' => $entries
+            'events' => $events
         ));
     }
     

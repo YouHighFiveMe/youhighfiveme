@@ -3,16 +3,16 @@
 {% block body %}
 <div class="wrap block-2">
     <div class="col-1">
-        <h2 class="p3"><span class="color-1">Latest</span> entries</h2>
-        {% for entry in entries %}
+        <h2 class="p3"><span class="color-1">Latest</span> events</h2>
+        {% for event in events %}
             <div class="wrap box-1 top-2">
                 <a href="#"><img class="img-border img-indent" title="Click to view this user's profile" src="{{ gravatar('artur.gajewski@soprano.fi') }}"></a>
                 <div class="extra-wrap">
-                    <p class="p2"><strong>{{ entry.author }}<br/>{{ entry.created|date('h:iA') }}</strong></p>
+                    <p class="p2"><strong>{{ event.title }}<br/>{{ event.created|date('h:iA') }}</strong></p>
                 </div>
             </div> 
         {% else %}
-            <p class="p2"><strong>No entries found...</strong></p>
+            <p class="p2"><strong>No events found...</strong></p>
         {% endfor %}
     </div>       
     <div class="col-2">
