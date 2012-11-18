@@ -1,5 +1,6 @@
 vendor
 .gitignore
+app/bootstrap.php.cache
 app/config/parameters.yml
 .DS_Store
 app/cache/dev/
