@@ -82,14 +82,14 @@ To run a test, go to your project's folder and run following command:
 
 #IRC
 
-Please join us on IRC as this is the channel where we mostly talk about development
-and other things related to YouHighFiveMe application.
+You can catch us on IRC as this is the channel where most of the talk about development
+and other things related to YouHighFiveMe reside at.
 
 Channel: #youhighfive.me @ freenode.net
 
 #Contributing
 
-Please join us for some development chat and ideas on IRC's freenode.net server
-and channel #youhighfive.me
+Anyone is free to join the team and develop YouHighFiveMe. Just introduce yourself
+to us on IRC and let us know what issue you are willing to work on.
 
 Enjoy and welcome to the project!
