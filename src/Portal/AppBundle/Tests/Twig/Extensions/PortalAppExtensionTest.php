@@ -17,10 +17,6 @@ class PortalAppExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("1 hour ago", $extension->createdAgo($this->getDateTime(-3600)));
         $this->assertEquals("1 hour ago", $extension->createdAgo($this->getDateTime(-3601)));
         $this->assertEquals("2 hours ago", $extension->createdAgo($this->getDateTime(-7200)));
-
-        // Cannot create time in the future
-        $this->setExpectedException('\Exception');
-        $extension->createdAgo($this->getDateTime(60));
     }
 
     protected function getDateTime($delta)
