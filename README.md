@@ -22,7 +22,7 @@ Now go to your newly created directory.
 
 Copy the distribution file for the parameters to your local file:
 
-    $ cp app/configs/parameters.yml-dist app/configs/parameters.yml
+    $ cp app/config/parameters.yml-dist app/configs/parameters.yml
 
 Modify the parameters.yml to reflect your database connections and smtp settings.
 
