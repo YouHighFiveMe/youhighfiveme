@@ -12,7 +12,7 @@ class PageControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/about');
 
-        $this->assertEquals(1, $crawler->filter('h1:contains("About app")')->count());
+        $this->assertEquals(1, $crawler->filter('h2:contains("About YouHighFiveMe")')->count());
     }
     
     public function testIndex()
@@ -21,16 +21,7 @@ class PageControllerTest extends WebTestCase
     
         $crawler = $client->request('GET', '/');
     
-        // Check there are some entry entries on the page
-        $this->assertTrue($crawler->filter('article.entry')->count() > 0);
-        
-        // Find the first link, get the title, ensure this is loaded on the next page
-        $entryLink   = $crawler->filter('article.entry h2 a')->first();
-        $entryTitle  = $entryLink->text();
-        $crawler    = $client->click($entryLink->link());
-
-        // Check the h2 has the entry title in it
-        $this->assertEquals(1, $crawler->filter('h2:contains("' . $entryTitle .'")')->count());
+        $this->assertEquals(1, $crawler->filter('h2:contains("Latest events")')->count());
     }
     
     public function testContact()
@@ -39,7 +30,7 @@ class PageControllerTest extends WebTestCase
     
         $crawler = $client->request('GET', '/contact');
     
-        $this->assertEquals(1, $crawler->filter('h1:contains("Contact us")')->count());
+        $this->assertEquals(1, $crawler->filter('h2:contains("Contact us")')->count());
     
         // Select based on button value, or id or name for buttons
         $form = $crawler->selectButton('Submit')->form();
@@ -71,7 +62,7 @@ class PageControllerTest extends WebTestCase
         // Need to follow redirect
         $crawler = $client->followRedirect();
 
-        $this->assertTrue($crawler->filter('.entryger-notice:contains("Your contact enquiry was successfully sent. Thank you!")')->count() > 0);
+        $this->assertTrue($crawler->filter('.app-notice:contains("Your contact enquiry was successfully sent. Thank you!")')->count() > 0);
     }
     
 }
