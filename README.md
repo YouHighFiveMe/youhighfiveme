@@ -44,6 +44,32 @@ folder have write access and run the following commands:
 
 You should now have a working application environment.
 
+#Database migrations
+
+This app comes bundled with Doctrine Migrations bundle, which simplifies the
+process of keeping database structure in sync with multiple developers and
+production environment.
+
+Migrations bundle checks the structure of your entities and does it's magic
+based on that information.
+
+You should create migration script after you are done with adding/dropping or
+renaming tables, table columns or constraints.
+
+    $ app/console doctrine:migrations:diff
+
+New migration scripts appear when you pull new code from Github. To see if there
+are any new migrations available, you need to check the status.
+
+    $ app/console doctrine:migrations:status
+
+If you see new migrations available, all you have to do is run the migrations.
+
+    $ app/console doctrine:migrations:migrate
+
+You should now have your database in an updated state with up-to-date structure
+that corresponds with application's entity classes.
+
 #Testing
 
 We strongly encourage you to practice test driven development and write those
