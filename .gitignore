@@ -2,8 +2,8 @@ vendor
 .gitignore
 app/config/parameters.yml
 .DS_Store
-app/cache/dev/
-app/logs/dev.log
+app/cache/*
+app/logs/*
 composer.lock
 nbproject/
 src/.DS_Store
