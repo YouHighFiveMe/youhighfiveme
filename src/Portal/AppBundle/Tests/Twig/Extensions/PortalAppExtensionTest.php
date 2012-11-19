@@ -6,7 +6,19 @@ use Portal\AppBundle\Twig\Extensions\PortalAppExtension;
 
 class PortalAppExtensionTest extends \PHPUnit_Framework_TestCase
 {
-    public function testCreatedAgo()
+    public function testThatExtensionsExists()
+    {
+        $extension = new PortalAppExtension();
+        
+        $this->assertEquals('Portal\AppBundle\Twig\Extensions\PortalAppExtension',
+                            get_class($extension));
+        
+        $this->assertEquals(true, method_exists($extension, 'createdAgo'));
+        
+        $this->assertEquals(true, method_exists($extension, 'showMaxLen'));
+    }
+    
+    public function testCreatedAgoExtension()
     {
         $extension = new PortalAppExtension();
 
@@ -24,7 +36,7 @@ class PortalAppExtensionTest extends \PHPUnit_Framework_TestCase
         return new \DateTime(date("Y-m-d H:i:s", time()+$delta));
     }
     
-    public function testShowMaxLen()
+    public function testShowMaxLenExtension()
     {
         $extension = new PortalAppExtension();
 

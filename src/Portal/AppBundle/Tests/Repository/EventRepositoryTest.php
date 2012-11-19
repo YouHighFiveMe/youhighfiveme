@@ -21,6 +21,12 @@ class EventRepositoryTest extends WebTestCase
                                        ->getRepository('PortalAppBundle:Event');
     }
 
+    public function testThatRepositoryExists()
+    {
+        $this->assertEquals('Portal\AppBundle\Repository\EventRepository',
+                            get_class($this->eventRepository));
+    }
+    
     public function testGetTagWeights()
     {
         $tagsWeight = $this->eventRepository->getTagWeights(

@@ -6,6 +6,12 @@ use Portal\AppBundle\Entity\Event;
 
 class EventTest extends \PHPUnit_Framework_TestCase
 {
+    public function testThatEntityExists()
+    {
+        $event = new Event();
+        $this->assertEquals('Portal\AppBundle\Entity\Event',get_class($event));
+    }
+    
     public function testSlugify()
     {
         $event = new Event();
