@@ -80,15 +80,19 @@ To run a test, go to your project's folder and run following command:
 
     $ phpunit -c app src/Portal
 
+#Staging environment
+
+Application can be previewed for it's latest code at:
+
+http://www.youhighfive.me/test/web/app.php
+
+Builds will be made whenever possible, but without build scripts the process is
+manual and won't be done on daily basis. You can be informed about updates
+on out IRC channel #youhighfive.me @ freenode.net
+
 #Contributing
 
 Please join us for some development chat and ideas on IRC's freenode.net server
 and channel #youhighfive.me
 
 Enjoy and welcome to the project!
-
-References:
-
-http://www.youhighfive.me
-
-https://github.com/YouHighFiveMe/youhighfiveme
