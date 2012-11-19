@@ -64,7 +64,7 @@ class Event
     }
 
     /**
-     * @ORM\prePersist
+     * @ORM\PrePersist
      */
     public function setCreatedValue()
     {
