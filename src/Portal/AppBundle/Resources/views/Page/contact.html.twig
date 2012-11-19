@@ -1,21 +1,14 @@
-{% extends 'PortalAppBundle::layout.html.twig' %}
-
-{% block title %}Contact{% endblock%}
+{% extends '::base.html.twig' %}
 
 {% block body %}
-    <header>
-        <h2>Contact us</h2>
-    </header>
+<div class="wrap block-2">
+    <div class="col-1">
 
-    {% if app.session.hasFlash('app-notice') %}
-        <div class="app-notice">
-            {{ app.session.flash('app-notice') }}
-        </div>
-    {% endif %}
+        <h2 class="p3">
+            <span class="color-1">Contact</span> us
+        </h2>
 
-    <p>Want to contact us?</p>
-
-    <form action="{{ path('PortalAppBundle_contact') }}" method="post" {{ form_enctype(form) }} class="blogger">
+        <form id="form" action="{{ path('PortalAppBundle_contact') }}" method="post" {{ form_enctype(form) }} class="blogger">
         {{ form_errors(form) }}
 
         {{ form_row(form.name) }}
@@ -24,7 +17,34 @@
         {{ form_row(form.body) }}
 
         {{ form_rest(form) }}
-
-        <input type="submit" value="Submit" />
+        <div class="btns">
+            <a class="button" onclick="document.getElementById('form').submit()" href="#">Submit</a>
+        </div>
     </form>
-{% endblock %}
+
+    </div>
+    <div class="col-2">
+        <h2 class="p3"><span class="color-1">Right</span> column</h2>
+            <ul class="list-1">
+                <li><a href="#">Link to something</a></li>
+                <li><a href="#">Link to something</a></li>
+            </ul>
+            <div class="form-search">
+                <h2><span class="color-1 editable">Some </span>text</h2>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </div>
+    </div>
+</div>
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
