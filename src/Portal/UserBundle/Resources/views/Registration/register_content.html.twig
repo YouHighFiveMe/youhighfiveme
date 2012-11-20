@@ -1,6 +1,6 @@
 <form id="form" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
     {{ form_widget(form) }}
     <div class="btns">
-        <a class="button" onclick="document.getElementById('form').submit()" href="#">{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}</a>
+        <input class="button" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}">
     </div>
 </form>

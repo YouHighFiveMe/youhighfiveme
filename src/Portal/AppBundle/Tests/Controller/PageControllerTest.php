@@ -34,7 +34,7 @@ class PageControllerTest extends WebTestCase
     
         // Select based on button value, or id or name for buttons
         $form = $crawler->selectButton('Submit')->form();
-    
+
         $form['portal_appbundle_enquirytype[name]']       = 'name';
         $form['portal_appbundle_enquirytype[email]']      = 'email@email.com';
         $form['portal_appbundle_enquirytype[subject]']    = 'Subject';

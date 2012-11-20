@@ -8,6 +8,12 @@
             <span class="color-1">Contact</span> us
         </h2>
 
+        {% for flashMessage in app.session.flashbag.get('app-notice') %}
+            <div class="flash-notice-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+
         <form id="form" action="{{ path('PortalAppBundle_contact') }}" method="post" {{ form_enctype(form) }} class="blogger">
         {{ form_errors(form) }}
 
@@ -18,7 +24,7 @@
 
         {{ form_rest(form) }}
         <div class="btns">
-            <a class="button" onclick="document.getElementById('form').submit()" href="#">Submit</a>
+            <input class="button" type="submit" value="Submit">
         </div>
     </form>
 
