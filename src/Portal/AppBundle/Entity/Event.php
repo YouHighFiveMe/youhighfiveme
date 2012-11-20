@@ -45,6 +45,12 @@ class Event
     protected $isPublic;
     
     /**
+     * @ORM\ManyToOne(targetEntity="Portal\UserBundle\Entity\User", inversedBy="events")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
+   
+    /**
      * @ORM\OneToMany(targetEntity="Highfive", mappedBy="event")
      */
     protected $highfives;
@@ -212,6 +218,26 @@ class Event
     public function getIsPublic()
     {
         return $this->isPublic;
+    }
+    
+    /**
+     * Set public state
+     *
+     * @param Portal\UserBundle\Entity\User $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get public state
+     *
+     * @return Portal\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
     
     /**

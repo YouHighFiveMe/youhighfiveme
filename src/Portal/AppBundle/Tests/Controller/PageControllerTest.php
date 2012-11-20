@@ -62,7 +62,7 @@ class PageControllerTest extends WebTestCase
         // Need to follow redirect
         $crawler = $client->followRedirect();
 
-        $this->assertTrue($crawler->filter('.app-notice:contains("Your contact enquiry was successfully sent. Thank you!")')->count() > 0);
+        $this->assertTrue($crawler->filter('.flash-notice-success:contains("Your contact enquiry was successfully sent. Thank you!")')->count() > 0);
     }
     
 }

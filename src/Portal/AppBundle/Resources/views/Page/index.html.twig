@@ -7,12 +7,12 @@
         {% for event in events %}
             <article class="event">
                 <div class="author">
-                    <img src="{{ gravatar('info@arturgajewski.com') }}"/>
+                    <img src="{{ gravatar(event.user.getGravatar()) }}"/>
                 </div>
                 <div class="data">
                     <header>
                         <h3><a href="#">{{ event.title }}</a></h3>
-                        {{ event.created|date('M d, Y') }} by <a href="#">Artur Gajewski</a>
+                        {{ event.created|date('M d, Y') }} by <a href="#">{{ event.user.getName() }}</a>
                     </header>
                     <p class="description">{{ event.description|show_maxlen(65, '...') }}</p>
                     <p class="count"><img src="{{ asset('images/hand.gif') }}"/>{{ event.countHighfives }} high fives</p>

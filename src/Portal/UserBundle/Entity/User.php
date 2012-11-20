@@ -35,7 +35,12 @@ class User extends BaseUser
      * @Assert\MaxLength(limit="150", message="The gravatar email is too long.", groups={"Registration", "Profile"})
      */
     protected $gravatar;
-
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Portal\AppBundle\Entity\Event", mappedBy="user")
+     */
+    protected $comments;
+    
     public function __construct()
     {
         parent::__construct();
@@ -59,5 +64,10 @@ class User extends BaseUser
     public function setGravatar($address)
     {
         $this->gravatar = $address;
+    }
+    
+    public function __toString() 
+    {
+        return $this->id;
     }
 }

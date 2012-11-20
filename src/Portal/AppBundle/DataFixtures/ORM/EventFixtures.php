@@ -16,6 +16,7 @@ class EventFixtures extends AbstractFixture implements OrderedFixtureInterface
         $event1->setTags('symfony2, php, paradise, high five');
         $event1->setCreated(new \DateTime());
         $event1->setUpdated($event1->getCreated());
+        $event1->setUser($manager->merge($this->getReference('user-1')));
         $manager->persist($event1);
 
         $event2 = new Event();
@@ -24,6 +25,7 @@ class EventFixtures extends AbstractFixture implements OrderedFixtureInterface
         $event2->setTags('symfony2, php, paradise, high five');
         $event2->setCreated(new \DateTime());
         $event2->setUpdated($event2->getCreated());
+        $event2->setUser($manager->merge($this->getReference('user-2')));
         $manager->persist($event2);
 
         $event3 = new Event();
@@ -32,6 +34,7 @@ class EventFixtures extends AbstractFixture implements OrderedFixtureInterface
         $event3->setTags('symfony2, php, paradise, high five');
         $event3->setCreated(new \DateTime());
         $event3->setUpdated($event3->getCreated());
+        $event3->setUser($manager->merge($this->getReference('user-3')));
         $manager->persist($event3);
         
         $manager->flush();
@@ -43,6 +46,6 @@ class EventFixtures extends AbstractFixture implements OrderedFixtureInterface
     
     public function getOrder()
     {
-        return 1;
+        return 2;
     }
 }

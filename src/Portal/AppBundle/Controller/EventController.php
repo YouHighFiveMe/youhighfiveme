@@ -18,11 +18,16 @@ class EventController extends Controller
         $request = $this->getRequest();
         $form    = $this->createForm(new EventType(), $event);
         
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        
         if ($request->getMethod() == 'POST') {
             $form->bindRequest($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()
                         ->getEntityManager();
+                
+                $event->setUser($user);
+                
                 $em->persist($event);
                 $em->flush();
                 

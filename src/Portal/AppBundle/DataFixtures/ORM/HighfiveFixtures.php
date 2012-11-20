@@ -34,6 +34,6 @@ class HighfiveFixtures extends AbstractFixture implements OrderedFixtureInterfac
 
     public function getOrder()
     {
-        return 2;
+        return 3;
     }
 }

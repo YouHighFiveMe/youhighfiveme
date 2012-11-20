@@ -55,11 +55,13 @@ class UserFixtures extends AbstractFixture implements OrderedFixtureInterface
         
         $manager->flush();
         
-        
+        $this->addReference('user-1', $user1);
+        $this->addReference('user-2', $user2);
+        $this->addReference('user-3', $user3);
     }
     
     public function getOrder()
     {
-        return 3;
+        return 1;
     }
 }
