@@ -3,6 +3,8 @@
 namespace Portal\AppBundle\Tests\Entity;
 
 use Portal\AppBundle\Entity\Event;
+use Portal\AppBundle\Entity\Highfive;
+use Portal\UserBundle\Entity\User;
 
 class EventTest extends \PHPUnit_Framework_TestCase
 {
@@ -38,4 +40,35 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $event->setTitle('Hello World');
         $this->assertEquals('hello-world', $event->getSlug());
     }
+    
+    public function testSetUserEntityToEvent()
+    {
+        $event = new Event();
+        
+        $user = $this->createTestUser();
+        
+        $event->setUser($user);
+        $this->assertEquals('Morgan Freeman', $event->getUser()->getName());
+    }
+    
+    private function createTestUser()
+    {
+        $user = new User();
+        $user->setUsername('dev1');
+        $user->setUsernameCanonical('dev1');
+        $user->setPlainPassword('dev1');
+        $user->setName('Morgan Freeman');
+        $user->setGravatar('dev1@developer.me');
+        $user->setEmail('dev1@developer.me');
+        $user->setEmailCanonical('dev1@developer.me');
+        $user->setEnabled(true);
+        $user->setLocked(false);
+        $user->setExpired(false);
+        $user->setCredentialsExpired(false);
+        
+        return $user;
+    }
+    
+    
+    
 }
