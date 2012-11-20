@@ -1,16 +1,15 @@
-YouHighFiveMe ^5
-================
+YouHighFiveMe
+=============
 
-Welcome to the YouHiveFiveMe open source project.
+#What is YouHighFiveMe?
 
-#What is YouHighFiveMe project?
+YouHighFiveMe is a project that allows people to create their profile and let other people 
+give them credit, or high fives, for their events such as community help, conference talks 
+or any other type of activity they do.
 
-YouHighFive is a project that allows people to create their profile and let
-other people give them high fives from different occasions, community help,
-conference talks or any other type of activity they do.
-
-Over time, user's will get their asset page generated with lot's of references
-from people.
+Over time, user's will get their asset page generated with lot's of references from people.
+This can be viewed as less formal referral list than on curriculum vitae, but it can be added
+as a personal asset.
 
 #Installation
 
