@@ -21,11 +21,11 @@ a.color-1:hover {color:#000;}
 h2 { font-size:30px; line-height:36px; color:#292929; font-weight:normal; letter-spacing:-1px;}
 
 ul {margin:0; padding:0;list-style-image:none;}
-ul.list-1 li {padding:0px 0 5px 12px; line-height:25px; background:url(../images/marker-1.gif) 0 11px no-repeat;}
+ul.list-1 li {padding:0px 0 5px 12px; line-height:25px; background:url(../images/marker-1.gif) 0 9px no-repeat;}
 ul.list-1 li a { font-size:14px; color:#292929; line-height:25px;}
 ul.list-1 li a:hover {color:#01a5ca;}
 
-ul.list-2 li {padding:0px 0 5px 12px; line-height:25px; background:url(../images/marker-1.gif) 0 11px no-repeat;}
+ul.list-2 li {padding:0px 0 5px 12px; line-height:25px; background:url(../images/marker-1.gif) 0 9px no-repeat;}
 ul.list-2 li a { font-size:14px; color:#01a5ca; line-height:25px;}
 ul.list-2 li a:hover { color:#292929;}
 
