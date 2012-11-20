@@ -101,6 +101,7 @@ Channel: #youhighfive.me @ freenode.net
 #Contributing
 
 Anyone is free to join the team and develop YouHighFiveMe. Just introduce yourself
-to us on IRC and let us know what issue you are willing to work on.
+to us on IRC and let us know what issue from the Github's issue list you are willing 
+to work on.
 
 Enjoy and welcome to the project!
