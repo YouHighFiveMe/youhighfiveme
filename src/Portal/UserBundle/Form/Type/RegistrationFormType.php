@@ -17,6 +17,8 @@ class RegistrationFormType extends BaseType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name', null, array('label' => $this->translator->trans('form.realname')));
+        $builder->add('email', null, array('label' => $this->translator->trans('form.email')));
+        $builder->add('gravatar', null, array('label' => $this->translator->trans('form.gravatar'), 'required' => false));
         parent::buildForm($builder, $options);
     }
 

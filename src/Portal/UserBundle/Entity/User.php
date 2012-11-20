@@ -28,6 +28,13 @@ class User extends BaseUser
      * @Assert\MaxLength(limit="255", message="The name is too long.", groups={"Registration", "Profile"})
      */
     protected $name;
+    
+    /**
+     * @ORM\Column(type="string", length=120)
+     * 
+     * @Assert\MaxLength(limit="150", message="The gravatar email is too long.", groups={"Registration", "Profile"})
+     */
+    protected $gravatar;
 
     public function __construct()
     {
@@ -42,5 +49,15 @@ class User extends BaseUser
     public function setName($name)
     {
         $this->name = $name;
+    }
+    
+    public function getGravatar()
+    {
+        return $this->gravatar;
+    }
+    
+    public function setGravatar($address)
+    {
+        $this->gravatar = $address;
     }
 }
