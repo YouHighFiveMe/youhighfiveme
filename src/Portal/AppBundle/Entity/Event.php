@@ -40,6 +40,11 @@ class Event
     protected $tags;
     
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isPublic;
+    
+    /**
      * @ORM\OneToMany(targetEntity="Highfive", mappedBy="event")
      */
     protected $highfives;
@@ -61,6 +66,7 @@ class Event
         
         $this->setCreated(new \DateTime());
         $this->setUpdated(new \DateTime());
+        $this->setIsPublic(true);
     }
 
     /**
@@ -189,6 +195,46 @@ class Event
     }
 
     /**
+     * Set public state
+     *
+     * @param boolean $isPublic
+     */
+    public function setIsPublic($isPublic)
+    {
+        $this->isPublic = $isPublic;
+    }
+
+    /**
+     * Get public state
+     *
+     * @return boolean 
+     */
+    public function getIsPublic()
+    {
+        return $this->isPublic;
+    }
+    
+    /**
+     * Get highfives
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getHighfives()
+    {
+        return $this->highfives;
+    }
+    
+    /**
+     * Return count of high fives
+     * 
+     * @return integer 
+     */
+    public function getCountHighfives()
+    {
+        return count($this->highfives);
+    }
+    
+    /**
      * Set created
      *
      * @param datetime $created
@@ -248,24 +294,6 @@ class Event
         return $this->slug;
     }
     
-    /**
-     * Get highfives
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getHighfives()
-    {
-        return $this->highfives;
-    }
     
-    /**
-     * Return count of high fives
-     * 
-     * @return integer 
-     */
-    public function getCountHighfives()
-    {
-        return count($this->highfives);
-    }
 
 }
