@@ -70,6 +70,19 @@ If you see new migrations available, all you have to do is run the migrations.
 You should now have your database in an updated state with up-to-date structure
 that corresponds with application's entity classes.
 
+#Initializing database
+
+If you wish to erase data in the database and create a new fresh instance of
+database with dummy data and three users, run the fixtures command:
+
+    $ app/console doctrine:fixtures:load
+
+NOTE: This will erase all data and create new dummy data. It will also create
+three different users: dev1, dev2 and dev3. Passwords for these users are the same
+as the usernames respectively.
+
+Dummy data contains three users, three events and few high fives for each event.
+
 #Testing
 
 We strongly encourage you to practice test driven development and write those
