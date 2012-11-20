@@ -1,9 +1,9 @@
 YouHighFiveMe
 =============
 
-#What is YouHighFiveMe?
+Welcome to the new open source project!
 
-YouHighFiveMe is a project that allows people to create their profile and let other people 
+YouHighFiveMe is a web application which allows people to create their profile and let other people 
 give them credit, or high fives, for their events such as community help, conference talks 
 or any other type of activity they do.
 
