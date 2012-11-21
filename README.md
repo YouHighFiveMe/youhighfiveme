@@ -81,6 +81,7 @@ will not recreate the structure of the database. If you wish to update schema be
 you run fixtures, use following routine:
 
     $ app/console doctrine:schema:drop --force
+
     $ app/console doctrine:schema:create
 
 Loading fixtures as described earler, three user account are created: dev1, dev2 and dev3.
