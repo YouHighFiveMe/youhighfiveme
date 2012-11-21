@@ -77,9 +77,14 @@ database with dummy data and three users, run the fixtures command:
     $ app/console doctrine:fixtures:load
 
 NOTE: This will erase all data and create new dummy data. However, this process
-will not recreate the structure of the database. It will also create three 
-different users: dev1, dev2 and dev3. Passwords for these users are the same
-as the usernames respectively.
+will not recreate the structure of the database. If you wish to update schema before
+you run fixtures, use following routine:
+
+    $ app/console doctrine:schema:drop --force
+    $ app/console doctrine:schema:create
+
+Loading fixtures as described earler, three user account are created: dev1, dev2 and dev3.
+Passwords for these users are the same as the usernames respectively.
 
 #Testing
 
