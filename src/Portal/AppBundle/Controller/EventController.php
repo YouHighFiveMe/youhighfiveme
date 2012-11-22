@@ -70,4 +70,5 @@ class EventController extends Controller
     {
         return $this->container->get('portal_app.service.event');
     }
+
 }
