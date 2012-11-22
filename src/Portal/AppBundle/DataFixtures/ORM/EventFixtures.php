@@ -36,12 +36,23 @@ class EventFixtures extends AbstractFixture implements OrderedFixtureInterface
         $event3->setUpdated($event3->getCreated());
         $event3->setUser($manager->merge($this->getReference('user-3')));
         $manager->persist($event3);
+
+        $event4 = new Event();
+        $event4->setTitle('Secret event');
+        $event4->setDescription('Top secret. Bird eyes only.');
+        $event4->setTags('paradise, high five');
+        $event4->setCreated(new \DateTime());
+        $event4->setUpdated($event4->getCreated());
+        $event4->setIsPublic(0);
+        $event4->setUser($manager->merge($this->getReference('user-3')));
+        $manager->persist($event4);
         
         $manager->flush();
         
         $this->addReference('event-1', $event1);
         $this->addReference('event-2', $event2);
         $this->addReference('event-3', $event3);
+        $this->addReference('event-4', $event4);
     }
     
     public function getOrder()

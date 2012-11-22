@@ -12,12 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
-    public function getLatestEvents($limit = null)
+    public function getLatestPublicEvents($limit = null)
     {
         $qb = $this->createQueryBuilder('b')
                    ->select('b, c')
                    ->leftJoin('b.highfives', 'c')
-                   ->addOrderBy('b.created', 'DESC');
+                   ->addOrderBy('b.created', 'DESC')
+                   ->andWhere('b.isPublic = ?1')
+                   ->setParameter('1', '1');
     
         if (false === is_null($limit))
             $qb->setMaxResults($limit);

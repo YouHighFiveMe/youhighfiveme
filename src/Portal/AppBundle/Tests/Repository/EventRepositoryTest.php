@@ -56,4 +56,11 @@ class EventRepositoryTest extends WebTestCase
 
         $this->assertEmpty($tagsWeight);
     }
+
+    public function testLatestEventsArePublic()
+    {
+        foreach ($this->eventRepository->getLatestPublicEvents(5) as $event) {
+            $this->assertEquals('1', $event->getIsPublic());
+        }
+    }
 }
