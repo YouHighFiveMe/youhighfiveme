@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="wrap block-2">
+        <div class="col-1">
+
+            <h2 class="p8">
+                <span class="color-1">Event:</span> {{ event.title }}
+            </h2>
+
+            <article class="event">
+                <div class="author">
+
+                </div>
+                <div class="data">
+                    <header>
+                        {{ event.created|date('M d, Y') }} by <a href="#">{{ event.user.getName() }}</a>
+                    </header>
+                    <p class="description">{{ event.description }}</p>
+                    <p class="count"><img src="{{ asset('images/hand.gif') }}"/>{{ event.countHighfives }} high fives</p>
+                </div>
+            </article>
+
+            <h2 class="p8">
+                <span class="color-1">High fives</span> received
+            </h2>
+
+            <div id="entries">
+                {% for highfive in event.highfives %}
+                    <article class="event">
+                        <div class="author">
+                            <strong>{{ highfive.user }}:</strong>
+                        </div>
+                        <div class="data">
+                            <p class="description">
+                                <p>{{ highfive.getComment() }}</p>
+                                <p><i>Sent on {{ highfive.getCreated()|date('M d, Y') }}</i></p>
+                            </p>
+                        </div>
+                    </article>
+                {% else %}
+                    <p class="p2"><strong>No high fives for this event...</strong></p>
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <div class="col-2">
+            <h2 class="p3"><span class="color-1">Latest</span> events</h2>
+
+            <p class="p5">
+                @TODO: implement latest event listing here
+            </p>
+        </div>
+    </div>
+{% endblock body %}

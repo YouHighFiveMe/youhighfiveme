@@ -15,14 +15,11 @@ PortalAppBundle_contact:
     defaults: { _controller: PortalAppBundle:Page:contact }
     requirements:
         _method:  GET|POST
-        
-PortalAppBundle_comment_create:
-    pattern:  /comment/{event_id}
-    defaults: { _controller: PortalAppBundle:Comment:create }
-    requirements:
-        _method:  POST
-        id: \d+
-        
+
 PortalAppBundle_event_create:
     pattern:  /event/create
     defaults: { _controller: PortalAppBundle:Event:create }
+
+PortalAppBundle_event_view:
+    pattern:  /event/{eventId}/{slug}
+    defaults: { _controller: PortalAppBundle:Event:view }
