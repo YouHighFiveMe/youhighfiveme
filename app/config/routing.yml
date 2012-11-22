@@ -9,3 +9,8 @@ PortalAppBundle:
 
 _user_bundle:
     resource: "@PortalUserBundle/Resources/config/routing.yml"
+
+
+PortalDemoBundle:
+    resource: "@PortalDemoBundle/Resources/config/routing.yml"
+    prefix:   /
