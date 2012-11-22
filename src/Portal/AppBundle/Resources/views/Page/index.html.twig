@@ -11,7 +11,7 @@
                 </div>
                 <div class="data">
                     <header>
-                        <h3><a href="#">{{ event.title }}</a></h3>
+                        <h3><a href="{{ path('PortalAppBundle_event_view', { 'eventId': event.id, 'slug': event.slug }) }}">{{ event.title }}</a></h3>
                         {{ event.created|date('M d, Y') }} by <a href="#">{{ event.user.getName() }}</a>
                     </header>
                     <p class="description">{{ event.description|show_maxlen(65, '...') }}</p>
@@ -52,3 +52,4 @@
     </div>
 </div>
 {% endblock %}
+

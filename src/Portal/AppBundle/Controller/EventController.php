@@ -11,6 +11,13 @@ use Portal\AppBundle\Form\EventType;
  */
 class EventController extends Controller
 {
+    /**
+     * Create new event
+     *
+     * This function handles the new event's form data and creates new event
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function createAction()
     {
         $event = new Event();
@@ -39,4 +46,29 @@ class EventController extends Controller
             'form' => $form->createView()
         ));
     }
+
+    /**
+     * View Event
+     *
+     * @param $eventId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function viewAction($eventId)
+    {
+        $service = $this->getEventService();
+        $event = $service->getEventById($eventId);
+
+        return $this->render('PortalAppBundle:Event:view.html.twig', array(
+            'event' => $event
+        ));
+    }
+
+    /**
+     * @return EventService
+     */
+    protected function getEventService()
+    {
+        return $this->container->get('portal_app.service.event');
+    }
+
 }
