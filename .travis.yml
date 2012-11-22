@@ -3,11 +3,15 @@ php:
   - "5.4"
   - "5.3"
 
+services: mysql
+
 before_script:
   - cp app/config/parameters.yml-dist app/config/parameters.yml
   - composer install
   - pear install pear/PHP_CodeSniffer
   - phpenv rehash
+  - mysql -e 'create database youhighfiveme;'
+  - mysql -e 'create user "youhighfiveme"@"localhost" identified by "secret";'
 
 script: phpunit -c app/ --coverage-text
 
