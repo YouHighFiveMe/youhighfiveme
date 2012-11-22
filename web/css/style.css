@@ -4,6 +4,8 @@ html, body {width:100%; padding:0; margin:0;}
 body {font: 14px/25px Arial, Helvetica, sans-serif;color:#292929;min-width:960px;background: url(../images/bg.gif) center 0 repeat;border-top:#292929 6px solid;}
 .ic {border:0;float:right;background:#fff;color:#f00;width:50%;line-height:10px;font-size:10px;margin:-220% 0 0 0;overflow:hidden;padding:0}
 .main {width:960px; margin:0 auto; position:relative;}
+
+.logo {position: relative; top: 34px; left:10px;}
 /***********************************************************************/
 a {text-decoration:none; cursor:pointer;}
 a:hover {text-decoration:none;}
@@ -36,7 +38,7 @@ ul.list-2 li a:hover { color:#292929;}
 .extra-wrap {overflow:hidden;}
 .fleft {float:left;}
 .fright {float:right;}
-.img-indent {float:left; margin:3px 30px 0px 0;}	
+.img-indent {float:left; margin:3px 30px 0px 0;}
 .last {margin-right:0px !important;}
 .img-radius {border-radius:4px;}
 
@@ -70,14 +72,14 @@ h1 {float:left; margin:43px 0 0px 29px;}
 h1 a {font-size:53px; line-height:65px; color:#01a5ca; letter-spacing:1px; display:inline-block;}
 h1 a strong {color:#292929; margin-top:-21px; font-weight:normal;}
 
-.social-icons {overflow:hidden; text-align:right; margin-top:35px;}
+.social-icons {overflow:hidden; text-align:right; margin-top:0px;}
 .social-icons a {display:inline-block; width:23px; height:23px; float:right;}
 .icon-1 {background:url(../images/icon-1.png) 0 0 no-repeat;}
 .icon-2 {background:url(../images/icon-2.png) 0 0 no-repeat; margin-left:7px;}
 .social-icons a:hover {background-position:0 bottom;}
 
 nav {overflow:hidden; margin-right:30px;}
-ul.menu {float:right; margin-top:39px;}
+ul.menu {float:right; margin-top:0px;}
 ul.menu li {float:left; line-height:20px; margin:0px 0 0px 44px;}
 ul.menu li a {font-size:17px; line-height:22px; color:#292929; display:inline-block; }
 ul.menu li a:hover, ul.menu li.current a {color:#01a5ca;}
