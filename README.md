@@ -35,7 +35,8 @@ Then, use the `install` command to install all dependancies:
     $ php composer.phar install
 
 After all dependancies are installed, make sure your app/cache and app/logs
-folder have write access.
+folder have write access. If there is no write access, the web server might
+output an internal error.
 
 Connect to your database and run these commands:
 
