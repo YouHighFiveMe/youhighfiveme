@@ -134,63 +134,17 @@ dl dd a:hover {text-decoration:underline; color:#333;}
 .btns a {display:inline-block; margin:0 0px 0 10px;}
 
 .form-error {color: red;}
+#form ul li {color: red;}
 
-#form ul li {
-    color: red;
-}
+/**********************event**********************/
 
-/**********************wiwo**********************/
-#icon-in {
-    position: relative;
-    top: -2px;
-    padding-right: 7px;
-}
-#icon-out {
-    position: relative;
-    top: -2px;
-    padding-right: 7px;
-}
-
-article.event {
-    width: 600px;
-    display: inline-block;
-    margin-bottom: 30px;
-}
-
-article.event h3 {
-    font: 22px Arial, Helvetica, sans-serif;
-}
-
-article.event h3 a {
-    color: #01A5CA;
-}
-
-article.event header {
-    font-weight: bold;
-    padding-bottom: 0px;
-}
-
-article.event header a {
-    color: #01A5CA;
-}
-
-article.event p.count {
-    color: #999;
-}
-
-article.event div {
-    float: left;
-}
-
-article.event div.author {
-    margin-right: 15px;
-}
-
-article.event div.data {
-    width: 450px;
-}
-
-article.event div.data p img {
-    width: 20px;
-    margin-right: 5px;
-}
+article.event {width: 600px;display: inline-block;margin-bottom: 30px;}
+article.event h3 {font: 22px Arial, Helvetica, sans-serif;}
+article.event h3 a {color: #01A5CA;}
+article.event header {font-weight: bold;padding-bottom: 0px;}
+article.event header a {color: #01A5CA;}
+article.event p.count {color: #999;}
+article.event div {float: left;}
+article.event div.author {margin-right: 15px;}
+article.event div.data {width: 450px;}
+article.event div.data p img {width: 20px; margin-right: 5px;}
