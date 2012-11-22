@@ -1,0 +1,6 @@
+services:
+    portal_demo.service.cat:
+        class:     Portal\DemoBundle\Service\CatService
+        arguments: ["@form.factory"]
+
+

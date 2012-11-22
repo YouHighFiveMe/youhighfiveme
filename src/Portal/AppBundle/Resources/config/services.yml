@@ -9,3 +9,5 @@ services:
         arguments: [%fos_user.model.user.class%, @translator]
         tags:
             - { name: form.type, alias: portal_user_registration }
+
+

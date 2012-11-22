@@ -1,5 +1,11 @@
 <form id="form" action="{{ path('PortalAppBundle_event_create') }}" method="post" {{ form_enctype(form) }} class="blogger">
+
+    {{ form_errors(form) }}
+
     {{ form_widget(form) }}
+
+    {{ form_rest(form) }}
+
     <div class="btns">
         <input class="button" type="submit" value="Submit">
     </div>

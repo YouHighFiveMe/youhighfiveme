@@ -1,8 +1,14 @@
 {% extends 'PortalDemoBundle::layout.html.twig' %}
 
 {% block body %}
-
+<div class=" block-2">
     <section>
-        Demo
+        <form id="form" action="{{ path('PortalDemoBundle_demo_create') }}" method="post" {{ form_enctype(form) }} class="blogger" novalidate>
+            {{ form_widget(form) }}
+            <div class="btns">
+                <input class="button" type="submit" value="Submit">
+            </div>
+        </form>
     </section>
+</div>
 {% endblock %}
