@@ -24,7 +24,7 @@ class DefaultController extends BaseController
         return $this->processForm($form, function($form) use($self, $service) {
 
                 $pats = $service->patCatByForm($form);
-                
+
                 $self->get('session')->setFlash('pats', $pats);
 
                 return $self->createSuccessRedirectResponse('PortalDemoBundle_demo_meoow');
