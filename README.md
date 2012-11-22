@@ -15,7 +15,7 @@ as a personal asset.
 
 Clone this project into your development environment.
 
-    $ git clone https://github.com/YouHighFiveMe/youhighfiveme.git
+    $ git clone git@github.com:YouHighFiveMe/youhighfiveme.git
 
 Now go to your newly created directory.
 
