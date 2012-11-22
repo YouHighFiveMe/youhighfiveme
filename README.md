@@ -35,7 +35,14 @@ Then, use the `install` command to install all dependancies:
     $ php composer.phar install
 
 After all dependancies are installed, make sure your app/cache and app/logs
-folder have write access and run the following commands:
+folder have write access.
+
+Connect to your database and run these commands:
+
+    CREATE USER 'youhighfiveme'@'localhost' IDENTIFIED BY 'secret';
+    GRANT ALL PRIVILEGES ON *.* TO 'youhighfiveme'@'localhost';
+
+then run the following commands:
 
     $ app/console doctrine:database:create
 
