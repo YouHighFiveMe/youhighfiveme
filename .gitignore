@@ -2,6 +2,7 @@ vendor
 .gitignore
 app/config/parameters.yml
 .DS_Store
+.idea
 app/cache/*
 app/logs/*
 composer.lock

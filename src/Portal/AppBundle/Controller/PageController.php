@@ -10,11 +10,8 @@ class PageController extends Controller
 {
     public function indexAction()
     {
-        $em = $this->getDoctrine()
-                   ->getEntityManager();
-
-        $events = $em->getRepository('PortalAppBundle:Event')
-                     ->getLatestEvents(5);
+        $service = $this->getEventService();
+        $events = $service->getLatestEvents(5);
 
         return $this->render('PortalAppBundle:Page:index.html.twig', array(
             'events' => $events
@@ -76,6 +73,14 @@ class PageController extends Controller
             'latestComments'    => $latestComments,
             'tags'              => $tagWeights
         ));
+    }
+
+    /**
+     * @return EventService
+     */
+    protected function getEventService()
+    {
+        return $this->container->get('portal_app.service.event');
     }
 
 }
