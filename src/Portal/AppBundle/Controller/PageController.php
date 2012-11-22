@@ -11,7 +11,7 @@ class PageController extends Controller
     public function indexAction()
     {
         $service = $this->getEventService();
-        $events = $service->getLatestEvents(5);
+        $events = $service->getLatestPublicEvents(5);
 
         return $this->render('PortalAppBundle:Page:index.html.twig', array(
             'events' => $events
