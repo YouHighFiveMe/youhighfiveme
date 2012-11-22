@@ -48,7 +48,7 @@ class EventService
      */
     public function getLatestPublicEvents($limit = null)
     {
-        return $this->repository->getLatestPublicEvents($limit = null);
+        return $this->repository->getLatestPublicEvents($limit);
     }
 
     /**
