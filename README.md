@@ -100,6 +100,12 @@ you run fixtures, use following routine:
 Loading fixtures as described earler, three user account are created: dev1, dev2 and dev3.
 Passwords for these users are the same as the usernames respectively.
 
+#Architecture
+
+Application has a DemoBundle, which is a first revision of suggestion for the
+application's architecture. Please review this bundle and state your opinion on
+our IRC channel (channel information below).
+
 #Testing
 
 We strongly encourage you to practice test driven development and write those
@@ -115,7 +121,7 @@ To run a test, go to your project's folder and run following command:
 You can catch us on IRC as this is the channel where most of the talk about development
 and other things related to YouHighFiveMe reside at.
 
-Channel: #youhighfive.me @ freenode.net
+Channel: #youhighfive.me @ freenode.org
 
 #Contributing
 
