@@ -16,3 +16,7 @@ _configurator:
 
 _main:
     resource: routing.yml
+
+PortalDemoBundle:
+    resource: "@PortalDemoBundle/Resources/config/routing.yml"
+    prefix:   /

@@ -1,0 +1,12 @@
+PortalDemoBundle_demo:
+    pattern:  /demo
+    defaults: { _controller: PortalDemoBundle:Default:index }
+
+PortalDemoBundle_demo_create:
+    pattern:  /demo/create
+    defaults: { _controller: PortalDemoBundle:Default:create }
+
+PortalDemoBundle_demo_meoow:
+    pattern:  /demo/meoow
+    defaults: { _controller: PortalDemoBundle:Default:meoow }
+
