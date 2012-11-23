@@ -9,6 +9,7 @@ before_script:
   - cp app/config/parameters.yml-dist app/config/parameters.yml
   - mysql -e 'create database youhighfiveme;'
   - mysql -e 'create user "youhighfiveme"@"localhost" identified by "secret";'
+  - mysql -e 'grant all privileges on *.* to "youhighfiveme"@"localhost";'
   - composer install
   - pear install pear/PHP_CodeSniffer
   - phpenv rehash
