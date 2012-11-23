@@ -11,6 +11,11 @@ Over time, user's will get their asset page generated with lot's of references f
 This can be viewed as less formal referral list than on curriculum vitae, but it can be added
 as a personal asset.
 
+#Staging environment
+
+The staging environment is located at http://www.youhighfive.me/test/web/app.php and builds are
+created whenever new changes are merged.
+
 #Installation
 
 Clone this project into your development environment.
