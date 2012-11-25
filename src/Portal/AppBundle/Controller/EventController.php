@@ -5,6 +5,8 @@ namespace Portal\AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Portal\AppBundle\Entity\Event;
 use Portal\AppBundle\Form\EventType;
+use Portal\AppBundle\Entity\Highfive;
+use Portal\AppBundle\Form\HighfiveType;
 
 /**
  * Event controller.
@@ -55,11 +57,34 @@ class EventController extends Controller
      */
     public function viewAction($eventId)
     {
-        $service = $this->getEventService();
-        $event = $service->getEventById($eventId);
+        $highfive = new Highfive();
+
+        $request  = $this->getRequest();
+        $service  = $this->getEventService();
+        $event    = $service->getEventById($eventId);
+        $user     = $this->container->get('security.context')->getToken()->getUser();
+        $form     = $this->createForm(new HighfiveType(), $highfive);
+        $showForm = true;
+
+        if ($request->getMethod() == 'POST') {
+            $form->bindRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()
+                    ->getEntityManager();
+
+                $highfive->setUser($user);
+                $highfive->setEvent($event);
+
+                $em->persist($highfive);
+                $em->flush();
+                $showForm = false;
+            }
+        }
 
         return $this->render('PortalAppBundle:Event:view.html.twig', array(
-            'event' => $event
+            'event'    => $event,
+            'form'     => $form->createView(),
+            'showForm' => $showForm
         ));
     }
 

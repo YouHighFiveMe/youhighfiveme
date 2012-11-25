@@ -21,15 +21,33 @@
                 </div>
             </article>
 
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {% if showForm %}
+                    <h2 class="p0">
+                        <span class="color-1">Send</span> high five
+                    </h2>
+
+                    <div id="create-highfive" class="p1">
+                        <form id="form" action="{{ path('PortalAppBundle_event_view', { 'eventId': event.id, 'slug': event.slug }) }}" method="post" {{ form_enctype(form) }} class="blogger">
+                            {{ form_widget(form) }}
+                            <div class="btns">
+                                <input class="button" type="submit" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                {% endif %}
+            {% endif %}
+
+
             <h2 class="p8">
                 <span class="color-1">High fives</span> received
             </h2>
 
             <div id="entries">
-                {% for highfive in event.highfives %}
+                {% for highfive in event.highfives|reverse %}
                     <article class="event">
                         <div class="author">
-                            <strong>{{ highfive.user }}:</strong>
+                            <strong>{{ highfive.user.getName() }}:</strong>
                         </div>
                         <div class="data">
                             <p class="description">
