@@ -33,7 +33,7 @@ class EventController extends Controller
             $form->bind($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()
-                        ->getEntityManager();
+                        ->getManager();
                 
                 $event->setUser($user);
                 
@@ -70,7 +70,7 @@ class EventController extends Controller
             $form->bind($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()
-                    ->getEntityManager();
+                    ->getManager();
 
                 $highfive->setUser($user);
                 $highfive->setEvent($event);
