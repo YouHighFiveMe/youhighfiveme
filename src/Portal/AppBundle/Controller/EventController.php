@@ -30,7 +30,7 @@ class EventController extends Controller
         $user = $this->container->get('security.context')->getToken()->getUser();
         
         if ($request->getMethod() == 'POST') {
-            $form->bindRequest($request);
+            $form->bind($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()
                         ->getEntityManager();
@@ -67,7 +67,7 @@ class EventController extends Controller
         $showForm = true;
 
         if ($request->getMethod() == 'POST') {
-            $form->bindRequest($request);
+            $form->bind($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()
                     ->getEntityManager();
