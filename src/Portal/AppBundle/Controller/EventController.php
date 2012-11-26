@@ -2,7 +2,7 @@
 
 namespace Portal\AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Portal\AppBundle\Controller\BaseController;
 use Portal\AppBundle\Entity\Event;
 use Portal\AppBundle\Form\EventType;
 use Portal\AppBundle\Entity\Highfive;
@@ -11,7 +11,7 @@ use Portal\AppBundle\Form\HighfiveType;
 /**
  * Event controller.
  */
-class EventController extends Controller
+class EventController extends BaseController
 {
     /**
      * Create new event
@@ -22,12 +22,10 @@ class EventController extends Controller
      */
     public function createAction()
     {
-        $event = new Event();
-
         $request = $this->getRequest();
-        $form    = $this->createForm(new EventType(), $event);
-        
-        $user = $this->container->get('security.context')->getToken()->getUser();
+        $event = new Event();
+        $form = $this->createForm(new EventType(), $event);
+        $user = $this->getCurrentUser();
         
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
@@ -36,10 +34,11 @@ class EventController extends Controller
                         ->getManager();
                 
                 $event->setUser($user);
-                
                 $em->persist($event);
                 $em->flush();
-                
+
+                // Redirect - This is important to prevent users re-posting
+                // the form if they refresh the page
                 return $this->redirect($this->generateUrl('PortalAppBundle_homepage'));
             }
         }
@@ -57,21 +56,26 @@ class EventController extends Controller
      */
     public function viewAction($eventId)
     {
-        $highfive = new Highfive();
-
         $request  = $this->getRequest();
-        $eventService  = $this->getEventService();
-        $highfiveService  = $this->getHighfiveService();
-        $event    = $eventService->getEventById($eventId);
-        $user     = $this->container->get('security.context')->getToken()->getUser();
-        $form     = $this->createForm(new HighfiveType(), $highfive);
+        $highfive = new Highfive();
+        $eventService = $this->getEventService();
+        $highfiveService = $this->getHighfiveService();
+        $event = $eventService->getEventById($eventId);
+        $user = $this->getCurrentUser();
+        $form = $this->createForm(new HighfiveType(), $highfive);
+        $submitted = false;
         $showForm = true;
 
-        if ($highfiveService->hasUserSubmittedHighfiveForEvent($event, $user)) {
+        if ($user) {
+            if ($highfiveService->hasUserSubmittedHighfiveForEvent($event, $user)) {
+                $submitted = true;
+                $showForm = false;
+            }
+        } else {
             $showForm = false;
         }
 
-        if ($request->getMethod() == 'POST') {
+        if ($request->getMethod() == 'POST' && !$submitted) {
             $form->bind($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()
@@ -91,22 +95,6 @@ class EventController extends Controller
             'form'     => $form->createView(),
             'showForm' => $showForm
         ));
-    }
-
-    /**
-     * @return EventService
-     */
-    protected function getEventService()
-    {
-        return $this->container->get('portal_app.service.event');
-    }
-
-    /**
-     * @return HighfiveService
-     */
-    protected function getHighfiveService()
-    {
-        return $this->container->get('portal_app.service.highfive');
     }
 
 }

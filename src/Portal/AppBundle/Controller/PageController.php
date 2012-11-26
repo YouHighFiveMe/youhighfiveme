@@ -2,11 +2,11 @@
 
 namespace Portal\AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Portal\AppBundle\Controller\BaseController;
 use Portal\AppBundle\Entity\Enquiry;
 use Portal\AppBundle\Form\EnquiryType;
 
-class PageController extends Controller
+class PageController extends BaseController
 {
     public function indexAction()
     {
@@ -73,14 +73,6 @@ class PageController extends Controller
             'latestComments'    => $latestComments,
             'tags'              => $tagWeights
         ));
-    }
-
-    /**
-     * @return EventService
-     */
-    protected function getEventService()
-    {
-        return $this->container->get('portal_app.service.event');
     }
 
 }
