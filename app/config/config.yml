@@ -64,6 +64,12 @@ fos_user:
         form:
             type: portal_user_registration
 
+    registration:
+            form:
+                type: portal_user_registration
+            confirmation:
+                enabled: false
+
 # Gravatar Configuration
 ornicar_gravatar:
     rating: g
