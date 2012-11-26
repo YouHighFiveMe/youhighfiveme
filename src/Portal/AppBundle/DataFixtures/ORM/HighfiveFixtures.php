@@ -18,13 +18,13 @@ class HighfiveFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $manager->persist($highfive1);
 
         $highfive2 = new Highfive();
-        $highfive1->setUser($manager->merge($this->getReference('user-2')));
+        $highfive2->setUser($manager->merge($this->getReference('user-2')));
         $highfive2->setComment('^5 from Finland!');
         $highfive2->setEvent($manager->merge($this->getReference('event-2')));
         $manager->persist($highfive2);
         
         $highfive3 = new Highfive();
-        $highfive1->setUser($manager->merge($this->getReference('user-3')));
+        $highfive3->setUser($manager->merge($this->getReference('user-3')));
         $highfive3->setComment('Thx for a great tutorial!');
         $highfive3->setEvent($manager->merge($this->getReference('event-2')));
         $manager->persist($highfive3);
