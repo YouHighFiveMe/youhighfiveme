@@ -19,3 +19,13 @@ services:
         arguments:       [Portal\AppBundle\Entity\Event]
         factory_service: doctrine.orm.entity_manager
         factory_method:  getRepository
+
+    portal_app.service.highfive:
+            class:     Portal\AppBundle\Service\HighfiveService
+            arguments: ["@doctrine.orm.entity_manager", "@portal_app.repository.highfive", "@security.context"]
+
+    portal_app.repository.highfive:
+            class:           Portal\AppBundle\Entity\Highfive
+            arguments:       [Portal\AppBundle\Entity\Highfive]
+            factory_service: doctrine.orm.entity_manager
+            factory_method:  getRepository

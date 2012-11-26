@@ -60,11 +60,16 @@ class EventController extends Controller
         $highfive = new Highfive();
 
         $request  = $this->getRequest();
-        $service  = $this->getEventService();
-        $event    = $service->getEventById($eventId);
+        $eventService  = $this->getEventService();
+        $highfiveService  = $this->getHighfiveService();
+        $event    = $eventService->getEventById($eventId);
         $user     = $this->container->get('security.context')->getToken()->getUser();
         $form     = $this->createForm(new HighfiveType(), $highfive);
         $showForm = true;
+
+        if ($highfiveService->hasUserSubmittedHighfiveForEvent($event, $user)) {
+            $showForm = false;
+        }
 
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
@@ -94,6 +99,14 @@ class EventController extends Controller
     protected function getEventService()
     {
         return $this->container->get('portal_app.service.event');
+    }
+
+    /**
+     * @return HighfiveService
+     */
+    protected function getHighfiveService()
+    {
+        return $this->container->get('portal_app.service.highfive');
     }
 
 }

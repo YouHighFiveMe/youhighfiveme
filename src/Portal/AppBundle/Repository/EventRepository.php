@@ -3,6 +3,7 @@
 namespace Portal\AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Portal\AppBundle\Entity\Event;
 
 /**
  * EventRepository
@@ -75,5 +76,5 @@ class EventRepository extends EntityRepository
     
         return $tagWeights;
     }
-    
+
 }

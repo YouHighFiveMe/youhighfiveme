@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityManager,
     Portal\AppBundle\Entity\Event,
     Portal\UserBundle\Entity\User;
 
-class EventService
+class HighfiveService
 {
     /**
      * @var EntityManager
@@ -16,7 +16,7 @@ class EventService
     protected $em;
 
     /**
-     * @var EventRepository
+     * @var HighfiveRepository
      */
     protected $repository;
 
@@ -40,7 +40,7 @@ class EventService
     /**
      * @return array
      */
-    public function getEvents()
+    public function getHighfives()
     {
         return $this->repository->findAll();
     }
@@ -48,51 +48,37 @@ class EventService
     /**
      * @return array
      */
-    public function getLatestPublicEvents($limit = null)
+    public function getLatestHighfivesForPublicEvents($limit = null)
     {
-        return $this->repository->getLatestPublicEvents($limit);
+        return $this->repository->getLatestHighfivesForPublicEvents($limit);
     }
 
     /**
      * @param  int $id
      * @return Event
      */
-    public function getEventById($id)
+    public function getHighfiveById($id)
     {
         return $this->repository->find($id);
     }
 
     /**
-     * @return array
+     * Check to see if a user already has given a high five for an event
+     *
+     * @param \Portal\AppBundle\Entity\Event $event
+     * @param \Portal\UserBundle\Entity\User $user
+     * @return bool
      */
-    public function getEventsForCurrentUser()
+    public function hasUserSubmittedHighfiveForEvent(Event $event, User $user)
     {
-        return $this->repository->findAllForUser($this->security->getToken()->getUser());
-    }
+        $result = $this->repository->findBy(
+            array(
+                'user'  => $user,
+                'event' => $event
+            )
+        );
 
-    /**
-     * @return boolean
-     */
-    public function isCurrentUserCreatorOfEvent(Event $event)
-    {
-        return $event->getUser() == $this->security->getToken()->getUser();
-    }
-
-    /**
-     * @param  Event $event
-     * @param  User  $user
-     * @return Event
-     */
-    public function saveEvent(Event $event, User $user = null)
-    {
-        if (!$user) {
-            $user = $this->security->getToken()->getUser();
-        }
-        $event->setUser($user);
-        $this->em->persist($event);
-        $this->em->flush();
-
-        return $event;
+        return sizeOf($result) > 0 ? true : false;
     }
 
 }
