@@ -52,10 +52,6 @@ then run the following commands:
 
     $ app/console doctrine:database:create
 
-    $ app/console doctrine:schema:create
-
-You should now have a working application environment.
-
 #Database migrations
 
 This app comes bundled with Doctrine Migrations bundle, which simplifies the
@@ -65,10 +61,10 @@ production environment.
 Migrations bundle checks the structure of your entities and does it's magic
 based on that information.
 
-You should create migration script after you are done with adding/dropping or
-renaming tables, table columns or constraints.
+After you have created the database as stated in previous section, you need to create schema into
+the database. Since we are using Doctrine migrations, we use the console tool to create the schema.
 
-    $ app/console doctrine:migrations:diff
+    $ app/console doctrine:migrations:migrate
 
 New migration scripts appear when you pull new code from Github. To see if there
 are any new migrations available, you need to check the status.
@@ -91,13 +87,9 @@ database with dummy data and three users, run the fixtures command:
 
 NOTE: This will erase all data and create new dummy data. However, this process
 will not recreate the structure of the database. If you wish to update schema before
-you run fixtures, use following routine:
+you run fixtures, always run the Doctrine migrations tool.
 
-    $ app/console doctrine:schema:drop --force
-
-    $ app/console doctrine:schema:create
-
-Loading fixtures as described earler, three user account are created: dev1, dev2 and dev3.
+Loading fixtures as described earlier, three user account are created: dev1, dev2 and dev3.
 Passwords for these users are the same as the usernames respectively.
 
 #Architecture
