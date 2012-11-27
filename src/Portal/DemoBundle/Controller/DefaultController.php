@@ -8,7 +8,7 @@ class DefaultController extends BaseController
     public function indexAction()
     {
         $service    = $this->getCatService();
-        $form       = $service->getCatForm(new CatModel() );
+        $form       = $service->getCatForm(new CatModel());
 
         return $this->render('PortalDemoBundle:Default:index.html.twig', array(
             'form' => $form->createView(),
@@ -17,24 +17,19 @@ class DefaultController extends BaseController
 
     public function createAction()
     {
-        $self       = $this;
         $service    = $this->getCatService();
         $form       = $service->getCatForm(new CatModel() );
 
-        return $this->processForm($form, function($form) use($self, $service) {
+        if (!$this->mediateForm($form)) {
+            return $this->render('PortalDemoBundle:Default:index.html.twig', array(
+                           'form' => $form->createView(),
+            ));
+        }
 
-                $pats = $service->patCatByForm($form);
+        $pats = $service->patCatByForm($form);
+        $this->get('session')->setFlash('pats', $pats);
 
-                $self->get('session')->setFlash('pats', $pats);
-
-                return $self->createSuccessRedirectResponse('PortalDemoBundle_demo_meoow');
-            },
-            function($form) use($self) {
-                return $self->render('PortalDemoBundle:Default:index.html.twig', array(
-                    'form' => $form->createView(),
-                ));
-            }
-        );
+        return $this->redirect($this->generateUrl('PortalDemoBundle_demo_meoow'));
     }
 
     public function meoowAction()
