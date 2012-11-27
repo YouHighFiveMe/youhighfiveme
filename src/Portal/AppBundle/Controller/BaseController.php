@@ -3,6 +3,7 @@
 namespace Portal\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
 
 /**
  * Base controller.
@@ -11,6 +12,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  */
 class BaseController extends Controller
 {
+    /**
+     * @param Form $form
+     * @return boolean
+     */
+    public function processForm(Form $form)
+    {
+        $form->bind($this->getRequest());
+        return $form->isValid();
+     }
+
     /**
      * Return current user's entity or null if not logged in
      *

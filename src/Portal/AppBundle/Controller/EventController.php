@@ -14,6 +14,21 @@ use Portal\AppBundle\Form\HighfiveType;
 class EventController extends BaseController
 {
     /**
+     * Render a new event form
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function newAction()
+    {
+        $event = new Event();
+        $form = $this->createForm(new EventType(), $event);
+
+        return $this->render('PortalAppBundle:Event:create.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
+
+    /**
      * Create new event
      *
      * This function handles the new event's form data and creates new event
@@ -22,30 +37,19 @@ class EventController extends BaseController
      */
     public function createAction()
     {
-        $request = $this->getRequest();
-        $event = new Event();
-        $form = $this->createForm(new EventType(), $event);
-        $user = $this->getCurrentUser();
-        
-        if ($request->getMethod() == 'POST') {
-            $form->bind($request);
-            if ($form->isValid()) {
-                $em = $this->getDoctrine()
-                        ->getManager();
-                
-                $event->setUser($user);
-                $em->persist($event);
-                $em->flush();
+        $event   = new Event();
+        $form    = $this->createForm(new EventType(), $event);
+        $user    = $this->getCurrentUser();
+        $service = $this->getEventService();
 
-                // Redirect - This is important to prevent users re-posting
-                // the form if they refresh the page
-                return $this->redirect($this->generateUrl('PortalAppBundle_homepage'));
-            }
+        if (!$this->processForm($form)) {
+            return $this->render('PortalAppBundle:Event:create.html.twig', array(
+                'form' => $form->createView()
+            ));
         }
 
-        return $this->render('PortalAppBundle:Event:create.html.twig', array(
-            'form' => $form->createView()
-        ));
+        $service->saveEvent($event, $user);
+        return $this->redirect($this->generateUrl('PortalAppBundle_homepage'));
     }
 
     /**
@@ -56,15 +60,18 @@ class EventController extends BaseController
      */
     public function viewAction($eventId)
     {
-        $request  = $this->getRequest();
         $highfive = new Highfive();
-        $eventService = $this->getEventService();
+
+        $eventService    = $this->getEventService();
         $highfiveService = $this->getHighfiveService();
-        $event = $eventService->getEventById($eventId);
-        $user = $this->getCurrentUser();
-        $form = $this->createForm(new HighfiveType(), $highfive);
+
+        $request  = $this->getRequest();
+        $form     = $this->createForm(new HighfiveType(), $highfive);
+        $user     = $this->getCurrentUser();
+        $event    = $eventService->getEventById($eventId);
+
         $submitted = false;
-        $showForm = true;
+        $showForm  = true;
 
         if ($user) {
             if ($highfiveService->hasUserSubmittedHighfiveForEvent($event, $user)) {

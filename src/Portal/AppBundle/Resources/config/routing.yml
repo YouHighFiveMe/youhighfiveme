@@ -16,6 +16,10 @@ PortalAppBundle_contact:
     requirements:
         _method:  GET|POST
 
+PortalAppBundle_event_new:
+    pattern:  /event/new
+    defaults: { _controller: PortalAppBundle:Event:new }
+
 PortalAppBundle_event_create:
     pattern:  /event/create
     defaults: { _controller: PortalAppBundle:Event:create }

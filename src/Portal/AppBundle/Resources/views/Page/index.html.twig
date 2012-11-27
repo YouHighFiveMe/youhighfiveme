@@ -26,7 +26,7 @@
         <h2 class="p3"><span class="color-1">Your</span> options</h2>
             <ul class="list-1">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <li><a href="{{ path('PortalAppBundle_event_create') }}">New event</a></li>
+                    <li><a href="{{ path('PortalAppBundle_event_new') }}">New event</a></li>
                     <li><a href="#">Your friends</a></li>
                     <li><a href="#">Latest for you</a></li>
                     <li><a href="#">Latest from you</a></li>
