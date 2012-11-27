@@ -30,8 +30,8 @@ class User extends BaseUser
     protected $name;
     
     /**
-     * @ORM\Column(type="string", length=120)
-     * 
+     * @ORM\Column(type="string", length=120, nullable=true)
+     *
      * @Assert\MaxLength(limit="150", message="The gravatar email is too long.", groups={"Registration", "Profile"})
      */
     protected $gravatar;
