@@ -150,3 +150,7 @@ article.event div {float: left;}
 article.event div.author {margin-right: 15px;}
 article.event div.data {width: 450px;}
 article.event div.data p img {width: 20px; margin-right: 5px;}
+
+.addThis {
+    margin-top: 35px;
+}
