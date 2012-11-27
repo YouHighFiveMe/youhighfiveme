@@ -6,7 +6,9 @@ use Doctrine\ORM\EntityManager,
     Doctrine\ORM\EntityRepository,
     Symfony\Component\Security\Core\SecurityContext,
     Portal\AppBundle\Entity\Event,
+    Portal\AppBundle\Entity\Highfive,
     Portal\UserBundle\Entity\User;
+
 
 class HighfiveService
 {
@@ -79,6 +81,27 @@ class HighfiveService
         );
 
         return sizeOf($result) > 0 ? true : false;
+    }
+
+    /**
+     * @param  Highfive $highfive
+     * @param  Event $event
+     * @param  User  $user
+     * @return Event
+     */
+    public function saveHighfive(Highfive $highfive, Event $event, User $user = null)
+    {
+        if (!$user) {
+            $user = $this->security->getToken()->getUser();
+        }
+
+        $highfive->setUser($user);
+        $highfive->setEvent($event);
+
+        $this->em->persist($highfive);
+        $this->em->flush();
+
+        return $highfive;
     }
 
 }

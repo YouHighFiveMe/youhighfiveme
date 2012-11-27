@@ -82,17 +82,11 @@ class EventController extends BaseController
             $showForm = false;
         }
 
-        if ($request->getMethod() == 'POST' && !$submitted) {
-            $form->bind($request);
-            if ($form->isValid()) {
-                $em = $this->getDoctrine()
-                    ->getManager();
-
-                $highfive->setUser($user);
-                $highfive->setEvent($event);
-
-                $em->persist($highfive);
-                $em->flush();
+        if ($request->getMethod() == 'POST' && !$submitted && $showForm) {
+            if (!$this->processForm($form)) {
+                $showForm = true;
+            } else {
+                $highfiveService->saveHighfive($highfive, $event, $user);
                 $showForm = false;
             }
         }

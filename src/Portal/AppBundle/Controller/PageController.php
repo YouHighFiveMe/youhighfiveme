@@ -13,7 +13,6 @@ class PageController extends BaseController
         $service = $this->getEventService();
         $maxAmount = $this->container->getParameter('portal_app.comments.max_latest_events');
 
-
         $events = $service->getLatestPublicEvents($maxAmount);
 
         return $this->render('PortalAppBundle:Page:index.html.twig', array(
