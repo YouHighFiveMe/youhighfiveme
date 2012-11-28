@@ -28,7 +28,7 @@
                     </h2>
 
                     <div id="create-highfive" class="p1">
-                        <form id="form" action="{{ path('PortalAppBundle_event_view', { 'eventId': event.id, 'slug': event.slug }) }}" method="post" {{ form_enctype(form) }} class="blogger">
+                        <form id="form" action="{{ path('PortalAppBundle_event_view', { 'eventId': event.shortUrl }) }}" method="post" {{ form_enctype(form) }} class="blogger">
                             {{ form_widget(form) }}
                             <div class="btns">
                                 <input class="button" type="submit" value="Submit">

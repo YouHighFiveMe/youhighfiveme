@@ -54,12 +54,16 @@ class EventService
     }
 
     /**
-     * @param  int $id
+     * @param  string $id
      * @return Event
      */
     public function getEventById($id)
     {
-        return $this->repository->find($id);
+        return $this->repository->findOneBy(
+            array(
+                'shortUrl' => $id
+            )
+        );
     }
 
     /**

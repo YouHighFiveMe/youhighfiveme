@@ -70,6 +70,10 @@ class EventController extends BaseController
         $user     = $this->getCurrentUser();
         $event    = $eventService->getEventById($eventId);
 
+        if (!$event) {
+            return $this->render('PortalAppBundle:Event:notfound.html.twig', array());
+        }
+
         $submitted = false;
         $showForm  = true;
 

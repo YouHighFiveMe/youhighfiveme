@@ -25,5 +25,5 @@ PortalAppBundle_event_create:
     defaults: { _controller: PortalAppBundle:Event:create }
 
 PortalAppBundle_event_view:
-    pattern:  /event/{eventId}/{slug}
+    pattern:  /event/{eventId}
     defaults: { _controller: PortalAppBundle:Event:view }
