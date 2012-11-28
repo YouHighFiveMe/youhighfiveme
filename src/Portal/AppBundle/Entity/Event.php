@@ -18,7 +18,12 @@ class Event
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $shortUrl;
+
     /**
      * @ORM\Column(type="string")
      */
@@ -69,7 +74,8 @@ class Event
     public function __construct()
     {
         $this->highfives = new ArrayCollection();
-        
+
+        $this->shortUrl = base_convert(microtime(true), 10, 36);
         $this->setCreated(new \DateTime());
         $this->setUpdated(new \DateTime());
         $this->setIsPublic(true);
@@ -97,6 +103,12 @@ class Event
         return $this->getTitle();
     }
 
+    /**
+     * Generate slugified version of given string
+     *
+     * @param $text
+     * @return mixed|string
+     */
     public function slugify($text)
     {
         // replace non letter or digits by -
@@ -124,7 +136,15 @@ class Event
 
         return $text;
     }
-    
+
+    /**
+     * Create short URL
+     */
+    public function createShortUrl()
+    {
+        $this->shortUrl = base_convert(microtime(true), 10, 36);
+    }
+
     /**
      * Get id
      *
@@ -133,6 +153,16 @@ class Event
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get event's short URL
+     *
+     * @return string
+     */
+    public function getShortUrl()
+    {
+        return $this->shortUrl;
     }
 
     /**

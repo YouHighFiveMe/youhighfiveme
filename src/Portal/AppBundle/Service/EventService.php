@@ -88,6 +88,7 @@ class EventService
         if (!$user) {
             $user = $this->security->getToken()->getUser();
         }
+
         $event->setUser($user);
         $this->em->persist($event);
         $this->em->flush();

@@ -38,7 +38,7 @@ class BaseController extends Controller
     /**
      * @return EventService
      */
-    protected function getEventService()
+    public function getEventService()
     {
         return $this->container->get('portal_app.service.event');
     }
@@ -46,7 +46,7 @@ class BaseController extends Controller
     /**
      * @return HighfiveService
      */
-    protected function getHighfiveService()
+    public function getHighfiveService()
     {
         return $this->container->get('portal_app.service.highfive');
     }
