@@ -50,6 +50,12 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $event->setUser($user);
         $this->assertEquals('Morgan Freeman', $event->getUser()->getName());
     }
+
+    public function testEventsShortUrlAutomaticallySet()
+    {
+        $event = new Event();
+        $this->assertNotNull($event->getShortUrl());
+    }
     
     private function createTestUser()
     {
