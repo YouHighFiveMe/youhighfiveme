@@ -48,8 +48,19 @@ class EventController extends BaseController
             ));
         }
 
+        $eventUrl = $this->container->get('router')
+            ->generate('PortalAppBundle_event_view', array('eventId' => $event->getShortUrl()), true);
+
         $service->saveEvent($event, $user);
-        return $this->redirect($this->generateUrl('PortalAppBundle_homepage'));
+
+        if ($event->getIsPublic()) {
+            return $this->redirect($this->generateUrl('PortalAppBundle_homepage'));
+        } else {
+            return $this->render('PortalAppBundle:Event:unlisted-info.html.twig', array(
+                'event'    => $event,
+                'eventUrl' => $eventUrl
+            ));
+        }
     }
 
     /**

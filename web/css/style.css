@@ -151,6 +151,14 @@ article.event div.author {margin-right: 15px;}
 article.event div.data {width: 450px;}
 article.event div.data p img {width: 20px; margin-right: 5px;}
 
-.addThis {
-    margin-top: 35px;
+.addThis {margin-top: 35px;}
+
+a.event-url {
+    color: #292929;
+    font: 18px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+a.event-url:hover {
+    color:#01a5ca;}
 }
