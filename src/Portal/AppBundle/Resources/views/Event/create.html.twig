@@ -8,6 +8,14 @@
             <span class="color-1">Create</span> new event
         </h2>
 
+        {% if gravatar == false %}
+        <p>
+            It seems like your profile does not include Gravatar account's email address. With <a target="BLANK" href="http://www.gravatar.com">Gravatar</a>, you can link an email with your
+            profile image so that it is same across different services. If you enable your Gravatar email, your event
+            will have your custome image on the listings.
+        </p>
+        {% endif %}
+
         {% include 'PortalAppBundle:Event:form.html.twig' with { 'form': form } %}
 
     </div>

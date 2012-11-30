@@ -21,10 +21,17 @@ class EventController extends BaseController
     public function newAction()
     {
         $event = new Event();
+        $user  = $this->getCurrentUser();
         $form = $this->createForm(new EventType(), $event);
 
+        $gravatarGiven = true;
+        if ($user->getGravatar() == null) {
+            $gravatarGiven = false;
+        }
+
         return $this->render('PortalAppBundle:Event:create.html.twig', array(
-            'form' => $form->createView()
+            'form'     => $form->createView(),
+            'gravatar' => $gravatarGiven
         ));
     }
 
@@ -41,6 +48,10 @@ class EventController extends BaseController
         $form    = $this->createForm(new EventType(), $event);
         $user    = $this->getCurrentUser();
         $service = $this->getEventService();
+
+        if ($this->getRequest()->getMethod() != 'POST') {
+            return $this->redirect($this->generateUrl('PortalAppBundle_event_new'));
+        }
 
         if (!$this->processForm($form)) {
             return $this->render('PortalAppBundle:Event:create.html.twig', array(
