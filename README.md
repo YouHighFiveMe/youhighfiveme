@@ -30,6 +30,11 @@ Copy the distribution file for the parameters to your local file:
 
 Modify the parameters.yml to reflect your database connections and smtp settings.
 
+Prepare cache and logs folder permissions by running (double check your apache user on the first one):
+
+    $ sudo chmod -Rf +a "daemon allow delete,write,append,file_inherit,directory_inherit" app/cache app/logs
+    $ sudo chmod -Rf +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" app/cache app/logs
+
 If you don't have Composer yet, download it following the instructions on
 http://getcomposer.org/ or just run the following command:
 
