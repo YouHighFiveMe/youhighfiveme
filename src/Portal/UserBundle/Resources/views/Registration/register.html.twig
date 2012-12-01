@@ -1,26 +1,21 @@
 {% extends '::base.html.twig' %}
 
-{% block body %}
-<div class="wrap block-2">
-    <div class="col-1">
+{% block content %}
+    <h2 class="p3">
+        <span class="color-1">Register</span> an account
+    </h2>
 
-        <h2 class="p3">
-            <span class="color-1">Register</span> an account
-        </h2>
+    {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock content %}
 
-        {% include "FOSUserBundle:Registration:register_content.html.twig" %}
-
+{% block sidenav %}
+    <h2 class="p3"><span class="color-1">Right</span> column</h2>
+    <ul class="list-1">
+        <li><a href="#">Link to something</a></li>
+        <li><a href="#">Link to something</a></li>
+    </ul>
+    <div class="form-search">
+        <h2><span class="color-1 editable">Some </span>text</h2>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
     </div>
-    <div class="col-2">
-        <h2 class="p3"><span class="color-1">Right</span> column</h2>
-            <ul class="list-1">
-                <li><a href="#">Link to something</a></li>
-                <li><a href="#">Link to something</a></li>
-            </ul>
-            <div class="form-search">
-                <h2><span class="color-1 editable">Some </span>text</h2>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </div>
-    </div>
-</div>
-{% endblock body %}
+{% endblock sidenav %}

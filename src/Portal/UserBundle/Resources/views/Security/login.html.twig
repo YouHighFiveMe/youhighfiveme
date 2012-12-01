@@ -1,43 +1,39 @@
 {% extends '::base.html.twig' %}
 
-{% block body %}
-<div class="wrap block-2">
-    <div class="col-1">
+{% block content %}
+    <h2 class="p3">
+        <span class="color-1">Login</span> form
+    </h2>
 
-        <h2 class="p3">
-            <span class="color-1">Login</span> form
-        </h2>
+    {% if error %}
+        <div class="form-error">{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
 
-        {% if error %}
-            <div class="form-error">{{ error|trans({}, 'FOSUserBundle') }}</div>
-        {% endif %}
+    <form action="{{ path("fos_user_security_check") }}" method="post" id="form" class="blogger">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
-        <form action="{{ path("fos_user_security_check") }}" method="post" id="form" class="blogger">
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-            <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+        <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+        <input type="password" id="password" name="_password" required="required" />
 
-            <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-            <input type="password" id="password" name="_password" required="required" />
+        <br/>
+        <input type="checkbox" class="remember_me_checkbox" id="remember_me" name="_remember_me" value="on" />{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
 
-            <br/>
-            <input type="checkbox" class="remember_me_checkbox" id="remember_me" name="_remember_me" value="on" />{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+        <div class="btns">
+            <input class="button" type="submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
+        </div>
+    </form>
+{% endblock content %}
 
-            <div class="btns">
-                <input class="button" type="submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}">
-            </div>
-        </form>
+{% block sidenav %}
+    <h2 class="p3"><span class="color-1">Right</span> column</h2>
+    <ul class="list-1">
+        <li><a href="#">Link to something</a></li>
+        <li><a href="#">Link to something</a></li>
+    </ul>
+    <div class="form-search">
+        <h2><span class="color-1 editable">Some </span>text</h2>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
     </div>
-    <div class="col-2">
-        <h2 class="p3"><span class="color-1">Right</span> column</h2>
-            <ul class="list-1">
-                <li><a href="#">Link to something</a></li>
-                <li><a href="#">Link to something</a></li>
-            </ul>
-            <div class="form-search">
-                <h2><span class="color-1 editable">Some </span>text</h2>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </div>
-    </div>
-</div>
-{% endblock body %}
+{% endblock sidenav %}

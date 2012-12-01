@@ -1,60 +1,54 @@
 {% extends '::base.html.twig' %}
 
-{% block body %}
-<div class="wrap block-2">
-    <div class="col-1">
+{% block content %}
+    <h2 class="p8">
+        <span class="color-1">About</span> YouHighFiveMe
+    </h2>
 
-        <h2 class="p8">
-            <span class="color-1">About</span> YouHighFiveMe
-        </h2>
+    <article>
+        <p class="p5">
+            YouHighFiveMe is a web application which allows people to create their profile and let other people
+            give them credit, or high fives, for their events such as community help, conference talks
+            or any other type of activity they do.
+        </p>
+        <p class="p5">
+            Over time, user's will get their asset page generated with lot's of references from people.
+            This can be viewed as less formal referral list than on curriculum vitae, but it can be added
+            as a personal asset.
+        </p>
+        <p class="p5">
+            Note to contributors: YouHighFiveMe is built on Symfony framework and committed to generating
+            unit tested code. We are looking for more people to join the project and help us by contributing
+            as as much as possible, be it code pull requests, fixing issues with usability or CSS styling, or
+            whatever comes along. The project's code, issue list and wiki is hosted on Github.
+        </p>
+        <p class="p5">
+            <strong>Links:</strong>
+            <ul class="list-1 p7">
+                <li><a href="https://github.com/YouHighFiveMe/youhighfiveme">Project's Github repository</a></li>
+                <li><a href="https://github.com/YouHighFiveMe/youhighfiveme/issues/milestones">Current issue list</a></li>
+            </ul>
+        </p>
+        <p>
+            <strong>Current status:</strong> In Development, not released yet.
+        </p>
+    </article>
+{% endblock content %}
 
-        <article>
-            <p class="p5">
-                YouHighFiveMe is a web application which allows people to create their profile and let other people 
-                give them credit, or high fives, for their events such as community help, conference talks 
-                or any other type of activity they do.
-            </p>
-            <p class="p5">
-                Over time, user's will get their asset page generated with lot's of references from people.
-                This can be viewed as less formal referral list than on curriculum vitae, but it can be added
-                as a personal asset.
-            </p>
-            <p class="p5">
-                Note to contributors: YouHighFiveMe is built on Symfony framework and committed to generating 
-                unit tested code. We are looking for more people to join the project and help us by contributing 
-                as as much as possible, be it code pull requests, fixing issues with usability or CSS styling, or
-                whatever comes along. The project's code, issue list and wiki is hosted on Github.
-            </p>
-            <p class="p5">
-                <strong>Links:</strong>
-                <ul class="list-1 p7">
-                    <li><a href="https://github.com/YouHighFiveMe/youhighfiveme">Project's Github repository</a></li>
-                    <li><a href="https://github.com/YouHighFiveMe/youhighfiveme/issues/milestones">Current issue list</a></li>
-                </ul>
-            </p>
-            <p>
-                <strong>Current status:</strong> In Development, not released yet.
-            </p>
-        </article>
+{% block sidenav %}
+    <h2 class="p3"><span class="color-1">Want to</span> contribute?</h2>
 
-    </div>
-    <div class="col-2">
-        <h2 class="p3"><span class="color-1">Want to</span> contribute?</h2>
-           
-                <p class="p5">
-                    Have great ideas for this site? Would like to pitch in and do your share of 
-                    work to make YouHighFiveMe even better? If so, why don't you join us 
-                    and contribute to the project?
-                </p>
-                <p class="p5">
-                    YouHighFiveMe is an open source project hosted on Github. You are free to
-                    fork this project and send us a pull request. We'd like to hear from you, so
-                    stop by our IRC channel #youhighfive.me on freenode.net server and say hello.
-                </p>
-                <ul class="list-1">
-                    <li><a href="https://github.com/YouHighFiveMe/youhighfiveme">Fork me on Github</a></li>
-                </ul>
-           
-    </div>
-</div>
-{% endblock body %}
+    <p class="p5">
+        Have great ideas for this site? Would like to pitch in and do your share of
+        work to make YouHighFiveMe even better? If so, why don't you join us
+        and contribute to the project?
+    </p>
+    <p class="p5">
+        YouHighFiveMe is an open source project hosted on Github. You are free to
+        fork this project and send us a pull request. We'd like to hear from you, so
+        stop by our IRC channel #youhighfive.me on freenode.net server and say hello.
+    </p>
+    <ul class="list-1">
+        <li><a href="https://github.com/YouHighFiveMe/youhighfiveme">Fork me on Github</a></li>
+    </ul>
+{% endblock sidenav %}

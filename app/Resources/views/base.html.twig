@@ -76,7 +76,14 @@
         <div class="container_12">
           <div class="grid_12 top-1">
              <div class="box-shadow">
-                 {% block body %}{% endblock %}
+                 <div class="wrap block-2">
+                     <div class="col-1">
+                         {% block content %}{% endblock %}
+                     </div>
+                     <div class="col-2">
+                         {% block sidenav %}{% endblock %}
+                     </div>
+                 </div>
             </div>
           </div>
           <div class="clear"></div>
