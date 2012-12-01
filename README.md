@@ -118,7 +118,7 @@ To run a test, go to your project's folder and run following command:
 You can catch us on IRC as this is the channel where most of the talk about development
 and other things related to YouHighFiveMe reside at.
 
-Channel: #youhighfive.me @ freenode.org
+Channel: #youhighfive.me @ irc.freenode.net
 
 #Contributing
 
