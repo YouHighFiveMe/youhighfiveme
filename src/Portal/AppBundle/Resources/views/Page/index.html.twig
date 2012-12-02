@@ -19,6 +19,24 @@
     {% else %}
         <p class="p2"><strong>No events found...</strong></p>
     {% endfor %}
+
+    <h2 class="p10"><span class="color-1">Latest</span> high fives</h2>
+    {% for highfive in highfives %}
+        <article class="event">
+            <div class="author">
+                <img src="{{ gravatar(highfive.user.getGravatar()) }}"/>
+            </div>
+            <div class="data">
+                <header>
+                    <h3><a href="{{ path('PortalAppBundle_event_view', { 'eventId': highfive.event.shortUrl }) }}">{{ highfive.event.title }}</a></h3>
+                    {{ highfive.created|date('M d, Y') }} by <a href="#">{{ highfive.user.getName() }}</a>
+                </header>
+                <p class="description">{{ highfive.comment }}</p>
+            </div>
+        </article>
+    {% else %}
+        <p class="p2"><strong>No high fives found...</strong></p>
+    {% endfor %}
 {% endblock content %}
 
 {% block sidenav %}
@@ -34,7 +52,7 @@
         <li><a href="#">Browse users</a></li>
     </ul>
     <div class="form-search">
-        <h2><span class="color-1 editable">Find </span>user</h2>
+        <h2><span class="color-1 editable">Find </span>a user</h2>
         <form id="form-search" method="post">
             <input type="text" value="Enter username" onBlur="if(this.value=='') this.value='Enter username'" onFocus="if(this.value =='Enter username' ) this.value=''"  />
             <a href="#" onClick="document.getElementById('form-search').submit()" class="search_button">Search</a>
@@ -42,7 +60,7 @@
     </div>
 
     <div class="form-search">
-        <h2><span class="color-1 editable">Find </span>event</h2>
+        <h2><span class="color-1 editable">Find </span>an event</h2>
         <form id="form-search" method="post">
             <input type="text" value="Enter event" onBlur="if(this.value=='') this.value='Enter event'" onFocus="if(this.value =='Enter event' ) this.value=''"  />
             <a href="#" onClick="document.getElementById('form-search').submit()" class="search_button">Search</a>

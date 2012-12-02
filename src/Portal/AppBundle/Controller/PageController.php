@@ -10,13 +10,20 @@ class PageController extends BaseController
 {
     public function indexAction()
     {
-        $service = $this->getEventService();
-        $maxAmount = $this->container->getParameter('portal_app.comments.max_latest_events');
+        $user  = $this->getCurrentUser();
+        $highfives = array();
 
-        $events = $service->getLatestPublicEvents($maxAmount);
+        $eventService = $this->getEventService();
+        $maxEventAmount = $this->container->getParameter('portal_app.comments.max_latest_events');
+        $events = $eventService->getLatestPublicEvents($maxEventAmount);
+
+        $highfiveService = $this->getHighfiveService();
+        $maxHighfivesAmount = $this->container->getParameter('portal_app.comments.max_latest_highfives');
+        $highfives = $highfiveService->getLatestHighfivesforPublicEvents($maxHighfivesAmount);
 
         return $this->render('PortalAppBundle:Page:index.html.twig', array(
-            'events' => $events
+            'events'    => $events,
+            'highfives' => $highfives
         ));
     }
     

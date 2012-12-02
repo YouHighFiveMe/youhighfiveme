@@ -1,5 +1,10 @@
 parameters:
+
     # Contact email address
     portal_app.emails.contact_email: info@arturgajewski.com
+
     # Max latest events
     portal_app.comments.max_latest_events: 5
+
+    # Max latest highfives
+    portal_app.comments.max_latest_highfives: 5

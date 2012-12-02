@@ -50,6 +50,13 @@ class HighfiveService
     /**
      * @return array
      */
+
+    /**
+     * Get all latest highfives for given user
+     *
+     * @param null $limit
+     * @return mixed
+     */
     public function getLatestHighfivesForPublicEvents($limit = null)
     {
         return $this->repository->getLatestHighfivesForPublicEvents($limit);
