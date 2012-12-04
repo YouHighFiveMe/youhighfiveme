@@ -1,6 +1,10 @@
+set :stage_dir, 'app/config/deploy'
+require 'capistrano/ext/multistage'
+
+set :stages, %w(production testing)
+
 set :application, "YouHighFiveMe"
 set :domain,      "youhighfive.me"
-set :deploy_to,   "/home/agajewsk/www/youhighfiveme.test"
 set :app_path,    "app"
 
 set :user,        "agajewsk"
