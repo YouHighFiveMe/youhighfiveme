@@ -22,6 +22,8 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
 require_once __DIR__.'/../app/AppKernel.php';
 
+umask(0000); // This will let the permissions be 0777
+
 $kernel = new AppKernel('dev', true);
 $kernel->loadClassCache();
 $request = Request::createFromGlobals();

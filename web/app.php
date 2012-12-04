@@ -15,6 +15,8 @@ $loader->register(true);
 require_once __DIR__.'/../app/AppKernel.php';
 //require_once __DIR__.'/../app/AppCache.php';
 
+umask(0000); // This will let the permissions be 0777
+
 $kernel = new AppKernel('prod', false);
 $kernel->loadClassCache();
 //$kernel = new AppCache($kernel);
