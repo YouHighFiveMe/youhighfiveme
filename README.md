@@ -13,7 +13,7 @@ as a personal asset.
 
 #Staging environment
 
-The staging environment is located at http://www.youhighfive.me/test/web/app.php and builds are
+The staging environment is located at http://test.youhighfive.me and builds are
 created whenever new changes are merged.
 
 #Installation
