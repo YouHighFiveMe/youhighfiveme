@@ -18,9 +18,9 @@ created whenever new changes are merged.
 
 #Installation
 
-Clone this project into your development environment.
+Fork the project into your Github account and then clone it into your development environment.
 
-    $ git clone git@github.com:YouHighFiveMe/youhighfiveme.git
+    $ git clone git@github.com:YOUR_GIT_ACCOUNT_NAME/youhighfiveme.git
 
 Now go to your newly created directory.
 
