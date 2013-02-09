@@ -30,4 +30,4 @@ PortalAppBundle_event_view:
 
 PortalAppBundle_highfives_for_me:
     pattern:  /for/me
-    defaults: { _controller: PortalAppBundle:Page:highFivesForMe }
+    defaults: { _controller: PortalAppBundle:Page:highFivesForYou }
