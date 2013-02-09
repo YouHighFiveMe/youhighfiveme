@@ -91,6 +91,8 @@ class HighfiveService
     }
 
     /**
+     * Save high five
+     *
      * @param  Highfive $highfive
      * @param  Event $event
      * @param  User  $user
@@ -109,6 +111,16 @@ class HighfiveService
         $this->em->flush();
 
         return $highfive;
+    }
+
+    /**
+     * Get all high fives for current user
+     *
+     * @return array
+     */
+    public function getHighfivesForUser($user)
+    {
+        return $this->repository->findAllForUser($user);
     }
 
 }
