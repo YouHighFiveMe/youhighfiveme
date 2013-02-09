@@ -28,6 +28,6 @@ PortalAppBundle_event_view:
     pattern:  /event/{eventId}
     defaults: { _controller: PortalAppBundle:Event:view }
 
-PortalAppBundle_highfives_for_you:
-    pattern:  /for/me
+PortalAppBundle_highfives_received:
+    pattern:  /received
     defaults: { _controller: PortalAppBundle:Page:highFivesForYou }
