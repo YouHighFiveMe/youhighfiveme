@@ -5,6 +5,7 @@ set :stages, %w(production testing)
 
 set :application, "YouHighFiveMe"
 set :domain,      "youhighfive.me"
+set :port,        51510
 set :app_path,    "app"
 
 set :user,        "agajewsk"
