@@ -45,7 +45,7 @@
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <li><a href="{{ path('PortalAppBundle_event_new') }}">New event</a></li>
             <li><a href="#">Your friends</a></li>
-            <li><a href="{{ path('PortalAppBundle_highfives_for_me') }}">Latest for you</a></li>
+            <li><a href="{{ path('PortalAppBundle_highfives_for_you') }}">Latest for you</a></li>
         {% endif %}
         <li><a href="#">Browse events</a></li>
         <li><a href="#">Browse users</a></li>
