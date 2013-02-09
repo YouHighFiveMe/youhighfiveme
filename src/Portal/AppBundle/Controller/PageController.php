@@ -27,7 +27,7 @@ class PageController extends BaseController
         ));
     }
 
-    public function highFivesForYouAction()
+    public function highFivesReceivedAction()
     {
         $user  = $this->getCurrentUser();
         $highfives = array();

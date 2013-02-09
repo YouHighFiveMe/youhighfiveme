@@ -30,4 +30,4 @@ PortalAppBundle_event_view:
 
 PortalAppBundle_highfives_received:
     pattern:  /received
-    defaults: { _controller: PortalAppBundle:Page:highFivesForYou }
+    defaults: { _controller: PortalAppBundle:Page:highFivesReceived }
