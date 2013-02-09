@@ -26,6 +26,19 @@ class PageController extends BaseController
             'highfives' => $highfives
         ));
     }
+
+    public function highFivesReceivedAction()
+    {
+        $user  = $this->getCurrentUser();
+        $highfives = array();
+
+        $highfiveService = $this->getHighfiveService();
+        $highfives = $highfiveService->getHighfivesForUser($user);
+
+        return $this->render('PortalAppBundle:Page:latestForYou.html.twig', array(
+            'highfives' => $highfives
+        ));
+    }
     
     public function aboutAction()
     {
