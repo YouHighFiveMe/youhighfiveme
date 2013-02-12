@@ -51,7 +51,12 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
         - { path: ^/admin/, roles: ROLE_SUPER_ADMIN }
+
+        - { path: ^/profile$, role: ROLE_USER }
+
         - { path: ^/event/new$, role: ROLE_USER }
         - { path: ^/event/create$, role: ROLE_USER }
-        - { path: ^/profile$, role: ROLE_USER }
+
+        - { path: ^/for/me, role: ROLE_USER }

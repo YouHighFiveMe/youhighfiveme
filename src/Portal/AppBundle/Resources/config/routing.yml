@@ -27,3 +27,7 @@ PortalAppBundle_event_create:
 PortalAppBundle_event_view:
     pattern:  /event/{eventId}
     defaults: { _controller: PortalAppBundle:Event:view }
+
+PortalAppBundle_highfives_received:
+    pattern:  /received
+    defaults: { _controller: PortalAppBundle:Page:highFivesReceived }

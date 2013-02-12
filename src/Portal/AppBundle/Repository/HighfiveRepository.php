@@ -28,4 +28,17 @@ class HighfiveRepository extends EntityRepository
         return $qb->getQuery()
             ->getResult();
     }
+
+    public function findAllForUser($user)
+    {
+        $qb = $this->createQueryBuilder('b')
+            ->select('b, c')
+            ->leftJoin('b.event', 'c')
+            ->addOrderBy('b.created', 'DESC')
+            ->andWhere('c.user = ?1')
+            ->setParameter('1', $user);
+
+        return $qb->getQuery()
+            ->getResult();
+    }
 }

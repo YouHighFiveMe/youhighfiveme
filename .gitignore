@@ -1,11 +1,10 @@
-vendor
 .gitignore
-app/config/parameters.yml
 .DS_Store
 .idea
-app/cache/*
-app/logs/*
+
 composer.lock
+vendor/*
+
 nbproject/
 src/.DS_Store
 src/Portal/.DS_Store
@@ -13,4 +12,8 @@ src/Portal/AppBundle/.DS_Store
 src/Portal/AppBundle/Resources/.DS_Store
 web/.DS_Store
 web/bundles/
-.idea
+app/cache/*
+app/bootstrap.php.cache
+app/logs/*
+app/DoctrineMigrations/*
+app/config/parameters.yml

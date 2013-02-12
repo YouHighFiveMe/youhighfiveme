@@ -1,0 +1,30 @@
+{% extends 'PortalAppBundle::layout.html.twig' %}
+
+{% block content %}
+    <h2 class="p10"><span class="color-1">Latest</span> high fives <span class="color-1">for you</span></h2>
+    {% for highfive in highfives %}
+        <article class="event">
+            <div class="author">
+                <img src="{{ gravatar(highfive.user.getGravatar()) }}"/>
+            </div>
+            <div class="data">
+                <header>
+                    <h3><a href="{{ path('PortalAppBundle_event_view', { 'eventId': highfive.event.shortUrl }) }}">{{ highfive.event.title }}</a></h3>
+                    {{ highfive.created|date('M d, Y') }} by <a href="#">{{ highfive.user.getName() }}</a>
+                </header>
+                <p class="description">{{ highfive.comment }}</p>
+            </div>
+        </article>
+    {% else %}
+        <p class="p2"><strong>No high fives found...</strong></p>
+    {% endfor %}
+{% endblock content %}
+
+{% block sidenav %}
+    <h2 class="p3"><span class="color-1">Latest</span> events</h2>
+
+    <p class="p5">
+        @TODO: implement latest event listing here
+    </p>
+{% endblock sidenav %}
+
