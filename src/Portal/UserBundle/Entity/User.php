@@ -5,6 +5,7 @@ namespace Portal\UserBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -40,12 +41,39 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Portal\AppBundle\Entity\Event", mappedBy="user")
      */
     protected $comments;
+
+    /** @ORM\Column(name="facebook_id", type="string", length=255, nullable=true) */
+    protected $facebook_id;
+
+    /** @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true) */
+    protected $facebook_access_token;
+
+    /** @ORM\Column(name="google_id", type="string", length=255, nullable=true) */
+    protected $google_id;
+
+    /** @ORM\Column(name="google_access_token", type="string", length=255, nullable=true) */
+    protected $google_access_token;
     
     public function __construct()
     {
         parent::__construct();
     }
-    
+    public function setFacebookId($facebook_id)
+    {
+        $this->facebook_id = $facebook_id;
+    }
+    public function getFacebookId()
+    {
+        return $this->facebook_id;
+    }
+    public function setFacebookAccessToken($facebookAccessToken)
+    {
+        $this->facebook_access_token = $facebookAccessToken;
+    }
+    public function getFaceBookAccessToken()
+    {
+        return $this->facebook_access_token;
+    }
     public function getName()
     {
         return $this->name;
