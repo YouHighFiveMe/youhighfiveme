@@ -1,0 +1,17 @@
+body { font: 16px Helvetica, Sans-Serif; padding: 10px;}
+
+h1 { border-bottom: 1px solid #000; } 
+h2 { font-size: 14px; margin: 0 0 6px 0; position: relative; }
+h2 span { margin-right: 5px; position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 14px; color: #000; font-weight: normal; }
+dt { font-size: 20px; margin: 0 0 6px 0; margin-top: 20px; margin-bottom: 20px; position: relative;}
+.nopagebreak { spage-break-before:auto}
+ul { margin-bottom: 20px; }
+#pic { width: 150px; float: right; border: 1px solid #000;}
+a { color: #000; text-decoration: none; }
+#top { margin-bottom: 40px; }
+#noprint { display: none; }
+#introduction p { font-family: Georgia, Serif; font-style: italic; }
+#note { color: #666; margin-top: 15px; margin-bottom: 30px; font-style: italic; font-weight: normal; font-size: 14px; }
+
+.firstp {padding-top: 25px;}
+

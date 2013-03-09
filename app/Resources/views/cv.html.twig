@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}YouHighFiveMe{% endblock %}</title>
+    <meta charset="utf-8">
+    {% block stylesheets %}
+        <!-- Styles -->
+        <link href="{{ asset('css/cv/styles.css') }}" media="screen" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/cv/print.css') }}" media="print" rel="stylesheet" type="text/css" >
+    {% endblock %}
+</head>
+
+<body>
+<div id="container"">
+<div id="top">
+    <img src="{{ gravatar('artur.gajewski@soprano.fi') }}" alt="Profile Photo" id="pic" />
+    <div id="contact-info">
+        <h1>Artur Gajewski</h1>
+        <p>
+            Email: <a class="email" href="mailto:info@arturgajewski.com">info@arturgajewski.com</a>
+        </p>
+    </div>
+</div>
+
+<div class="clear"></div>
+<div id="cv">
+    <dl>
+        {% block content %}{% endblock %}
+    </dl>
+</div>
+<div class="clear"></div>
+</div>
+
+</body>
+
+</html>
