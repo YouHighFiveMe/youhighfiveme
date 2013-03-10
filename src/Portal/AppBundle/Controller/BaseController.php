@@ -36,6 +36,19 @@ class BaseController extends Controller
     }
 
     /**
+     * Return given user's entity or null if not logged in
+     *
+     * @return null|App/UserBundle/Entity/User
+     */
+    public function getUserByUsername($username) {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if ($user === 'anon.') {
+            return null;
+        }
+        return $user;
+    }
+
+    /**
      * @return EventService
      */
     public function getEventService()
@@ -49,6 +62,14 @@ class BaseController extends Controller
     public function getHighfiveService()
     {
         return $this->container->get('portal_app.service.highfive');
+    }
+
+    /**
+     * @return UserService
+     */
+    public function getUserService()
+    {
+        return $this->container->get('portal_app.service.user');
     }
 
 }

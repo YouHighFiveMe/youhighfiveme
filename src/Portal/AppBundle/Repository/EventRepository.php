@@ -4,6 +4,7 @@ namespace Portal\AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Portal\AppBundle\Entity\Event;
+use Portal\UserBundle\Entity\User;
 
 /**
  * EventRepository
@@ -28,7 +29,20 @@ class EventRepository extends EntityRepository
         return $qb->getQuery()
                   ->getResult();
     }
-    
+
+    public function findAllForUser($user)
+    {
+        $qb = $this->createQueryBuilder('b')
+            ->select('b, c')
+            ->leftJoin('b.highfives', 'c')
+            ->addOrderBy('b.created', 'DESC')
+            ->andWhere('c.user = ?1')
+            ->setParameter('1', $user);
+
+        return $qb->getQuery()
+            ->getResult();
+    }
+
     public function getTags()
     {
         $entryTags = $this->createQueryBuilder('b')

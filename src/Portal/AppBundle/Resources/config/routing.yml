@@ -31,3 +31,11 @@ PortalAppBundle_event_view:
 PortalAppBundle_highfives_received:
     pattern:  /received
     defaults: { _controller: PortalAppBundle:Page:highFivesReceived }
+
+PortalAppBundle_cv:
+    pattern:  /cv
+    defaults: { _controller: PortalAppBundle:Cv:view }
+
+PortalAppBundle_cv_user:
+    pattern:  /cv/{username}
+    defaults: { _controller: PortalAppBundle:Cv:user }

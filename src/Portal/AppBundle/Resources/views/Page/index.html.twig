@@ -40,16 +40,14 @@
 {% endblock content %}
 
 {% block sidenav %}
-    <h2 class="p3"><span class="color-1">Your</span> options</h2>
-    <ul class="list-1">
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <h2 class="p3"><span class="color-1">Your</span> options</h2>
+        <ul class="list-1">
             <li><a href="{{ path('PortalAppBundle_event_new') }}">New event</a></li>
-            <li><a href="#">Your friends</a></li>
             <li><a href="{{ path('PortalAppBundle_highfives_received') }}">Latest for you</a></li>
-        {% endif %}
-        <li><a href="#">Browse events</a></li>
-        <li><a href="#">Browse users</a></li>
-    </ul>
+            <li><a target="_BLANK" href="{{ path('PortalAppBundle_cv') }}">Your records</a></li>
+        </ul>
+    {% endif %}
     <div class="form-search">
         <h2><span class="color-1 editable">Find </span>a user</h2>
         <form id="form-search" method="post">
@@ -67,6 +65,7 @@
     </div>
 
     <div class="addThis">
+        <h2 class="p3"><span class="color-1">Share</span> with friends</h2>
         <!-- AddThis Button BEGIN -->
         <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
             <a class="addthis_button_facebook at300b" original-title="Facebook" href="#">
