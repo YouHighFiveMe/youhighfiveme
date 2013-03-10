@@ -12,7 +12,12 @@ class EventType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('isPublic', null, array('label' => 'Anyone can see this event', 'required' => false))
+            ->add('isPublic', null,
+                array(
+                    'attr' => array('class' => 'checkbox-field'),
+                    'label' => 'Anyone can see this event',
+                    'required' => false)
+                )
             ->add('tags');
         ;
     }

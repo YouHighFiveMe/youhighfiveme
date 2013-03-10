@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}YouHighFiveMe{% endblock %}</title>
+    <meta charset="utf-8">
+    {% block stylesheets %}
+        <!-- Styles -->
+        <link href="{{ asset('css/cv/styles.css') }}" media="screen" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/cv/print.css') }}" media="print" rel="stylesheet" type="text/css" >
+    {% endblock %}
+</head>
+
+<body>
+<div id="container"">
+
+<div id="cv-logo">
+    <a href="{{ path('PortalAppBundle_homepage') }}"><img class="logo" src="{{ asset('images/logo.png') }}"/></a>
+</div>
+
+<div id="top">
+    <img src="{{ gravatar(user.getEmail()) }}" alt="Profile Photo" id="pic" />
+    <div id="contact-info">
+        <h1>{{ user.getName() }}</h1>
+        <p>
+            <a class="email" href="mailto:{{ user.getEmail() }}">{{ user.getEmail() }}</a>
+        </p>
+    </div>
+</div>
+
+<div class="clear"></div>
+<div id="cv">
+    <dl>
+        {% block content %}{% endblock %}
+    </dl>
+</div>
+<div class="clear"></div>
+</div>
+
+</body>
+
+</html>
