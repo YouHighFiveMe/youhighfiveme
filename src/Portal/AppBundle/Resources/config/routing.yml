@@ -28,6 +28,10 @@ PortalAppBundle_event_view:
     pattern:  /event/{eventId}
     defaults: { _controller: PortalAppBundle:Event:view }
 
+PortalAppBundle_event_search:
+    pattern:  /search/event
+    defaults: { _controller: PortalAppBundle:Event:search }
+
 PortalAppBundle_highfives_received:
     pattern:  /received
     defaults: { _controller: PortalAppBundle:Page:highFivesReceived }

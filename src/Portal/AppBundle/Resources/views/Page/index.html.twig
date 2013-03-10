@@ -48,19 +48,22 @@
             <li><a target="_BLANK" href="{{ path('PortalAppBundle_cv') }}">Your records</a></li>
         </ul>
     {% endif %}
+
+    <!-- functinality not implemented yet
     <div class="form-search">
         <h2><span class="color-1 editable">Find </span>a user</h2>
-        <form id="form-search" method="post">
-            <input type="text" value="Enter username" onBlur="if(this.value=='') this.value='Enter username'" onFocus="if(this.value =='Enter username' ) this.value=''"  />
-            <a href="#" onClick="document.getElementById('form-search').submit()" class="search_button">Search</a>
+        <form id="form-user-search" method="post">
+            <input id="search-user-keyword" type="text" value="Enter username" onBlur="if(this.value=='') this.value='Enter username'" onFocus="if(this.value =='Enter username' ) this.value=''"  />
+            <a id="user-search-submit" href="#" onClick="document.getElementById('form-search').submit()" class="search_button">Search</a>
         </form>
     </div>
+    -->
 
     <div class="form-search">
         <h2><span class="color-1 editable">Find </span>an event</h2>
-        <form id="form-search" method="post">
-            <input type="text" value="Enter event" onBlur="if(this.value=='') this.value='Enter event'" onFocus="if(this.value =='Enter event' ) this.value=''"  />
-            <a href="#" onClick="document.getElementById('form-search').submit()" class="search_button">Search</a>
+        <form id="form-event-search" method="post">
+            <input id="search-event-keyword" name="searchWord" type="text" value="Enter event" onBlur="if(this.value=='') this.value='Enter event'" onFocus="if(this.value =='Enter event' ) this.value=''"  />
+            <a id="event-search-submit" href="#" onClick="document.getElementById('form-search').submit()" class="search_button">Search</a>
         </form>
     </div>
 
