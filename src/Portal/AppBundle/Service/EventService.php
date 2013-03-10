@@ -48,6 +48,14 @@ class EventService
     /**
      * @return array
      */
+    public function findAllBySearchWord($searchWord)
+    {
+        return $this->repository->findAllBySearchWord($searchWord);
+    }
+
+    /**
+     * @return array
+     */
     public function getLatestPublicEvents($limit = null)
     {
         return $this->repository->getLatestPublicEvents($limit);
