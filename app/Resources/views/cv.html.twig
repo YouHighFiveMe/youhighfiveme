@@ -12,6 +12,11 @@
 
 <body>
 <div id="container"">
+
+<div id="cv-logo">
+    <a href="{{ path('PortalAppBundle_homepage') }}"><img class="logo" src="{{ asset('images/logo.png') }}"/></a>
+</div>
+
 <div id="top">
     <img src="{{ gravatar(user.getEmail()) }}" alt="Profile Photo" id="pic" />
     <div id="contact-info">

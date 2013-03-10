@@ -1,5 +1,8 @@
 body { font: 16px Helvetica, Sans-Serif; padding: 10px;}
 
+#cv-logo { margin-bottom: 50px; }
+img.logo { width: 350px; }
+
 h1 { border-bottom: 1px solid #000; } 
 h2 { font-size: 14px; margin: 0 0 6px 0; position: relative; }
 h2 span { margin-right: 5px; position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 14px; color: #000; font-weight: normal; }
