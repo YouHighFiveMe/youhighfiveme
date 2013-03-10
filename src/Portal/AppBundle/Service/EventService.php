@@ -75,6 +75,14 @@ class EventService
     }
 
     /**
+     * @return array
+     */
+    public function getEventsForUser($user)
+    {
+        return $this->repository->findAllForUser($user);
+    }
+
+    /**
      * @return boolean
      */
     public function isCurrentUserCreatorOfEvent(Event $event)

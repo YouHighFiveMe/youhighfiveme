@@ -13,11 +13,11 @@
 <body>
 <div id="container"">
 <div id="top">
-    <img src="{{ gravatar('artur.gajewski@soprano.fi') }}" alt="Profile Photo" id="pic" />
+    <img src="{{ gravatar(user.getEmail()) }}" alt="Profile Photo" id="pic" />
     <div id="contact-info">
-        <h1>Artur Gajewski</h1>
+        <h1>{{ user.getName() }}</h1>
         <p>
-            Email: <a class="email" href="mailto:info@arturgajewski.com">info@arturgajewski.com</a>
+            <a class="email" href="mailto:{{ user.getEmail() }}">{{ user.getEmail() }}</a>
         </p>
     </div>
 </div>

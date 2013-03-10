@@ -35,3 +35,7 @@ PortalAppBundle_highfives_received:
 PortalAppBundle_cv:
     pattern:  /cv
     defaults: { _controller: PortalAppBundle:Cv:view }
+
+PortalAppBundle_cv_user:
+    pattern:  /cv/{username}
+    defaults: { _controller: PortalAppBundle:Cv:user }

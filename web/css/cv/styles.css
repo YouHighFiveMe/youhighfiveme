@@ -1,5 +1,5 @@
 * { margin: 0; padding: 0; }
-body { font: 16px Helvetica, Sans-Serif; line-height: 24px; margin: 0px, padding: 0px; background: url(../../images/drop-shadow.png); background-position:center; background-repeat:repeat-y; }
+body { font: 16px Helvetica, Sans-Serif; line-height: 24px; margin: 0px, padding: 0px; background-position:center; background-repeat:repeat-y; }
 .clear { clear: both; }
 #container { width: 800px; margin: 40px auto 60px;}
 #pic { float: right; margin: -30px 0 0 0; margin-bottom: 20px; border: 1px solid #000;}
@@ -13,9 +13,13 @@ a:hover { color: #000; text-decoration: underline;}
 ul { margin: 0 0 17px; }
 #introduction { width: 500px; float: left; }
 #introduction p { font-family: Georgia, Serif; font-style: italic; color: #000; }
-dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 36px 0 0; width: 110px; float: left; height: 100px; border-right: 1px dashed #000;  }
+dt { font-style: italic; font-weight: bold; font-size: 22px; text-align: right; padding: 0 36px 0 0; width: 110px; float: left; height: 100px; border-right: 1px dashed #000;}
 dd { width: 630px; float: right; }
 dd.clear { float: none; margin: 0; height: 15px; }
 dd#notes { display: none; }
 #note { color: #666; margin-top: 15px; font-style: italic; font-weight: normal; font-size: 14px; }
 .fullw {width: 150%}
+
+.highfive { width: 600px; }
+.highfive-author { width: 150px; float: left;}
+.highfive-info { width: 450px; float: right;}
