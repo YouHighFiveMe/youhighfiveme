@@ -43,6 +43,17 @@ class EventRepository extends EntityRepository
             ->getResult();
     }
 
+    public function findAllBySearchWord($searchWord)
+    {
+        $qb = $this->createQueryBuilder('e');
+
+        return $qb->select('e')
+            ->where($qb->expr()->like('e.title', $qb->expr()->literal('%' . $searchWord . '%')))
+            ->andWhere('e.isPublic = 1')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function getTags()
     {
         $entryTags = $this->createQueryBuilder('b')

@@ -17,6 +17,8 @@ class PageController extends BaseController
         $maxEventAmount = $this->container->getParameter('portal_app.comments.max_latest_events');
         $events = $eventService->getLatestPublicEvents($maxEventAmount);
 
+        //$events       = $eventService->findAllBySearchWord('Second');
+
         $highfiveService = $this->getHighfiveService();
         $maxHighfivesAmount = $this->container->getParameter('portal_app.comments.max_latest_highfives');
         $highfives = $highfiveService->getLatestHighfivesforPublicEvents($maxHighfivesAmount);
@@ -74,7 +76,7 @@ class PageController extends BaseController
             'form' => $form->createView()
         ));
     }
-    
+
     public function sidebarAction()
     {
         $em = $this->getDoctrine()
@@ -96,5 +98,7 @@ class PageController extends BaseController
             'tags'              => $tagWeights
         ));
     }
+
+
 
 }

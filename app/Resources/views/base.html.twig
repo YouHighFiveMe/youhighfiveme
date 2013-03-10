@@ -11,7 +11,26 @@
         <link href="{{ asset('css/slider.css') }}" media="screen" rel="stylesheet" type="text/css" >
         <link href="{{ asset('css/favicon.ico') }}" rel="shortcut icon" type="image/vnd.microsoft.icon" >    
         <!-- Scripts -->
-        <script type="text/javascript" src="{{ asset('js/jquery-1.7.min.js') }}"></script>    
+        <script type="text/javascript" src="{{ asset('js/jquery-1.7.min.js') }}"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#event-search-submit').click(function(e) {
+                    e.preventDefault();
+                    if ($('#search-event-keyword').val() != "Enter event") {
+                        $("#content-block").html('<h2 class="p10"><span class="color-1">Please</span> wait...</h2>');
+                        $.post(
+                            "{{ path('PortalAppBundle_event_search') }}",
+                            $("#form-event-search").serialize(),
+                            function(response){
+                                $("#content-block").html(response);
+                            },
+                            "html"
+                        );
+                    }
+                });
+            });
+        </script>
     {% endblock %}
 
     <!--[if lt IE 8]>
@@ -78,7 +97,9 @@
              <div class="box-shadow">
                  <div class="wrap block-2">
                      <div class="col-1">
-                         {% block content %}{% endblock %}
+                         <div id="content-block">
+                            {% block content %}{% endblock %}
+                         </div>
                      </div>
                      <div class="col-2">
                          {% block sidenav %}{% endblock %}

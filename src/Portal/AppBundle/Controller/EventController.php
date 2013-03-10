@@ -124,4 +124,20 @@ class EventController extends BaseController
         ));
     }
 
+    /**
+     * Search for Events
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function searchAction()
+    {
+        $searchWord = $this->getRequest()->get('searchWord');
+        $eventService = $this->getEventService();
+        $events       = $eventService->findAllBySearchWord($searchWord);
+
+        return $this->render('PortalAppBundle:Event:searchResults.html.twig', array(
+            'events'    => $events,
+        ));
+    }
+
 }
