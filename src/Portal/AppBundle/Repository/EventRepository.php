@@ -49,6 +49,7 @@ class EventRepository extends EntityRepository
 
         return $qb->select('e')
             ->where($qb->expr()->like('e.title', $qb->expr()->literal('%' . $searchWord . '%')))
+            ->orWhere($qb->expr()->like('e.description', $qb->expr()->literal('%' . $searchWord . '%')))
             ->andWhere('e.isPublic = 1')
             ->getQuery()
             ->getResult();
