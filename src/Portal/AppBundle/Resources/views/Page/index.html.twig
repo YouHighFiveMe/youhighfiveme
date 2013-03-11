@@ -1,7 +1,7 @@
 {% extends 'PortalAppBundle::layout.html.twig' %}
 
 {% block content %}
-    <h2 class="p10"><span class="color-1">Latest</span> events</h2>
+    <h2 class="p10" xmlns="http://www.w3.org/1999/html"><span class="color-1">Latest</span> events</h2>
     {% for event in events %}
         <article class="event">
             <div class="author">
@@ -62,8 +62,8 @@
     <div class="form-search">
         <h2><span class="color-1 editable">Find </span>an event</h2>
         <form id="form-event-search" method="post">
-            <input id="search-event-keyword" name="searchWord" type="text" value="Enter event" onBlur="if(this.value=='') this.value='Enter event'" onFocus="if(this.value =='Enter event' ) this.value=''"  />
-            <a id="event-search-submit" href="#" onClick="document.getElementById('form-search').submit()" class="search_button">Search</a>
+            <input id="search-event-keyword" name="searchWord" type="text" />
+            <input id="event-search-submit" type="submit" class="search_button" value="Search">
         </form>
     </div>
 
