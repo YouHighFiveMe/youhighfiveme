@@ -10,6 +10,12 @@ services:
         tags:
             - { name: form.type, alias: portal_user_registration }
 
+    portal_user.profile.form.type:
+            class: Portal\UserBundle\Form\Type\ProfileFormType
+            arguments: [%fos_user.model.user.class%]
+            tags:
+                - { name: form.type, alias: portal_user_profile }
+
     portal_app.service.event:
         class:     Portal\AppBundle\Service\EventService
         arguments: ["@doctrine.orm.entity_manager", "@portal_app.repository.event", "@security.context"]
