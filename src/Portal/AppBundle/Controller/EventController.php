@@ -92,6 +92,8 @@ class EventController extends BaseController
         $user     = $this->getCurrentUser();
         $event    = $eventService->getEventById($eventId);
 
+        $latestEvents = $events = $eventService->getLatestPublicEvents(5);
+
         if (!$event) {
             return $this->render('PortalAppBundle:Event:notfound.html.twig', array());
         }
@@ -121,9 +123,10 @@ class EventController extends BaseController
         }
 
         return $this->render('PortalAppBundle:Event:view.html.twig', array(
-            'event'    => $event,
-            'form'     => $form->createView(),
-            'showForm' => $showForm
+            'event'        => $event,
+            'latestEvents' => $latestEvents,
+            'form'         => $form->createView(),
+            'showForm'     => $showForm
         ));
     }
 

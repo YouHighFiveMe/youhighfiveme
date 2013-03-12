@@ -159,6 +159,18 @@ article.event div.author {margin-right: 15px;min-width:120px;}
 article.event div.data {width: 450px;}
 article.event div.data p img {width: 20px; margin-right: 5px;}
 
+/**********************event small**********************/
+article.event-small {width: 220px;display: inline-block;margin-bottom: 10px; border-top: 1px solid #ddd; border-left: 1px solid #ddd; padding-left: 8px;}
+article.event-small h3 {font: 22px Arial, Helvetica, sans-serif;}
+article.event-small h3 a {color: #01A5CA;}
+article.event-small header {font-weight: bold;padding-bottom: 0px;}
+article.event-small header a {color: #01A5CA;}
+article.event-small p.count {color: #999;}
+article.event-small div {float: left;}
+article.event-small div.author {margin-right: 15px;min-width:120px;}
+article.event-small div.data {width: 220px;}
+article.event-small div.data p img {width: 20px; margin-right: 5px;}
+
 .addThis {margin-top: 35px;}
 
 a.event-url {
