@@ -24,7 +24,7 @@ class EventRepository extends EntityRepository
                    ->setParameter('1', '1');
     
         if (false === is_null($limit))
-            $qb->setMaxResults($limit);
+            $qb->setMaxResults($limit+1);
     
         return $qb->getQuery()
                   ->getResult();
