@@ -5,7 +5,7 @@
     {% for event in events %}
         <article class="event">
             <div class="author">
-                <a href="{{ path('PortalAppBundle_event_view', { 'eventId': event.shortUrl }) }}"><img src="{{ gravatar(event.user.getGravatar()) }}"/></a>
+                <a href="{{ path('PortalAppBundle_event_view', { 'eventId': event.shortUrl }) }}"><img src="{{ gravatar(event.user.getEmail()) }}"/></a>
             </div>
             <div class="data">
                 <header>
@@ -24,7 +24,7 @@
     {% for highfive in highfives %}
         <article class="event">
             <div class="author">
-                <img src="{{ gravatar(highfive.user.getGravatar()) }}"/>
+                <img src="{{ gravatar(highfive.user.getEmail()) }}"/>
             </div>
             <div class="data">
                 <header>

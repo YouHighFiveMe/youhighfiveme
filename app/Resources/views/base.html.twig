@@ -69,9 +69,7 @@
 
                 <li>
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <a href="#">
-                        Profile
-                    </a>
+                    <a href="{{ path('fos_user_profile_show') }}">Profile</a>
                 </li>
                 <li>
                     <a href="{{ path('fos_user_security_logout') }}">
@@ -132,6 +130,3 @@
 </script>
 
 </html>
-
-
-
