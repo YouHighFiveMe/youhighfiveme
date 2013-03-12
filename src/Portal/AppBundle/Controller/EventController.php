@@ -104,6 +104,9 @@ class EventController extends BaseController
                 $submitted = true;
                 $showForm = false;
             }
+            if ($event->getUser() === $user) {
+                $showForm = false;
+            }
         } else {
             $showForm = false;
         }
