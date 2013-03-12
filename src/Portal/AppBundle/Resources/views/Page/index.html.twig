@@ -1,7 +1,7 @@
 {% extends 'PortalAppBundle::layout.html.twig' %}
 
 {% block content %}
-    <h2 class="p10" xmlns="http://www.w3.org/1999/html"><span class="color-1">Latest</span> events</h2>
+    <h2 class="p8" xmlns="http://www.w3.org/1999/html"><span class="color-1">Latest</span> events</h2>
     {% for event in events %}
         <article class="event">
             <div class="author">
@@ -20,7 +20,9 @@
         <p class="p2"><strong>No events found...</strong></p>
     {% endfor %}
 
-    <h2 class="p10"><span class="color-1">Latest</span> high fives</h2>
+    <br/><br/>
+
+    <h2 class="p8"><span class="color-1">Latest</span> high fives</h2>
     {% for highfive in highfives %}
         <article class="event">
             <div class="author">

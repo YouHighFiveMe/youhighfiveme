@@ -1,10 +1,8 @@
 {% extends '::base.html.twig' %}
 
 {% block content %}
-    <h2 class="p8">
-        <span class="color-1">Event</span>
-        <br/>
-        {{ event.title }}
+    <h2 class="p3">
+        <span class="color-1">Event:</span> {{ event.title }}
     </h2>
 
     <article class="event">
@@ -42,7 +40,19 @@
         {% endfor %}
     {% endif %}
 
-    <h2 class="p8">
+    <h2 class="p3">
+        <span class="color-1">Promote</span> this event
+    </h2>
+    <strong>You can promote this event by sharing following address:</strong>
+
+    <ul class="promote">
+      <li>
+          <a href="http://www.youhighfive.me{{ path(app.request.attributes.get('_route'), { 'eventId': event.shortUrl }) }}">www.youhighfive.me{{ path(app.request.attributes.get('_route'), { 'eventId': event.shortUrl }) }}</a>
+      </li>
+    </ul>
+    <br/>
+
+    <h2 class="p3">
         <span class="color-1">High fives</span> received
     </h2>
 
