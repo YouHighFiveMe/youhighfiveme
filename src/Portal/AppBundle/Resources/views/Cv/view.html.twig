@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <table>
+    <table width="800">
         {% for event in events %}
         <tr>
             <td>
@@ -19,12 +19,14 @@
                             <td width="100" valign="top">
                                 <img src="{{ gravatar(highfive.user.getGravatar(), 75) }}"/>
                             </td>
-                            <td width="500" valign="top">
-                                <p>{{ highfive.user.getName() }} - {{ highfive.created|date('M d, Y') }}</p>
+                            <td width="500" valign="top" style="padding-top: 5px;">
+                                <p><strong>{{ highfive.user.getName() }} - {{ highfive.created|date('M d, Y') }}</strong></p>
                                 <p>{{ highfive.comment }}</p>
                             </td>
                         </tr>
                     </table>
+                {% else %}
+                    <p class="p1">No high fives received for this event.</p>
                 {% endfor %}
             </td>
         </tr>

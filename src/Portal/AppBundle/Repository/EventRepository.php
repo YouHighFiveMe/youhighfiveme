@@ -36,7 +36,7 @@ class EventRepository extends EntityRepository
             ->select('b, c')
             ->leftJoin('b.highfives', 'c')
             ->addOrderBy('b.created', 'DESC')
-            ->andWhere('c.user = ?1')
+            ->andWhere('b.user = ?1')
             ->setParameter('1', $user);
 
         return $qb->getQuery()
