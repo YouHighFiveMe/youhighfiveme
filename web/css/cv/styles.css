@@ -27,3 +27,7 @@ dd#notes { display: none; }
 .highfive { width: 600px; }
 .highfive-author { width: 150px; float: left;}
 .highfive-info { width: 450px; float: right;}
+
+.cv-entry-content {
+    padding-top: 5px;
+}

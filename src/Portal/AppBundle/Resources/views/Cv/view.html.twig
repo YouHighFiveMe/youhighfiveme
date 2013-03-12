@@ -12,22 +12,27 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td valign="top">
+                <table cellspacing="10" width="800">
                 {% for highfive in event.highfives %}
-                    <table>
                         <tr>
-                            <td width="100" valign="top">
-                                <img src="{{ gravatar(highfive.user.getEmail(), 75) }}"/>
+                            <td class="entry" width="85" valign="top">
+                                <img src="{{ gravatar(highfive.user.getEmail(), 85) }}"/>
                             </td>
-                            <td width="500" valign="top" style="padding-top: 5px;">
+                            <td class="entry" width="515" valign="top">
                                 <p><strong>{{ highfive.user.getName() }} - {{ highfive.created|date('M d, Y') }}</strong></p>
                                 <p>{{ highfive.comment }}</p>
                             </td>
                         </tr>
-                    </table>
+
                 {% else %}
-                    <p class="p1">No high fives received for this event.</p>
+                    <tr>
+                        <td width="100" valign="top">
+                            <p class="p1">No high fives received for this event.</p>
+                        </td>
+                    </tr>
                 {% endfor %}
+                </table>
             </td>
         </tr>
         <tr>
