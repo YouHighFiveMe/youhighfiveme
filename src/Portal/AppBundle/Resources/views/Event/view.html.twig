@@ -36,11 +36,10 @@
             </div>
         {% endif %}
 
-        {% if highfiveSaved %}
-            <div class="success">Your High Five has been sent, thank you!</div>
+        {% for flashMessage in app.session.flashbag.get('highfive.saved') %}
+            <div class="success">{{ flashMessage }}</div>
             <br/>
-        {% endif %}
-
+        {% endfor %}
     {% endif %}
 
     <h2 class="p8">

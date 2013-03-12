@@ -101,7 +101,6 @@ class EventController extends BaseController
 
         $submitted     = false;
         $showForm      = true;
-        $highfiveSaved = false;
 
         if ($user) {
             if ($highfiveService->hasUserSubmittedHighfiveForEvent($event, $user)) {
@@ -120,8 +119,12 @@ class EventController extends BaseController
                 $showForm = true;
             } else {
                 $highfiveService->saveHighfive($highfive, $event, $user);
-                $highfiveSaved = true;
-                $showForm = false;
+
+                $this->get('session')->getFlashBag()->add('highfive.saved', 'Your High Five has been sent, thank you!');
+
+                return $this->forward('PortalAppBundle:Event:view', array(
+                    'eventId' => $eventId,
+                ));
             }
         }
 
@@ -130,7 +133,6 @@ class EventController extends BaseController
             'latestEvents'  => $latestEvents,
             'form'          => $form->createView(),
             'showForm'      => $showForm,
-            'highfiveSaved' => $highfiveSaved,
         ));
     }
 
