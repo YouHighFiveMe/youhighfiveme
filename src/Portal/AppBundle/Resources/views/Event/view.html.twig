@@ -13,7 +13,7 @@
         </div>
         <div class="data">
             <header>
-                {{ event.created|date('M d, Y') }} by <a href="#">{{ event.user.getName() }}</a>
+                {{ event.created|date('M d, Y') }} by <a href="{{ path('PortalAppBundle_cv') }}/{{ event.user.getUserName() }}">{{ event.user.getName() }}</a>
             </header>
             <p class="description">{{ event.description }}</p>
             <p class="count"><img src="{{ asset('images/hand.gif') }}"/>{{ event.countHighfives }} high fives</p>
