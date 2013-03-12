@@ -47,7 +47,7 @@
 
     <ul class="promote">
       <li>
-          <a href="http://www.youhighfive.me{{ path(app.request.attributes.get('_route'), { 'eventId': event.shortUrl }) }}">www.youhighfive.me{{ path(app.request.attributes.get('_route'), { 'eventId': event.shortUrl }) }}</a>
+          <a href="{{ app.request.uri }}">{{ app.request.uri }}</a>
       </li>
     </ul>
     <br/>
