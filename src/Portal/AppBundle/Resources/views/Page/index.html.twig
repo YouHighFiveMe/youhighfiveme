@@ -10,7 +10,7 @@
             <div class="data">
                 <header>
                     <h3><a href="{{ path('PortalAppBundle_event_view', { 'eventId': event.shortUrl }) }}">{{ event.title }}</a></h3>
-                    {{ event.created|date('M d, Y') }} by <a href="#">{{ event.user.getName() }}</a>
+                    {{ event.created|date('M d, Y') }} by <a href="{{ path('PortalAppBundle_cv') }}/{{ event.user.getUserName() }}">{{ event.user.getName() }}</a>
                 </header>
                 <p class="description">{{ event.description|show_maxlen(65, '...') }}</p>
                 <p class="count"><img src="{{ asset('images/hand.gif') }}"/>{{ event.countHighfives }} high fives</p>
@@ -29,7 +29,7 @@
             <div class="data">
                 <header>
                     <h3><a href="{{ path('PortalAppBundle_event_view', { 'eventId': highfive.event.shortUrl }) }}">{{ highfive.event.title }}</a></h3>
-                    {{ highfive.created|date('M d, Y') }} by <a href="#">{{ highfive.user.getName() }}</a>
+                    {{ highfive.created|date('M d, Y') }} by <a href="{{ path('PortalAppBundle_cv') }}/{{ highfive.user.getUserName() }}">{{ highfive.user.getName() }}</a>
                 </header>
                 <p class="description">{{ highfive.comment }}</p>
             </div>
