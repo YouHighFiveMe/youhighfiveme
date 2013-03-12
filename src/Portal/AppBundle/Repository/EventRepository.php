@@ -17,15 +17,15 @@ class EventRepository extends EntityRepository
     public function getLatestPublicEvents($limit = null)
     {
         $qb = $this->createQueryBuilder('b')
-                   ->select('b, c')
-                   ->leftJoin('b.highfives', 'c')
+                   ->select('b')
                    ->addOrderBy('b.created', 'DESC')
                    ->andWhere('b.isPublic = ?1')
                    ->setParameter('1', '1');
     
-        if (false === is_null($limit))
-            $qb->setMaxResults($limit+1);
-    
+        if ($limit !== null) {
+            $qb->setMaxResults($limit);
+        }
+
         return $qb->getQuery()
                   ->getResult();
     }
@@ -33,8 +33,7 @@ class EventRepository extends EntityRepository
     public function findAllForUser($user)
     {
         $qb = $this->createQueryBuilder('b')
-            ->select('b, c')
-            ->leftJoin('b.highfives', 'c')
+            ->select('b')
             ->addOrderBy('b.created', 'DESC')
             ->andWhere('b.user = ?1')
             ->setParameter('1', $user);

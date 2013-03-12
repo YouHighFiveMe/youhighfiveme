@@ -93,11 +93,11 @@ class EventController extends BaseController
         $user     = $this->getCurrentUser();
         $event    = $eventService->getEventById($eventId);
 
-        $latestEvents = $events = $eventService->getLatestPublicEvents($this->container->getParameter('portal_app.comments.max_latest_events'));
-
         if (!$event) {
             return $this->render('PortalAppBundle:Event:notfound.html.twig', array());
         }
+
+        $latestEvents = $eventService->getLatestPublicEvents($this->container->getParameter('portal_app.comments.max_latest_events'));
 
         $submitted     = false;
         $showForm      = true;
