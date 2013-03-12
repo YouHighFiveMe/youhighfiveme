@@ -23,7 +23,7 @@ class HighfiveRepository extends EntityRepository
             ->setParameter('1', '1');
 
         if (false === is_null($limit))
-            $qb->setMaxResults($limit+1);
+            $qb->setMaxResults($limit);
 
         return $qb->getQuery()
             ->getResult();
