@@ -26,7 +26,8 @@ class EventController extends BaseController
 
         $gravatarGiven = true;
         if ($user->getGravatar() == null) {
-            $gravatarGiven = false;
+            // @TODO: Implement this feature
+            //$gravatarGiven = false;
         }
 
         return $this->render('PortalAppBundle:Event:create.html.twig', array(

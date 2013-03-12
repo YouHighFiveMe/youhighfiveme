@@ -156,7 +156,7 @@ article.event header {font-weight: bold;padding-bottom: 0px;}
 article.event header a {color: #01A5CA;}
 article.event p.count {color: #999;}
 article.event div {float: left;}
-article.event div.author {margin-right: 15px;min-width:120px;}
+article.event div.author {margin-right: 15px;min-width:80px;}
 article.event div.data {width: 450px;}
 article.event div.data p img {width: 20px; margin-right: 5px;}
 

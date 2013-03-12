@@ -2,7 +2,7 @@
 {% for event in events %}
     <article class="event">
         <div class="author">
-            <a href="{{ path('PortalAppBundle_event_view', { 'eventId': event.shortUrl }) }}"><img src="{{ gravatar(event.user.getGravatar()) }}"/></a>
+            <a href="{{ path('PortalAppBundle_event_view', { 'eventId': event.shortUrl }) }}"><img src="{{ gravatar(event.user.getEmail()) }}"/></a>
         </div>
         <div class="data">
             <header>

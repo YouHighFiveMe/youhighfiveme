@@ -2,7 +2,9 @@
 
 {% block content %}
     <h2 class="p8">
-        <span class="color-1">Event:</span> {{ event.title }}
+        <span class="color-1">Event</span>
+        <br/>
+        {{ event.title }}
     </h2>
 
     <article class="event">
@@ -42,11 +44,12 @@
     <div id="entries">
         {% for highfive in event.highfives|reverse %}
             <article class="event">
-                <div class="author">
-                    <strong>{{ highfive.user.getName() }}:</strong>
+                <div class="author icon-only">
+                    <img src="{{ gravatar(highfive.user.getEmail(), 75) }}"/>
                 </div>
                 <div class="data">
                     <p class="description">
+                        <p><strong>{{ highfive.user.getName() }}</strong></p>
                         <p>{{ highfive.getComment() }}</p>
                         <p><i>Sent on {{ highfive.getCreated()|date('M d, Y') }}</i></p>
                     </p>
