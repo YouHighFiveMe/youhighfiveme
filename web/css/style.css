@@ -183,3 +183,32 @@ a.event-url {
 a.event-url:hover {
     color:#01a5ca;}
     }
+
+.info {
+    border: 1px solid #00529B;
+    color: #00529B;
+    background-color: #BDE5F8;
+    padding: 3px;
+    padding-left: 10px;
+}
+.success {
+    border: 1px solid #4F8A10;
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    padding: 3px;
+    padding-left: 10px;
+}
+.warning {
+    border: 1px solid #9F6000;
+    color: #9F6000;
+    background-color: #FEEFB3;
+    padding: 3px;
+    padding-left: 10px;
+}
+.error {
+    border: 1px solid #D8000C;
+    color: #D8000C;
+    background-color: #FFBABA;
+    padding: 3px;
+    padding-left: 10px;
+}

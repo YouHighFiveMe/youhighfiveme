@@ -93,14 +93,15 @@ class EventController extends BaseController
         $user     = $this->getCurrentUser();
         $event    = $eventService->getEventById($eventId);
 
-        $latestEvents = $events = $eventService->getLatestPublicEvents(5);
+        $latestEvents = $events = $eventService->getLatestPublicEvents($this->container->getParameter('portal_app.comments.max_latest_events'));
 
         if (!$event) {
             return $this->render('PortalAppBundle:Event:notfound.html.twig', array());
         }
 
-        $submitted = false;
-        $showForm  = true;
+        $submitted     = false;
+        $showForm      = true;
+        $highfiveSaved = false;
 
         if ($user) {
             if ($highfiveService->hasUserSubmittedHighfiveForEvent($event, $user)) {
@@ -119,15 +120,17 @@ class EventController extends BaseController
                 $showForm = true;
             } else {
                 $highfiveService->saveHighfive($highfive, $event, $user);
+                $highfiveSaved = true;
                 $showForm = false;
             }
         }
 
         return $this->render('PortalAppBundle:Event:view.html.twig', array(
-            'event'        => $event,
-            'latestEvents' => $latestEvents,
-            'form'         => $form->createView(),
-            'showForm'     => $showForm
+            'event'         => $event,
+            'latestEvents'  => $latestEvents,
+            'form'          => $form->createView(),
+            'showForm'      => $showForm,
+            'highfiveSaved' => $highfiveSaved,
         ));
     }
 
