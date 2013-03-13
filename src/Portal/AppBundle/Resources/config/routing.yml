@@ -28,6 +28,10 @@ PortalAppBundle_event_view:
     pattern:  /event/{eventId}
     defaults: { _controller: PortalAppBundle:Event:view }
 
+PortalAppBundle_event_modify:
+    pattern:  /event/modify/{eventId}
+    defaults: { _controller: PortalAppBundle:Event:modify }
+
 PortalAppBundle_event_search:
     pattern:  /search/event
     defaults: { _controller: PortalAppBundle:Event:search }
