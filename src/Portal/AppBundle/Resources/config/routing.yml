@@ -36,6 +36,14 @@ PortalAppBundle_event_search:
     pattern:  /search/event
     defaults: { _controller: PortalAppBundle:Event:search }
 
+PortalAppBundle_all_events:
+    pattern:  /events
+    defaults: { _controller: PortalAppBundle:Event:showAll }
+
+PortalAppBundle_all_events_with_sorting:
+    pattern:  /events/{orderByType}/{orderType}
+    defaults: { _controller: PortalAppBundle:Event:showAll }
+
 PortalAppBundle_highfives_received:
     pattern:  /received
     defaults: { _controller: PortalAppBundle:Page:highFivesReceived }

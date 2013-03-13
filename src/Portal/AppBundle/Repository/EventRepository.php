@@ -30,6 +30,22 @@ class EventRepository extends EntityRepository
                   ->getResult();
     }
 
+    public function getAllPublicEvents($limit = null, $orderBy = 'b.title', $order = 'ASC')
+    {
+        $qb = $this->createQueryBuilder('b')
+            ->select('b')
+            ->addOrderBy($orderBy, $order)
+            ->andWhere('b.isPublic = ?1')
+            ->setParameter('1', '1');
+
+        if ($limit !== null) {
+            $qb->setMaxResults($limit);
+        }
+
+        return $qb->getQuery()
+            ->getResult();
+    }
+
     public function findAllForUser($user)
     {
         $qb = $this->createQueryBuilder('b')
