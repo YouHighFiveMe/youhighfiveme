@@ -62,6 +62,14 @@ class EventService
     }
 
     /**
+     * @return array
+     */
+    public function getAllPublicEvents($limit = null, $orderBy, $order)
+    {
+        return $this->repository->getAllPublicEvents($limit, $orderBy, $order);
+    }
+
+    /**
      * @param  string $id
      * @return Event
      */

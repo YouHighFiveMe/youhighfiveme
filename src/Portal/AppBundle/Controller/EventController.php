@@ -209,4 +209,31 @@ class EventController extends BaseController
         ));
     }
 
+    /**
+     * Show all events
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showAllAction($orderByType = 'b.title', $orderType = 'asc')
+    {
+        $orderBy = 'b.title';
+        if ($orderByType == 'created') {
+            $orderBy = 'b.created';
+        }
+
+        $order = 'asc';
+        if ($orderType == 'desc') {
+            $order = 'desc';
+        }
+
+        $limit = null;
+
+        $eventService = $this->getEventService();
+        $events = $eventService->getAllPublicEvents($limit, $orderBy, $order);
+
+        return $this->render('PortalAppBundle:Page:allEvents.html.twig', array(
+            'events'    => $events
+        ));
+    }
+
 }
