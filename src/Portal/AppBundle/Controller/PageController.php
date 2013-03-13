@@ -37,8 +37,12 @@ class PageController extends BaseController
         $highfiveService = $this->getHighfiveService();
         $highfives = $highfiveService->getHighfivesForUser($user);
 
+        $eventService = $this->getEventService();
+        $latestEvents = $eventService->getLatestPublicEvents($this->container->getParameter('portal_app.comments.max_latest_events'));
+
         return $this->render('PortalAppBundle:Page:latestForYou.html.twig', array(
-            'highfives' => $highfives
+            'highfives' => $highfives,
+            'latestEvents' => $latestEvents
         ));
     }
     
