@@ -24,10 +24,10 @@
 {% block sidenav %}
     <h2 class="p3"><span class="color-1">Sorting</span> options</h2>
     <ul class="list-1">
-        <li><a href="{{ path('PortalAppBundle_all_events') }}/title/asc">From A to Z</a></li>
-        <li><a href="{{ path('PortalAppBundle_all_events') }}/title/desc">From Z to A</a></li>
-        <li><a href="{{ path('PortalAppBundle_all_events') }}/created/asc">Latest first</a></li>
-        <li><a href="{{ path('PortalAppBundle_all_events') }}/created/desc">Oldest first</a></li>
+        <li><a href="{{ path('PortalAppBundle_all_events') }}/title/asc">Events A-Z</a></li>
+        <li><a href="{{ path('PortalAppBundle_all_events') }}/title/desc">Events Z-A</a></li>
+        <li><a href="{{ path('PortalAppBundle_all_events') }}/created/desc">Latest events</a></li>
+        <li><a href="{{ path('PortalAppBundle_all_events') }}/created/asc">Oldest events</a></li>
     </ul>
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
