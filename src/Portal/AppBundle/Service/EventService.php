@@ -116,4 +116,22 @@ class EventService
         return $event;
     }
 
+    /**
+     * @param  Event $event
+     * @param  User  $user
+     * @return Event
+     */
+    public function modifyEvent(Event $event, User $user = null)
+    {
+        if (!$user) {
+            $user = $this->security->getToken()->getUser();
+        }
+
+        $event->setUser($user);
+        $this->em->persist($event);
+        $this->em->flush();
+
+        return $event;
+    }
+
 }

@@ -2,18 +2,10 @@
 
 {% block content %}
     <h2 class="p3">
-        <span class="color-1">Create</span> new event
+        <span class="color-1">Modify</span> an event
     </h2>
 
-    {% if gravatar == false %}
-    <p>
-        It seems like your profile does not include Gravatar account's email address. With <a target="BLANK" href="http://www.gravatar.com">Gravatar</a>, you can link an email with your
-        profile image so that it is same across different services. If you enable your Gravatar email in your profile page, your events
-        will have your Gravatar icon on the listings.
-    </p>
-    {% endif %}
-
-    <form id="form" action="{{ path('PortalAppBundle_event_create') }}" method="post" {{ form_enctype(form) }} class="blogger">
+    <form id="form" action="{{ path('PortalAppBundle_event_modify', { 'eventId': event.shortUrl }) }}" method="post" {{ form_enctype(form) }} class="blogger">
         {{ form_widget(form) }}
         <div class="btns">
             <input class="button" type="submit" value="Submit">
