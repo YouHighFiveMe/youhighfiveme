@@ -38,6 +38,11 @@
             <div class="success">{{ flashMessage }}</div>
             <br/>
         {% endfor %}
+
+        {% for flashMessage in app.session.flashbag.get('event.saved') %}
+            <div class="success">{{ flashMessage }}</div>
+            <br/>
+        {% endfor %}
     {% endif %}
 
     <h2 class="p3">
@@ -77,6 +82,16 @@
 {% endblock content %}
 
 {% block sidenav %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {% if allowModify %}
+            <h2 class="p3"><span class="color-1">Your</span> options</h2>
+            <ul class="list-1">
+                <li><a href="{{ path('PortalAppBundle_event_modify', { 'eventId': event.shortUrl }) }}">Modify this event</a></li>
+            </ul>
+            <br/>
+        {% endif %}
+    {% endif %}
+
     <h2 class="p3"><span class="color-1">Latest</span> events</h2>
 
     <p class="p5">

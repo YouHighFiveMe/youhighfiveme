@@ -23,6 +23,9 @@ class EventController extends BaseController
         $event = new Event();
         $user  = $this->getCurrentUser();
         $form = $this->createForm(new EventType(), $event);
+        $service = $this->getEventService();
+
+        $latestEvents = $service->getLatestPublicEvents($this->container->getParameter('portal_app.comments.max_latest_events'));
 
         $gravatarGiven = true;
         if ($user->getGravatar() == null) {
@@ -32,7 +35,8 @@ class EventController extends BaseController
 
         return $this->render('PortalAppBundle:Event:create.html.twig', array(
             'form'     => $form->createView(),
-            'gravatar' => $gravatarGiven
+            'gravatar' => $gravatarGiven,
+            'latestEvents' => $latestEvents,
         ));
     }
 
@@ -50,13 +54,16 @@ class EventController extends BaseController
         $user    = $this->getCurrentUser();
         $service = $this->getEventService();
 
+        $latestEvents = $service->getLatestPublicEvents($this->container->getParameter('portal_app.comments.max_latest_events'));
+
         if ($this->getRequest()->getMethod() != 'POST') {
             return $this->redirect($this->generateUrl('PortalAppBundle_event_new'));
         }
 
         if (!$this->processForm($form)) {
             return $this->render('PortalAppBundle:Event:create.html.twig', array(
-                'form' => $form->createView()
+                'form' => $form->createView(),
+                'latestEvents' => $latestEvents,
             ));
         }
 
@@ -69,8 +76,9 @@ class EventController extends BaseController
             return $this->redirect($this->generateUrl('PortalAppBundle_homepage'));
         } else {
             return $this->render('PortalAppBundle:Event:unlisted-info.html.twig', array(
-                'event'    => $event,
-                'eventUrl' => $eventUrl
+                'event'        => $event,
+                'eventUrl'     => $eventUrl,
+                'latestEvents' => $latestEvents,
             ));
         }
     }
@@ -101,6 +109,7 @@ class EventController extends BaseController
 
         $submitted     = false;
         $showForm      = true;
+        $allowModify   = false;
 
         if ($user) {
             if ($highfiveService->hasUserSubmittedHighfiveForEvent($event, $user)) {
@@ -108,6 +117,7 @@ class EventController extends BaseController
                 $showForm = false;
             }
             if ($event->getUser() === $user) {
+                $allowModify = true;
                 $showForm = false;
             }
         } else {
@@ -133,6 +143,53 @@ class EventController extends BaseController
             'latestEvents'  => $latestEvents,
             'form'          => $form->createView(),
             'showForm'      => $showForm,
+            'allowModify'   => $allowModify,
+        ));
+    }
+
+    /**
+     * Modify Event
+     *
+     * @param $eventId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function modifyAction($eventId)
+    {
+        $eventService    = $this->getEventService();
+        $highfiveService = $this->getHighfiveService();
+
+        $event    = $eventService->getEventById($eventId);
+        $request  = $this->getRequest();
+        $user     = $this->getCurrentUser();
+
+        $latestEvents = $eventService->getLatestPublicEvents($this->container->getParameter('portal_app.comments.max_latest_events'));
+
+        if (!$event) {
+            return $this->render('PortalAppBundle:Event:notfound.html.twig', array('latestEvents' => $latestEvents));
+        }
+
+        if ($event->getUser() !== $user) {
+            return $this->render('PortalAppBundle:Event:noaccess.html.twig', array('latestEvents' => $latestEvents));
+        }
+
+        $form = $this->createForm(new EventType(), $event);
+
+        if ($request->getMethod() == 'POST') {
+            if ($this->processForm($form)) {
+                $eventService->saveEvent($event, $user);
+
+                $this->get('session')->getFlashBag()->add('event.saved', 'Your changes have been saved!');
+
+                return $this->redirect($this->generateUrl('PortalAppBundle_event_view', array(
+                    'eventId' => $eventId,
+                )));
+            }
+        }
+
+        return $this->render('PortalAppBundle:Event:modify.html.twig', array(
+            'event'         => $event,
+            'latestEvents'  => $latestEvents,
+            'form'          => $form->createView(),
         ));
     }
 
