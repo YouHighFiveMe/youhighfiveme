@@ -30,16 +30,16 @@
         <li><a href="{{ path('PortalAppBundle_all_events') }}/created/asc">Oldest events</a></li>
     </ul>
 
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <br/>
-        <h2 class="p3"><span class="color-1">Your</span> options</h2>
-        <ul class="list-1">
-            <li><a href="{{ path('PortalAppBundle_homepage') }}">Latest Events & High Fives</a></li>
-            <li><a href="{{ path('PortalAppBundle_event_new') }}">New event</a></li>
-            <li><a href="{{ path('PortalAppBundle_highfives_received') }}">Latest for you</a></li>
+    <br/>
+    <h2 class="p3"><span class="color-1">Your</span> options</h2>
+    <ul class="list-1">
+        <li><a href="{{ path('PortalAppBundle_homepage') }}">Latest Events & High Fives</a></li>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li><a href="{{ path('PortalAppBundle_event_new') }}">Create new event</a></li>
+            <li><a href="{{ path('PortalAppBundle_highfives_received') }}">Latest High Fives for you</a></li>
             <li><a href="{{ path('PortalAppBundle_cv') }}">Activity page</a></li>
-        </ul>
-    {% endif %}
+        {% endif %}
+    </ul>
 
     <!-- functinality not implemented yet
     <div class="form-search">
