@@ -43,3 +43,4 @@ task :upload_parameters do
 end
 
 after "deploy:setup", "upload_parameters"
+

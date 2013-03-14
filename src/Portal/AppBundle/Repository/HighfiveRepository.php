@@ -29,6 +29,23 @@ class HighfiveRepository extends EntityRepository
             ->getResult();
     }
 
+    public function getAllHighfivesForPublicEvents($limit = null, $order = 'ASC')
+    {
+        $qb = $this->createQueryBuilder('b')
+            ->select('b, c')
+            ->leftJoin('b.event', 'c')
+            ->addOrderBy('b.created', $order)
+            ->andWhere('c.isPublic = ?1')
+            ->setParameter('1', '1');
+
+        if ($limit !== null) {
+            $qb->setMaxResults($limit);
+        }
+
+        return $qb->getQuery()
+            ->getResult();
+    }
+
     public function findAllForUser($user)
     {
         $qb = $this->createQueryBuilder('b')

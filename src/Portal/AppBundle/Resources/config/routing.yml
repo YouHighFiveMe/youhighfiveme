@@ -48,6 +48,14 @@ PortalAppBundle_highfives_received:
     pattern:  /received
     defaults: { _controller: PortalAppBundle:Page:highFivesReceived }
 
+PortalAppBundle_all_highFives:
+    pattern:  /highfives
+    defaults: { _controller: PortalAppBundle:HighFive:showAll }
+
+PortalAppBundle_all_highFives_with_sorting:
+    pattern:  /highfives/{orderType}
+    defaults: { _controller: PortalAppBundle:HighFive:showAll }
+
 PortalAppBundle_cv:
     pattern:  /cv
     defaults: { _controller: PortalAppBundle:Cv:view }

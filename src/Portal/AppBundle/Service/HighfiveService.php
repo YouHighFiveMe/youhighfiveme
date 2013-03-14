@@ -63,6 +63,14 @@ class HighfiveService
     }
 
     /**
+     * @return array
+     */
+    public function getAllHighfivesforPublicEvents($limit = null, $order)
+    {
+        return $this->repository->getAllHighfivesforPublicEvents($limit, $order);
+    }
+
+    /**
      * @param  int $id
      * @return Event
      */
