@@ -217,3 +217,9 @@ a.event-url:hover {
     padding: 3px;
     padding-left: 10px;
 }
+
+.pre {
+    margin-left: 0px;
+    margin-right; 0px;
+    width: 100%;
+}

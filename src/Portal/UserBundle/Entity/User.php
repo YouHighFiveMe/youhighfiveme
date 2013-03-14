@@ -40,7 +40,13 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Portal\AppBundle\Entity\Event", mappedBy="user")
      */
     protected $comments;
-    
+
+    /**
+     * @ORM\OneToMany(targetEntity="Portal\AppBundle\Entity\QuickHighfive", mappedBy="user")
+     */
+    protected $quickHighFives;
+
+
     public function __construct()
     {
         parent::__construct();
@@ -65,7 +71,12 @@ class User extends BaseUser
     {
         $this->gravatar = $address;
     }
-    
+
+    public function getQuickHighfives()
+    {
+        return $this->quickHighFives;
+    }
+
     public function __toString() 
     {
         return $this->id;

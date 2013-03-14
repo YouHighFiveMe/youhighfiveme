@@ -1,54 +1,35 @@
 {% extends 'PortalAppBundle::layout.html.twig' %}
 
 {% block content %}
-    <h2 class="p8" xmlns="http://www.w3.org/1999/html"><span class="color-1">Latest</span> events</h2>
-    {% for event in events %}
+    <h2 class="p10"><span class="color-1">Browse</span> all quick high fives <span class="color-1">for you</span></h2>
+    {% for quickHighfive in quickHighfives %}
         <article class="event">
-            <div class="author">
-                <a href="{{ path('PortalAppBundle_event_view', { 'eventId': event.shortUrl }) }}"><img src="{{ gravatar(event.user.getEmail()) }}"/></a>
-            </div>
             <div class="data">
                 <header>
-                    <h3><a href="{{ path('PortalAppBundle_event_view', { 'eventId': event.shortUrl }) }}">{{ event.title }}</a></h3>
-                    {{ event.created|date('M d, Y') }} by <a href="{{ path('PortalAppBundle_cv') }}/{{ event.user.getUserName() }}">{{ event.user.getName() }}</a>
+                    {{ quickHighfive.created|date('M d, Y') }} by <a href="#">{{ quickHighfive.getAuthor() }}</a>
                 </header>
-                <p class="description">{{ event.description|show_maxlen(65, '...') }}</p>
-                <p class="count"><img src="{{ asset('images/hand.gif') }}"/>{{ event.countHighfives }} high fives</p>
+                <p class="description">{{ quickHighfive.comment }}</p>
             </div>
         </article>
     {% else %}
-        <p class="p2"><strong>No events found...</strong></p>
-    {% endfor %}
-
-    <br/><br/>
-
-    <h2 class="p8"><span class="color-1">Latest</span> high fives</h2>
-    {% for highfive in highfives %}
-        <article class="event">
-            <div class="author">
-                <img src="{{ gravatar(highfive.user.getEmail()) }}"/>
-            </div>
-            <div class="data">
-                <header>
-                    <h3><a href="{{ path('PortalAppBundle_event_view', { 'eventId': highfive.event.shortUrl }) }}">{{ highfive.event.title }}</a></h3>
-                    {{ highfive.created|date('M d, Y') }} by <a href="{{ path('PortalAppBundle_cv') }}/{{ highfive.user.getUserName() }}">{{ highfive.user.getName() }}</a>
-                </header>
-                <p class="description">{{ highfive.comment }}</p>
-            </div>
-        </article>
-    {% else %}
-        <p class="p2"><strong>No high fives found...</strong></p>
+        <p class="p2"><strong>No quick high fives found...</strong></p>
     {% endfor %}
 {% endblock content %}
 
 {% block sidenav %}
+    <h2 class="p3"><span class="color-1">Sorting</span> options</h2>
+    <ul class="list-1">
+        <li><a href="{{ path('PortalAppBundle_all_quickHighFives') }}/desc">Latest quickies</a></li>
+        <li><a href="{{ path('PortalAppBundle_all_quickHighFives') }}/asc">Oldest quickies</a></li>
+    </ul>
+    <br/>
+
     <h2 class="p3"><span class="color-1">Show</span> me</h2>
     <ul class="list-1">
         <li><a href="{{ path('PortalAppBundle_all_events') }}">All events</a></li>
-        <li><a href="{{ path('PortalAppBundle_all_highFives') }}">All high fives</a></li>
+        <li><a href="{{ path('PortalAppBundle_homepage') }}">Latest events & high fives</a></li>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <li><a href="{{ path('PortalAppBundle_highfives_received') }}">High fives for you</a></li>
-            <li><a href="{{ path('PortalAppBundle_all_quickHighFives') }}">Quickies for you</a></li>
+            <li><a href="{{ path('PortalAppBundle_highfives_received') }}">Latest high fives for you</a></li>
         {% endif %}
     </ul>
 
@@ -56,8 +37,8 @@
         <br/>
         <h2 class="p3"><span class="color-1">Your</span> options</h2>
         <ul class="list-1">
-                <li><a href="{{ path('PortalAppBundle_event_new') }}">Create new event</a></li>
-                <li><a href="{{ path('PortalAppBundle_cv') }}">Activity page</a></li>
+            <li><a href="{{ path('PortalAppBundle_event_new') }}">Create new event</a></li>
+            <li><a href="{{ path('PortalAppBundle_cv') }}">Activity page</a></li>
         </ul>
     {% endif %}
 

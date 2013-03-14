@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManager,
     Symfony\Component\Security\Core\SecurityContext,
     Portal\AppBundle\Entity\Event,
     Portal\AppBundle\Entity\Highfive,
+    Portal\AppBundle\Entity\QuickHighfive,
     Portal\UserBundle\Entity\User;
 
 
@@ -21,6 +22,11 @@ class HighfiveService
      * @var HighfiveRepository
      */
     protected $repository;
+
+    /**
+     * @var QuickHighfiveRepository
+     */
+    protected $quickRepository;
 
     /**
      * @var SecurityContext
@@ -122,6 +128,22 @@ class HighfiveService
     }
 
     /**
+     * Save quick high five
+     *
+     * @param  QuickHighfive $highfive
+     * @param  Event $event
+     * @param  User  $user
+     * @return Event
+     */
+    public function saveQuickHighfive(QuickHighfive $quickHighfive)
+    {
+        $this->em->persist($quickHighfive);
+        $this->em->flush();
+
+        return $quickHighfive;
+    }
+
+    /**
      * Get all high fives for current user
      *
      * @return array
@@ -129,6 +151,27 @@ class HighfiveService
     public function getHighfivesForUser($user)
     {
         return $this->repository->findAllForUser($user);
+    }
+
+    /**
+     * Get all high fives for current user
+     *
+     * @return array
+     */
+    public function getAllQuickHighfivesForUser(User $user, $limit, $order)
+    {
+
+        $query = $this->em
+                      ->createQuery('SELECT u
+                                     FROM Portal\AppBundle\Entity\QuickHighfive u
+                                     WHERE u.user = ?1
+                                     ORDER BY u.created ' . $order)
+                      ->setParameter('1', $user);
+
+
+        $quickHighFives = $query->getResult();
+
+        return $quickHighFives;
     }
 
 }

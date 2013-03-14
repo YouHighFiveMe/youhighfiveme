@@ -12,7 +12,7 @@
             </td>
         </tr>
         <tr>
-            <td valign="top">
+            <td valign="top" style="padding-left: 10px; border-left: 4px solid #eee">
                 <table cellspacing="10" width="800">
                 {% for highfive in event.highfives %}
                         <tr>
@@ -21,7 +21,7 @@
                             </td>
                             <td class="entry" width="515" valign="top">
                                 <p><strong>{{ highfive.user.getName() }} - {{ highfive.created|date('M d, Y') }}</strong></p>
-                                <p>{{ highfive.comment }}</p>
+                                <p><i>{{ highfive.comment }}</i></p>
                             </td>
                         </tr>
 
@@ -39,6 +39,33 @@
             <td>&nbsp;</td>
         </tr>
         {% endfor %}
+        <tr>
+            <td valign="top">
+                <img style="margin-top: 17px; margin-right: 10px; width: 30px; height: 30px; float: left" src="{{ asset('images/clip.png') }}"/>
+                <h2 style="font-size: 30px; margin-bottom: 20px; margin-top: 20px;">Quick high fives received</h2>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <table cellspacing="0" width="800">
+                    {% for quickHighfive in user.quickHighfives %}
+                        <tr>
+                            <td class="entry" width="515" valign="top" style="padding-left: 10px; border-left: 4px solid #eee">
+                                <p><strong>{{ quickHighfive.getAuthor() }} - {{ quickHighfive.created|date('M d, Y') }}</strong></p>
+                                <p><i>{{ quickHighfive.comment }}</i></p>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td width="100" valign="top">
+                                <p class="p1">No quick high fives sent to {{ user.getName() }}.</p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+
     </table>
 
 {% endblock content %}

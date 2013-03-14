@@ -18,6 +18,20 @@
     {% else %}
         <p class="p2"><strong>No high fives found...</strong></p>
     {% endfor %}
+
+    <h2 class="p10"><span class="color-1">Latest</span> quick high fives <span class="color-1">for you</span></h2>
+    {% for quickHighfive in quickHighfives %}
+        <article class="event">
+            <div class="data">
+                <header>
+                    {{ quickHighfive.created|date('M d, Y') }} by <a href="#">{{ quickHighfive.getAuthor() }}</a>
+                </header>
+                <p class="description">{{ quickHighfive.comment }}</p>
+            </div>
+        </article>
+    {% else %}
+        <p class="p2"><strong>No quick high fives found...</strong></p>
+    {% endfor %}
 {% endblock content %}
 
 {% block sidenav %}

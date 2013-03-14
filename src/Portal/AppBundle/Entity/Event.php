@@ -318,7 +318,7 @@ class Event
     {
         return count($this->highfives);
     }
-    
+
     /**
      * Set created
      *

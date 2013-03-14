@@ -56,6 +56,14 @@ PortalAppBundle_all_highFives_with_sorting:
     pattern:  /highfives/{orderType}
     defaults: { _controller: PortalAppBundle:HighFive:showAll }
 
+PortalAppBundle_all_quickHighFives:
+    pattern:  /quickies
+    defaults: { _controller: PortalAppBundle:HighFive:showAllQuickHighFives }
+
+PortalAppBundle_all_quickHighFives_with_sorting:
+    pattern:  /quickies/{orderType}
+    defaults: { _controller: PortalAppBundle:HighFive:showAllQuickHighFives }
+
 PortalAppBundle_cv:
     pattern:  /cv
     defaults: { _controller: PortalAppBundle:Cv:view }
@@ -63,3 +71,7 @@ PortalAppBundle_cv:
 PortalAppBundle_cv_user:
     pattern:  /cv/{username}
     defaults: { _controller: PortalAppBundle:Cv:user }
+
+PortalAppBundle_quick_highFive:
+    pattern:  /to/{username}
+    defaults: { _controller: PortalAppBundle:HighFive:quick }

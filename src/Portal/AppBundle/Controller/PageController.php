@@ -42,10 +42,11 @@ class PageController extends BaseController
 
         return $this->render('PortalAppBundle:Page:latestForYou.html.twig', array(
             'highfives' => $highfives,
-            'latestEvents' => $latestEvents
+            'latestEvents' => $latestEvents,
+            'quickHighfives' => $user->getQuickHighfives(),
         ));
     }
-    
+
     public function aboutAction()
     {
         return $this->render('PortalAppBundle:Page:about.html.twig');

@@ -7,6 +7,8 @@ use Portal\AppBundle\Entity\Event;
 use Portal\AppBundle\Form\EventType;
 use Portal\AppBundle\Entity\Highfive;
 use Portal\AppBundle\Form\HighfiveType;
+use Portal\AppBundle\Entity\QuickHighfive;
+use Portal\AppBundle\Form\QuickHighfiveType;
 
 /**
  * Curriculum Vitae controller.
@@ -35,7 +37,7 @@ class CvController extends BaseController
     }
 
     /**
-     * View CV for a gicen user
+     * View CV for a given user
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
