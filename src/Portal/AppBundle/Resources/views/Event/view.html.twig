@@ -14,6 +14,13 @@
                 {{ event.created|date('M d, Y') }} by <a href="{{ path('PortalAppBundle_cv') }}/{{ event.user.getUserName() }}">{{ event.user.getName() }}</a>
             </header>
             <p class="description">{{ event.description }}</p>
+
+            {% if event.externalUrl %}
+                <p class="external-url">
+                    Event URL: <a target="_BLANK" href="{{ event.externalUrl }}">{{ event.externalUrl }}</a>
+                </p>
+            {% endif %}
+
             <p class="count"><img src="{{ asset('images/hand.gif') }}"/>{{ event.countHighfives }} high fives</p>
         </div>
     </article>

@@ -2,6 +2,9 @@
 
 namespace Portal\AppBundle\Entity;
 
+use Symfomy\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints as Assert;
+
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -43,6 +46,12 @@ class Event
      * @ORM\Column(type="string")
      */
     protected $tags;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Url()
+     */
+    protected $externalUrl;
     
     /**
      * @ORM\Column(type="boolean")
@@ -218,6 +227,26 @@ class Event
     public function setTags($tags)
     {
         $this->tags = $tags;
+    }
+
+    /**
+     * Set an external url to an event
+     *
+     * @param string $externalUrl
+     */
+    public function setExternalUrl($externalUrl)
+    {
+        $this->externalUrl = $externalUrl;
+    }
+
+    /**
+     * Get an external url to an event
+     *
+     * @return string
+     */
+    public function getExternalUrl()
+    {
+        return $this->externalUrl;
     }
 
     /**

@@ -12,6 +12,11 @@ class EventType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
+            ->add('externalUrl', null,
+                array('label' => 'External URL to this event',
+                      'required' => false)
+                )
+
             ->add('isPublic', null,
                 array(
                     'attr' => array('class' => 'checkbox-field'),

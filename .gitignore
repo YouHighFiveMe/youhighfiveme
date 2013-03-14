@@ -16,6 +16,5 @@ app/cache/*
 app/bootstrap.php.cache
 app/SymfonyRequirements.php
 app/logs/*
-app/DoctrineMigrations/*
 app/config/parameters.yml
 
