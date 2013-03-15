@@ -75,4 +75,10 @@ ornicar_gravatar:
     rating: g
     size: 105
     default: mm
-    
+
+# Captcha
+ewz_recaptcha:
+    public_key:   6LcpWN4SAAAAAOmSwDeV365jlf-OAf3hJ2IvWLoq
+    private_key:  6LcpWN4SAAAAANy1nu2Awuj1kEVLmbBbx1A6pItI
+    secure:       false
+    locale_key:   kernel.default_locale

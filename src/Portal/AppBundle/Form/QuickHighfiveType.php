@@ -11,14 +11,16 @@ class QuickHighfiveType extends AbstractType
     {
         $builder->add('author', null,
             array('label'     => 'Your name',
-                   'required' => false)
+                  'required' => false)
         );
         $builder->add('comment');
+        $builder->add('recaptcha', 'ewz_recaptcha');
     }
 
     public function getName()
     {
         return 'portal_appbundle_quickhighfivetype';
     }
+
 }
 

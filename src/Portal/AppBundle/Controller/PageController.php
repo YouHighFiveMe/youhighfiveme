@@ -54,9 +54,25 @@ class PageController extends BaseController
     
     public function contactAction()
     {
-        $enquiry = new Enquiry();
+        $currentUser  = $this->getCurrentUser();
+
+        $enableCaptcha = true;
+        if ($currentUser) {
+            $enableCaptcha = false;
+        } else {
+            if (!$this->container->getParameter('portal_app.enable_recaptha')) {
+                $enableCaptcha = false;
+            }
+        }
+
+        $enquiry = new Enquiry($enableCaptcha);
+
         $form = $this->createForm(new EnquiryType(), $enquiry);
-    
+
+        if ($enableCaptcha === false) {
+            $form->remove('recaptcha');
+        }
+
         $request = $this->getRequest();
         if ($request->getMethod() == 'POST') {
             $form->bind($request);

@@ -71,14 +71,28 @@ class HighFiveController extends BaseController
      */
     public function quickAction($username)
     {
+        $currentUser     = $this->getCurrentUser();
         $eventService    = $this->getEventService();
         $highfiveService = $this->getHighfiveService();
 
         $latestEvents    = $eventService->getLatestPublicEvents($this->container->getParameter('portal_app.comments.max_latest_events'));
 
-        $quickHighfive   = new QuickHighfive();
+        $enableCaptcha = true;
+        if ($currentUser) {
+            $enableCaptcha = false;
+        } else {
+            if (!$this->container->getParameter('portal_app.enable_recaptha')) {
+                $enableCaptcha = false;
+            }
+        }
+
+        $quickHighfive   = new QuickHighfive($enableCaptcha);
         $request         = $this->getRequest();
         $form            = $this->createForm(new QuickHighfiveType(), $quickHighfive);
+
+        if ($enableCaptcha === false) {
+            $form->remove('recaptcha');
+        }
 
         $userManager     = $this->container->get('fos_user.user_manager');
         $user            = $userManager->findUserByUsername($username);
@@ -86,8 +100,6 @@ class HighFiveController extends BaseController
         if (!$user) {
             return $this->render('PortalAppBundle:Event:userNotFound.html.twig', array());
         }
-
-        //var_dump(count($user->getQuickHighfives()));
 
         $showForm = true;
 

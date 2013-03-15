@@ -7,6 +7,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\MinLength;
 use Symfony\Component\Validator\Constraints\MaxLength;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\True;
 
 class Enquiry
 {
@@ -18,6 +19,14 @@ class Enquiry
 
     protected $body;
 
+    public $recaptcha;
+
+    protected static $enableRecaptcha;
+
+    public function __construct($enableRecaptcha) {
+        self::$enableRecaptcha = $enableRecaptcha;
+    }
+
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraint('name', new NotBlank());
@@ -28,6 +37,10 @@ class Enquiry
         $metadata->addPropertyConstraint('subject', new MaxLength(50));
 
         $metadata->addPropertyConstraint('body', new MinLength(50));
+
+        if (self::$enableRecaptcha === true) {
+            $metadata->addPropertyConstraint('recaptcha', new True());
+        }
     }
 
     public function getName()

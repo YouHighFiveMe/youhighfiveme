@@ -4,6 +4,7 @@ namespace Portal\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\True;
 
 /**
  * @ORM\Entity(repositoryClass="Portal\AppBundle\Repository\HighfiveRepository")
@@ -36,13 +37,25 @@ class QuickHighfive
     protected $comment;
 
     /**
+     * @var
+     */
+    public $recaptcha;
+
+    /**
+     * @var
+     */
+    protected static $enableRecaptcha;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     protected $created;
 
-    public function __construct()
+    public function __construct($enableRecaptcha)
     {
         $this->setCreated(new \DateTime());
+
+        self::$enableRecaptcha = $enableRecaptcha;
     }
 
     public static function loadValidatorMetadata(ClassMetadata $metadata)
@@ -50,6 +63,10 @@ class QuickHighfive
         $metadata->addPropertyConstraint('comment', new NotBlank(array(
             'message' => 'You must enter a comment'
         )));
+
+        if (self::$enableRecaptcha === true) {
+            $metadata->addPropertyConstraint('recaptcha', new True());
+        }
     }
 
     /**

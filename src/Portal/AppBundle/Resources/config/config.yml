@@ -8,3 +8,7 @@ parameters:
 
     # Max latest highfives
     portal_app.comments.max_latest_highfives: 5
+
+    # Should the recaptha service be enabled for form submits
+    # with users that are not logged in?
+    portal_app.enable_recaptha: true
