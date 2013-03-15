@@ -30,10 +30,13 @@
 
     <h2 class="p3"><span class="color-1">Show</span> me</h2>
     <ul class="list-1">
-        <li><a href="{{ path('PortalAppBundle_all_events') }}">All events</a></li>
-        <li><a href="{{ path('PortalAppBundle_homepage') }}">Latest events & high fives</a></li>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <li><a href="{{ path('PortalAppBundle_highfives_received') }}">Latest high fives for you</a></li>
+            <li><a href="{{ path('PortalAppBundle_highfives_received') }}">Latest for you</a></li>
+        {% endif %}
+        <li><a href="{{ path('PortalAppBundle_all_events') }}">All events</a></li>
+        <li><a href="{{ path('PortalAppBundle_all_highFives') }}">All high fives</a></li>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li><a href="{{ path('PortalAppBundle_all_quickHighFives') }}">All quickies for you</a></li>
         {% endif %}
     </ul>
 

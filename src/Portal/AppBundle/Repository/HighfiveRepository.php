@@ -13,6 +13,12 @@ use Portal\UserBundle\Entity\User;
  */
 class HighfiveRepository extends EntityRepository
 {
+    /**
+     * Get given amount of latest high fives for public events for any user
+     *
+     * @param null $limit
+     * @return array
+     */
     public function getLatestHighfivesForPublicEvents($limit = null)
     {
         $qb = $this->createQueryBuilder('b')
@@ -29,6 +35,13 @@ class HighfiveRepository extends EntityRepository
             ->getResult();
     }
 
+    /**
+     * Get all event high fives for public events with given sort options
+     *
+     * @param null $limit
+     * @param string $order
+     * @return array
+     */
     public function getAllHighfivesForPublicEvents($limit = null, $order = 'ASC')
     {
         $qb = $this->createQueryBuilder('b')
@@ -46,7 +59,13 @@ class HighfiveRepository extends EntityRepository
             ->getResult();
     }
 
-    public function findAllForUser($user)
+    /**
+     * Find latest event high fives for a given user
+     *
+     * @param \Portal\UserBundle\Entity\User $user
+     * @return array
+     */
+    public function findAllForUser(User $user)
     {
         $qb = $this->createQueryBuilder('b')
             ->select('b, c')
@@ -57,5 +76,25 @@ class HighfiveRepository extends EntityRepository
 
         return $qb->getQuery()
             ->getResult();
+    }
+
+    /**
+     * Get all quick high fives for a given user with sort options
+     *
+     * @param \Portal\UserBundle\Entity\User $user
+     * @param $limit
+     * @param $order
+     * @return array
+     */
+    public function getAllQuickHighfivesForUser(User $user, $limit, $order)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery('SELECT u
+                           FROM Portal\AppBundle\Entity\QuickHighfive u
+                           WHERE u.user = ?1
+                           ORDER BY u.created ' . $order)
+            ->setParameter('1', $user);
+
+        return $query->getResult();
     }
 }

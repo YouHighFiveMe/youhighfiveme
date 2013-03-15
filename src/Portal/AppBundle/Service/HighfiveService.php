@@ -154,24 +154,13 @@ class HighfiveService
     }
 
     /**
-     * Get all high fives for current user
+     * Get all quick high fives for current user
      *
      * @return array
      */
     public function getAllQuickHighfivesForUser(User $user, $limit, $order)
     {
-
-        $query = $this->em
-                      ->createQuery('SELECT u
-                                     FROM Portal\AppBundle\Entity\QuickHighfive u
-                                     WHERE u.user = ?1
-                                     ORDER BY u.created ' . $order)
-                      ->setParameter('1', $user);
-
-
-        $quickHighFives = $query->getResult();
-
-        return $quickHighFives;
+        return $this->repository->getAllQuickHighfivesForUser($user, $limit, $order);
     }
 
 }

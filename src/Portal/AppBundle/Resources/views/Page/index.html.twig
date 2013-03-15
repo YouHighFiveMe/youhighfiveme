@@ -1,7 +1,7 @@
 {% extends 'PortalAppBundle::layout.html.twig' %}
 
 {% block content %}
-    <h2 class="p8" xmlns="http://www.w3.org/1999/html"><span class="color-1">Latest</span> events</h2>
+    <h2 class="p8" xmlns="http://www.w3.org/1999/html"><span class="color-1">Latest</span> public <span class="color-1">events</span></h2>
     {% for event in events %}
         <article class="event">
             <div class="author">
@@ -22,7 +22,7 @@
 
     <br/><br/>
 
-    <h2 class="p8"><span class="color-1">Latest</span> high fives</h2>
+    <h2 class="p8"><span class="color-1">Latest </span> public <span class="color-1">high fives</span></h2>
     {% for highfive in highfives %}
         <article class="event">
             <div class="author">
@@ -44,11 +44,13 @@
 {% block sidenav %}
     <h2 class="p3"><span class="color-1">Show</span> me</h2>
     <ul class="list-1">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li><a href="{{ path('PortalAppBundle_highfives_received') }}">Latest for you</a></li>
+        {% endif %}
         <li><a href="{{ path('PortalAppBundle_all_events') }}">All events</a></li>
         <li><a href="{{ path('PortalAppBundle_all_highFives') }}">All high fives</a></li>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <li><a href="{{ path('PortalAppBundle_highfives_received') }}">High fives for you</a></li>
-            <li><a href="{{ path('PortalAppBundle_all_quickHighFives') }}">Quickies for you</a></li>
+            <li><a href="{{ path('PortalAppBundle_all_quickHighFives') }}">All quickies for you</a></li>
         {% endif %}
     </ul>
 
