@@ -39,7 +39,7 @@ class User extends BaseUser
     /**
      * @ORM\OneToMany(targetEntity="Portal\AppBundle\Entity\Event", mappedBy="user")
      */
-    protected $comments;
+    protected $events;
 
     /**
      * @ORM\OneToMany(targetEntity="Portal\AppBundle\Entity\QuickHighfive", mappedBy="user")
@@ -70,6 +70,16 @@ class User extends BaseUser
     public function setGravatar($address)
     {
         $this->gravatar = $address;
+    }
+
+    public function getHighfives()
+    {
+        return $this->highFives;
+    }
+
+    public function getEvents()
+    {
+        return $this->events;
     }
 
     public function getQuickHighfives()
