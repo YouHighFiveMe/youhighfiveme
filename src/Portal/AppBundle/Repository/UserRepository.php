@@ -13,20 +13,4 @@ use Portal\UserBundle\Entity\User;
  */
 class UserRepository extends EntityRepository
 {
-
-    /**
-     * Get all users
-     *
-     * @param $order
-     * @return array
-     */
-    public function getAllUsers($order = 'ASC')
-    {
-        $query = $this->getEntityManager()
-            ->createQuery('SELECT u
-                           FROM Portal\UserBundle\Entity\User u
-                           ORDER BY u.created ' . $order);
-
-        return $query->getResult();
-    }
 }

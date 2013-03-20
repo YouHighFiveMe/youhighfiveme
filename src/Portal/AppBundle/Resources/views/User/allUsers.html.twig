@@ -11,7 +11,7 @@
                 <header>
                     <h3><a href="{{ path('PortalAppBundle_cv') }}/{{ user.getUserName() }}">{{ user.getName() }}</a></h3>
                 </header>
-                <p class="description"><i>Last visit on {{ user.lastLogin|date('M d, Y') }}</i>
+                <p class="description"><i>Last login on {{ user.lastLogin|date('M d, Y') }}</i>
                 <p class="description"><b><img src="{{ asset('images/hand.gif') }}"/>High Fives:</b> {{ user.highfives|length }}</p>
                 <p class="description"><b><img src="{{ asset('images/hand.gif') }}"/>Quickies:</b> {{ user.quickHighfives|length }}</p>
             </div>
