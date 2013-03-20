@@ -92,6 +92,7 @@ class HighFiveController extends BaseController
 
         if ($enableCaptcha === false) {
             $form->remove('recaptcha');
+            $form->remove('author');
         }
 
         $userManager     = $this->container->get('fos_user.user_manager');
@@ -106,6 +107,10 @@ class HighFiveController extends BaseController
         if ($request->getMethod() == 'POST') {
             if ($this->processForm($form)) {
                 $quickHighfive->setUser($user);
+
+                if ($currentUser) {
+                    $quickHighfive->setAuthor($currentUser->getName());
+                }
 
                 $highfiveService->saveQuickHighfive($quickHighfive);
 
