@@ -72,6 +72,11 @@ class User extends BaseUser
         $this->gravatar = $address;
     }
 
+    public function getHighfives()
+    {
+        return $this->comments;
+    }
+
     public function getQuickHighfives()
     {
         return $this->quickHighFives;

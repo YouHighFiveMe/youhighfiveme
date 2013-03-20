@@ -1,29 +1,27 @@
 {% extends 'PortalAppBundle::layout.html.twig' %}
 
 {% block content %}
-    <h2 class="p10"><span class="color-1">Browse</span> all quick high fives <span class="color-1">for you</span></h2>
-    {% for quickHighfive in quickHighfives %}
+    <h2 class="p8" xmlns="http://www.w3.org/1999/html"><span class="color-1">Browse</span> all users</h2>
+    {% for user in users %}
         <article class="event">
+            <div class="author">
+                <a href="{{ path('PortalAppBundle_cv') }}/{{ user.getUserName() }}"><img src="{{ gravatar(user.getEmail()) }}"/></a>
+            </div>
             <div class="data">
                 <header>
-                    {{ quickHighfive.created|date('M d, Y') }} by <a href="#">{{ quickHighfive.getAuthor() }}</a>
+                    <h3><a href="{{ path('PortalAppBundle_cv') }}/{{ user.getUserName() }}">{{ user.getName() }}</a></h3>
                 </header>
-                <p class="description">{{ quickHighfive.comment }}</p>
+                <p class="description"><i>Last visit on {{ user.lastLogin|date('M d, Y') }}</i>
+                <p class="description"><b><img src="{{ asset('images/hand.gif') }}"/>High Fives:</b> {{ user.highfives|length }}</p>
+                <p class="description"><b><img src="{{ asset('images/hand.gif') }}"/>Quickies:</b> {{ user.quickHighfives|length }}</p>
             </div>
         </article>
     {% else %}
-        <p class="p2"><strong>No quick high fives found...</strong></p>
+        <p class="p2"><strong>No users found...</strong></p>
     {% endfor %}
 {% endblock content %}
 
 {% block sidenav %}
-    <h2 class="p3"><span class="color-1">Sorting</span> options</h2>
-    <ul class="list-1">
-        <li><a href="{{ path('PortalAppBundle_all_quickHighFives') }}/desc">Latest quickies</a></li>
-        <li><a href="{{ path('PortalAppBundle_all_quickHighFives') }}/asc">Oldest quickies</a></li>
-    </ul>
-    <br/>
-
     <h2 class="p3"><span class="color-1">Show</span> me</h2>
     <ul class="list-1">
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -94,5 +92,4 @@
         <!-- AddThis Button END -->
     </div>
 {% endblock sidenav %}
-
 

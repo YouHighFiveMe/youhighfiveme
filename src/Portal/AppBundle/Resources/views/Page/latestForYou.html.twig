@@ -45,6 +45,7 @@
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <li><a href="{{ path('PortalAppBundle_all_quickHighFives') }}">All quickies for you</a></li>
         {% endif %}
+        <li><a href="{{ path('PortalAppBundle_users') }}">All users</a></li>
     </ul>
     <br/>
 
