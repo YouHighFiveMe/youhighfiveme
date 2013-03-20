@@ -1,8 +1,8 @@
 Hello!
 
-This email is to inform you that you have received a new high five for your event '{{ event.title }}' at {{ "now"|date("Y-m-d H:i") }}.
+This email is to inform you that you have received a new high five for your event '{{ event.title }}'.
 
-You can check the new high five at {{ path('PortalAppBundle_event_view', { 'eventId': event.shortUrl }) }}
+You can check the new high five at http://www.youhighfive.me{{ path('PortalAppBundle_event_view', { 'eventId': event.shortUrl }) }}
 
 Sincerely,
 
