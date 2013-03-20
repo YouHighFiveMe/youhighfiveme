@@ -75,3 +75,7 @@ PortalAppBundle_cv_user:
 PortalAppBundle_quick_highFive:
     pattern:  /to/{username}
     defaults: { _controller: PortalAppBundle:HighFive:quick }
+
+PortalAppBundle_users:
+    pattern:  /users
+    defaults: { _controller: PortalAppBundle:User:showAll }

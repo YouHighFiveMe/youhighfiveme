@@ -35,3 +35,13 @@ services:
             arguments:       [Portal\AppBundle\Entity\Highfive]
             factory_service: doctrine.orm.entity_manager
             factory_method:  getRepository
+
+    portal_app.service.user:
+                class:     Portal\AppBundle\Service\UserService
+                arguments: ["@doctrine.orm.entity_manager", "@portal_app.repository.user", "@security.context"]
+
+    portal_app.repository.user:
+                class:           Portal\UserBundle\Entity\User
+                arguments:       [Portal\UserBundle\Entity\User]
+                factory_service: doctrine.orm.entity_manager
+                factory_method:  getRepository
