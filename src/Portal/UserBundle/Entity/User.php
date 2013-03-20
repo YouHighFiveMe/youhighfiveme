@@ -39,7 +39,7 @@ class User extends BaseUser
     /**
      * @ORM\OneToMany(targetEntity="Portal\AppBundle\Entity\Event", mappedBy="user")
      */
-    protected $comments;
+    protected $events;
 
     /**
      * @ORM\OneToMany(targetEntity="Portal\AppBundle\Entity\QuickHighfive", mappedBy="user")
@@ -74,7 +74,12 @@ class User extends BaseUser
 
     public function getHighfives()
     {
-        return $this->comments;
+        return $this->highFives;
+    }
+
+    public function getEvents()
+    {
+        return $this->events;
     }
 
     public function getQuickHighfives()
