@@ -72,4 +72,23 @@ class BaseController extends Controller
         return $this->container->get('portal_app.service.user');
     }
 
+    /**
+     * Send email
+     *
+     * @param $subject
+     * @param $emailFrom
+     * @param $emailTo
+     * @param $message
+     */
+    public function sendMail($subject, $emailTo, $message)
+    {
+        $message = \Swift_Message::newInstance()
+            ->setSubject($subject)
+            ->setFrom($this->container->getParameter('portal_app.emails.contact_email'))
+            ->setTo($emailTo)
+            ->setBody($message);
+
+        $this->get('mailer')->send($message);
+    }
+
 }

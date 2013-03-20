@@ -130,6 +130,12 @@ class EventController extends BaseController
             } else {
                 $highfiveService->saveHighfive($highfive, $event, $user);
 
+                $this->sendMail("You have received new high five for an event",
+                                $event->getUser()->getEmail(),
+                                $this->renderView('PortalAppBundle:Page:newHighFiveEmail.txt.twig',
+                                    array('event' => $event)
+                                ));
+
                 $this->get('session')->getFlashBag()->add('highfive.saved', 'Your High Five has been sent, thank you!');
 
                 return $this->forward('PortalAppBundle:Event:view', array(

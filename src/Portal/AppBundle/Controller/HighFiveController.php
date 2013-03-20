@@ -108,6 +108,16 @@ class HighFiveController extends BaseController
                 $quickHighfive->setUser($user);
 
                 $highfiveService->saveQuickHighfive($quickHighfive);
+
+                $this->sendMail("You have received new quick high five",
+                    $user->getEmail(),
+                    $this->renderView('PortalAppBundle:Page:newQuickHighFiveEmail.txt.twig',
+                        array(
+                            'to'   => $user,
+                            'from' => $quickHighfive->getAuthor(),
+                        )
+                    ));
+
                 $this->get('session')->getFlashBag()->add('highfive.saved', 'Your quick high hive has been sent, thank you!');
                 $showForm = false;
             }
