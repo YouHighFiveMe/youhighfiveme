@@ -11,17 +11,16 @@
                 <header>
                     <h3><a href="{{ path('PortalAppBundle_cv') }}/{{ user.getUserName() }}">{{ user.getName() }}</a></h3>
                 </header>
-                <p class="description"><i>Last login on {{ user.lastLogin|date('M d, Y') }}</i>
                 <p class="description">
-                    <b><img src="{{ asset('images/hand.gif') }}"/>{{ user.events|length }} event(s) with
+                    &bull; {{ user.events|length }} event(s) with
                     {% set sum = 0 %}
                     {% for event in user.events %}
                         {% set sum = sum + event.highfives|length %}
                     {% endfor %}
                     {{ sum }} high fives
-                    </b>
                 </p>
-                <p class="description"><b><img src="{{ asset('images/hand.gif') }}"/>{{ user.quickHighfives|length }} quick high five(s)</b></p>
+                <p class="description">&bull; {{ user.quickHighfives|length }} quick high five(s)</p>
+                <p class="description"><a href="{{ path('PortalAppBundle_quick_highFive', { 'username': user.getUserName() }) }}">Send a quick high five</a></p>
             </div>
         </article>
     {% else %}
