@@ -3,6 +3,8 @@
 .idea
 
 composer.phar
+composer.bat
+composer.lock
 vendor/*
 
 nbproject/
